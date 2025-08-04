@@ -1,0 +1,18 @@
+.header {
+    &__row {
+        padding-top: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        width: 1320rem;
+        &_contacts {
+            display: flex;
+            gap: 20rem;
+            a {
+                text-transform: uppercase;
+                color: var(--black);
+            }
+        }
+    }
+}
