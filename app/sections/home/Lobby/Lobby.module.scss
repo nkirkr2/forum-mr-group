@@ -1,0 +1,29 @@
+.lobby {
+    &__content {
+        &_cards {
+            display: flex;
+            gap: 20rem;
+            div {
+                width: 426rem;
+                height: 500rem;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        &__content {
+            &_cards {
+                flex-direction: column;
+                div {
+                    width: 100%;
+                    height: 230rem;
+                }
+            }
+        }
+    }
+}

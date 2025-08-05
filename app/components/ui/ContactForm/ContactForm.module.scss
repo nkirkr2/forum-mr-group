@@ -1,0 +1,31 @@
+.contact_form {
+    display: grid;
+    label {
+        &:nth-child(1) {
+            margin-bottom: 40rem;
+        }
+        &:nth-child(2) {
+            margin-bottom: 65rem;
+        }
+    }
+    &__agree {
+        font-size: 14rem;
+        color: var(--text-gray);
+        margin-bottom: 20rem;
+        span {
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+        }
+    }
+    button {
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 500px) {
+        label {
+            &:nth-child(2) {
+                margin-bottom: 40rem;
+            }
+        }
+    }
+}

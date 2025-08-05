@@ -1,17 +1,42 @@
 .header {
+    &__logo {
+        position: absolute;
+        width: 28rem;
+        height: 42rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     &__row {
-        padding-top: 10rem;
+        background: rgba(255, 255, 255, 0.1); 
+        backdrop-filter: blur(10rem); 
+        -webkit-backdrop-filter: blur(10rem);
+        border: 1rem solid rgba(255, 255, 255, 0.3); 
+        padding: 10rem 60rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         position: fixed;
-        width: 1320rem;
+        z-index: 999;
+        width: 100%;
         &_contacts {
             display: flex;
             gap: 20rem;
             a {
                 text-transform: uppercase;
                 color: var(--black);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        &__logo {
+            left: initial;
+            right: 20rem;
+        }
+        &__row {
+            padding: 10rem 20rem;
+            &_contacts {
+                display: none;
             }
         }
     }

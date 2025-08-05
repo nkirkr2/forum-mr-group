@@ -16,4 +16,19 @@
             color: var(--main-white);
         }
     }
+    @media only screen and (max-width: 500px) {
+        aspect-ratio: 390 / 800;
+
+        &__content {
+            padding-top: 100rem;
+            img {
+                width: 350rem;
+                height: 75rem;
+                margin-bottom: 10rem;
+            }
+            p {
+                font-size: 24rem;
+            }
+        }
+    }
 }

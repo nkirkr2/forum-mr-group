@@ -1,11 +1,11 @@
 import Image from "next/image";
-import styles from './Header.module.scss';
+import styles from './Surroundings.module.scss';
 
 export default function Logo() {
   return (
-    <div className={styles.header__logo}>
+    <div className={styles.surroundings__logo}>
       <Image
-        src="/images/icons/forum-logo.svg"
+        src="/images/home/surroundings/surr-logo.svg"
         alt="Логотип"
         fill
         style={{ objectFit: "contain" }}

@@ -5,7 +5,7 @@ import Sandwich from './Sandwich';
 function Header() {
     return (
         <header className={style.header}>
-            <div className="container">
+            {/* <div className="container"> */}
                 <div className={style.header__row}>
                     <Sandwich />
                     <Logo />
@@ -14,7 +14,7 @@ function Header() {
                         <a href='#!'>Купить квартиру</a>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </header>
     )
 }
