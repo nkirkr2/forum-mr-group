@@ -1,0 +1,45 @@
+.doubleXSlider {
+    display: flex;
+    height: 599rem;
+    position: relative;
+    &__text {
+        left: 538rem;
+        top: -1rem;
+        bottom: -2rem;
+        position: absolute;
+        width: 405rem;
+        height: 602rem;
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(/images/doubleXSlider/cross.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        :global(.paragraph) {
+            max-width: 240rem;
+            text-align: center;
+            font-size: 16rem;
+        }
+    }
+    &_slide {
+        height: 599rem;
+        position: relative;
+    }
+    &_first {
+        width: 740rem;
+
+        :global(.swiper-slide) {
+            width: 740rem!important;
+        }
+    }
+    &_second {
+        width: 580rem;
+        :global(.swiper-slide) {
+            width: 580rem;
+        }
+    }
+    &__pagination {
+        
+    }
+}

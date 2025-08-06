@@ -5,6 +5,9 @@ import Location from "./sections/home/Location/Location";
 import Surroundings from "./sections/home/Surroundings/Surroundings";
 import Lobby from "./sections/home/Lobby/Lobby";
 import Footer from "./components/layout/Footer/Footer";
+import Architecture from "./sections/home/Architecture/Architecture";
+import Amenities from "./sections/home/Amenities/Amenities";
+import Facing from "./sections/home/Facing/Facing";
 
 
 export default function Home() {
@@ -48,6 +51,46 @@ export default function Home() {
     ]
   }
 
+  const architectureData = {
+    images1: [
+      '/images/doubleXSlider/doubleX0.jpg',
+      '/images/doubleXSlider/doubleX1.jpg',
+    ],
+    images2: [
+      '/images/doubleXSlider/doubleX1.jpg',
+      '/images/doubleXSlider/doubleX0.jpg',
+    ],
+    title: 'Архитектура',
+    paragraph: `Пиксельный фасад и глубокие ниши террас создают игру света и чувство уединения. Открытые пространства
+в тени живых изгородей, мягкий свет внутри, выразительная геометрия — здесь всё продумано
+для вашего комфорта.`
+  }
+  const amenitiesData = {
+    images1: [
+      '/images/home/amenities/amenities0.jpg',
+      '/images/home/amenities/amenities1.jpg',
+    ],
+    images2: [
+      '/images/home/amenities/amenities2.jpg',
+      '/images/home/amenities/amenities3.jpg',
+    ],
+    title: 'Amenities',
+    paragraph: `FORUM переосмысливает понятие комфорта. Здесь забота о себе становится неотъемлемой частью повседневности — изысканной, продуманной
+до мелочей и, главное, доступной без лишних усилий.`
+  }
+  const facingData = {
+    images1: [
+      '/images/home/facing/facing0.jpg',
+      '/images/home/facing/facing1.jpg',
+    ],
+    images2: [
+      '/images/home/facing/facing2.jpg',
+      '/images/home/facing/facing3.jpg',
+    ],
+    title: 'оТДЕЛКА',
+    paragraph: `Все квартиры в Forum следуют эстетике Mid Century — не просто дань моде, а настоящая философия. Это стиль, где каждый элемент дышит гармонией: чистые линии, продуманные пропорции, диалог с природой. Пространство должно было стать светлым фоном для жизни — без навязчивости, но с безупречной базой.`
+  }
+
   return (
     <>
       <Header />
@@ -57,7 +100,10 @@ export default function Home() {
       <Place placeData={placeData}/>
       <Location locationData={locationData}/>
       <Surroundings surroundingsData={surroundingsData}/>
+      <Architecture architectureData={architectureData}/>
       <Lobby lobbyData={lobbyData}/>
+      <Amenities amenitiesData={amenitiesData} />
+      <Facing facingsData={facingData} />
       <Footer />
     </>
   );
