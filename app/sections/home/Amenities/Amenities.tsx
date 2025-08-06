@@ -19,12 +19,12 @@ function Amenities({amenitiesData}: amenitiesProps) {
         <section>
             <div className="container">
                 <h2 className="title-b">{title}</h2>
-                {
-                    isMobile ?
+                {/* {
+                    isMobile ? */}
                     <DoubleXSlider doubleXSliderData={amenitiesData}/>
-                    :
+                    {/* :
                     <DoubleMobSlider doubleMobliderData={amenitiesData}/>
-                }
+                } */}
             </div>
         </section>
     )
