@@ -1,0 +1,14 @@
+.slider_btn {
+    width: 70rem;
+    height: 35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black2);
+    border-radius: 40rem;
+    flex-shrink: 0;
+    svg {
+       width: 44rem;
+       height: 15rem; 
+    }
+}

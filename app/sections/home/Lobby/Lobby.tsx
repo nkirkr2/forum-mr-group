@@ -17,7 +17,17 @@ function Lobby({lobbyData}: lobbyProps) {
                        {images && images.length > 0 && (
                             <div className={styles.lobby__content_cards}>
                             {images.map((src, i) => (
-                                <div className={styles.place__image} key={i}>
+                                <div className={styles.lobby__content_cards__item} key={i}>
+                                {
+                                    i === 0 
+                                    ? 
+                                    <div className={styles.lobby__card_text}>
+                                        <h3>{title}</h3>
+                                        <p>{paragraph}</p>
+                                    </div>
+                                    :
+                                    ''
+                                }
                                 <img src={src} alt="" />
                                 </div>
                             ))}

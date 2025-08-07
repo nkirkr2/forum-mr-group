@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import "./globals.css";
+import "./globals.scss";
 import localFont from "next/font/local";
 
 const myFont = localFont({

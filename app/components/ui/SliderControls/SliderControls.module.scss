@@ -1,0 +1,20 @@
+.slider_controls {
+  margin-top: 20rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10rem;
+}
+.pagination {
+  display: flex;
+  gap: 10rem;
+  :global(.swiper-pagination-bullet) {
+    width: 24rem;
+    height: 4rem;
+    border-radius: 20rem;
+    background: var(--text-gray);
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background: var(--black2);
+    width: 199rem;
+  }
+}

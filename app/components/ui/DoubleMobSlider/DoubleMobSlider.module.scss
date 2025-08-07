@@ -1,5 +1,8 @@
 .doubleMobSlider {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40rem;
     :global(.swiper) {
         width: 100%;
         height: 450rem;

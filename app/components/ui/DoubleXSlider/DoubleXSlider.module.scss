@@ -1,6 +1,6 @@
 .doubleXSlider {
     display: flex;
-    height: 599rem;
+    height: 598rem;
     position: relative;
     &__text {
         left: 538rem;
@@ -22,21 +22,32 @@
             font-size: 16rem;
         }
     }
+    &__controls {
+        width: 100%;
+        text-align: end;
+    }
     &_slide {
-        height: 599rem;
+        height: 600rem!important;
         position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
     &_first {
-        width: 740rem;
+        flex-shrink: 0;
+        width: 740rem!important;
 
         :global(.swiper-slide) {
             width: 740rem!important;
         }
     }
     &_second {
-        width: 580rem;
+        flex-shrink: 0;
+        width: 580rem!important;
         :global(.swiper-slide) {
-            width: 580rem;
+            width: 580rem!important;
         }
     }
     &__pagination {

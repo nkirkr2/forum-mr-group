@@ -14,17 +14,22 @@ function Amenities({amenitiesData}: amenitiesProps) {
     const { title } = amenitiesData;
 
     const isMobile = useIsMobile();
- 
+    if (isMobile === null) return null;
+
+
+    console.log(window.innerWidth)
+    console.log(isMobile)
+    
     return (
         <section>
             <div className="container">
                 <h2 className="title-b">{title}</h2>
-                {/* {
-                    isMobile ? */}
+                {
+                    isMobile ?
+                    <DoubleMobSlider doubleMobSliderData={amenitiesData}/>
+                    :
                     <DoubleXSlider doubleXSliderData={amenitiesData}/>
-                    {/* :
-                    <DoubleMobSlider doubleMobliderData={amenitiesData}/>
-                } */}
+                }
             </div>
         </section>
     )

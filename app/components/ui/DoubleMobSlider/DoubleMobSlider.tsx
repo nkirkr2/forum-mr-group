@@ -6,21 +6,22 @@ import Image from 'next/image';
 
 
 type doubleMobliderProps = {
-    doubleMobliderData: DoubleXSliderData;
+    doubleMobSliderData: DoubleXSliderData;
 }
 
 
-function DoubleMobSlider({doubleMobliderData}: doubleMobliderProps) {
+function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
 
-    const { images1, images2, paragraph } = doubleMobliderData;
+    const { images1, images2, paragraph } = doubleMobSliderData;
     const image1 = images1[0]
     const image2 = images1[1]
 
     return (
-        <div className={styles.doubleMoblider}>
+        <div className={styles.doubleMobSlider}>
             <Swiper
                 onSwiper={(swiper) => console.log(swiper)}
                 slidesPerView={1}
+                className='mobiler'
                 >
                 <SwiperSlide>
                     <Image 
