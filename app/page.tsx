@@ -8,6 +8,9 @@ import Footer from "./components/layout/Footer/Footer";
 import Architecture from "./sections/home/Architecture/Architecture";
 import Amenities from "./sections/home/Amenities/Amenities";
 import Facing from "./sections/home/Facing/Facing";
+import Improvement from "./sections/home/Improvement/Improvement";
+import Older from "./sections/home/Older/Older";
+import Apartments from "./sections/home/Apartments/Apartments";
 
 
 export default function Home() {
@@ -55,8 +58,12 @@ export default function Home() {
     images1: [
       '/images/doubleXSlider/doubleX0.jpg',
       '/images/doubleXSlider/doubleX1.jpg',
+      '/images/doubleXSlider/doubleX0.jpg',
+      '/images/doubleXSlider/doubleX1.jpg',
     ],
     images2: [
+      '/images/doubleXSlider/doubleX1.jpg',
+      '/images/doubleXSlider/doubleX0.jpg',
       '/images/doubleXSlider/doubleX1.jpg',
       '/images/doubleXSlider/doubleX0.jpg',
     ],
@@ -69,8 +76,12 @@ export default function Home() {
     images1: [
       '/images/home/amenities/amenities0.jpg',
       '/images/home/amenities/amenities1.jpg',
+      '/images/home/amenities/amenities0.jpg',
+      '/images/home/amenities/amenities1.jpg',
     ],
     images2: [
+      '/images/home/amenities/amenities2.jpg',
+      '/images/home/amenities/amenities3.jpg',
       '/images/home/amenities/amenities2.jpg',
       '/images/home/amenities/amenities3.jpg',
     ],
@@ -82,13 +93,54 @@ export default function Home() {
     images1: [
       '/images/home/facing/facing0.jpg',
       '/images/home/facing/facing1.jpg',
+      '/images/home/facing/facing0.jpg',
+      '/images/home/facing/facing1.jpg',
     ],
     images2: [
+      '/images/home/facing/facing2.jpg',
+      '/images/home/facing/facing3.jpg',
       '/images/home/facing/facing2.jpg',
       '/images/home/facing/facing3.jpg',
     ],
     title: 'оТДЕЛКА',
     paragraph: `Все квартиры в Forum следуют эстетике Mid Century — не просто дань моде, а настоящая философия. Это стиль, где каждый элемент дышит гармонией: чистые линии, продуманные пропорции, диалог с природой. Пространство должно было стать светлым фоном для жизни — без навязчивости, но с безупречной базой.`
+  }
+
+  const improvementData = {
+    images1: [
+      '/images/home/improvement/improvement0.jpg',
+      '/images/home/improvement/improvement1.jpg',
+    ],
+    images2: [
+      '/images/home/facing/facing2.jpg',
+      '/images/home/facing/facing3.jpg',
+    ],
+    title: 'БЛАГОУСТРОЙСТВО',
+    paragraph: `ЛАНДШАФТНАЯ АРХИТЕКТУРА FORUM — ПРОДОЛЖЕНИЕ ФИЛОСОФИИ ПРОЕКТА, В КОТОРОМ КАЖДАЯ ДЕТАЛЬ РАБОТАЕТ НА ОЩУЩЕНИЕ УЕДИНЕННОЙ, ГЛУБОКО ПРОДУМАННОЙ СРЕДЫ. ПРОСТРАНСТВО ОРГАНИЗОВАНО В ВИДЕ ДВУХ ВНЕШНИХ ЗОН С РАЗНЫМИ СЦЕНАРИЯМИ И НАСТРОЕНИЕМ, РАЗГРАНИЧЕННЫХ ПО ФУНКЦИИ И АТМОСФЕРЕ.`
+  }
+  const olderData = {
+    images: [
+      '/images/home/older/older0.jpg',
+      '/images/home/older/older0.jpg',
+      '/images/home/older/older0.jpg',
+    ],
+    title: 'МЕСТО СТАРШЕ САМОЙ МОСКВЫ',
+    paragraph: `ЭТОТ УЧАСТОК МОСКОВСКОЙ ЗЕМЛИ — НЕМОЙ СВИДЕТЕЛЬ КЛЮЧЕВЫХ ЭПОХ РАЗВИТИЯ НАШЕГО ГОРОДА. СТАРШЕ САМОЙ МОСКВЫ, ОН ВПИТАЛ В СЕБЯ ВЕЛИЧЕСТВЕННЫЙ ДУХ ВРЕМЕНИ. ЗДЕСЬ, В БЛИЗИ FORUM, ПРОХОДИЛА ОДНА ИЗ САМЫХ СТАРЫХ И СТРАТЕГИЧЕСКИ ВАЖНЫХ ДОРОГ В ИСТОРИИ РОССИИ — ОНА УПОМИНАЕТСЯ ЕЩЕ ДО ОСНОВАНИЯ МОСКВЫ В 1147 ГОДУ.`
+  }
+
+  const apartmentsData = {
+    images: [
+      '/images/home/apartments/apartments0.jpg',
+      '/images/home/apartments/apartments0.jpg',
+      '/images/home/apartments/apartments0.jpg',
+    ],
+    title: 'Квартиры',
+    paragraphs: [
+      `ЭТОТ УЧАСТОК МОСКОВСКОЙ ЗЕМЛИ — НЕМОЙ СВИДЕТЕЛЬ КЛЮЧЕВЫХ ЭПОХ РАЗВИТИЯ НАШЕГО ГОРОДА. СТАРШЕ САМОЙ МОСКВЫ, ОН ВПИТАЛ В СЕБЯ ВЕЛИЧЕСТВЕННЫЙ ДУХ ВРЕМЕНИ. ЗДЕСЬ, В БЛИЗИ FORUM, ПРОХОДИЛА ОДНА ИЗ САМЫХ СТАРЫХ И СТРАТЕГИЧЕСКИ ВАЖНЫХ ДОРОГ В ИСТОРИИ РОССИИ — ОНА УПОМИНАЕТСЯ ЕЩЕ ДО ОСНОВАНИЯ МОСКВЫ В 1147 ГОДУ.`,
+      `ЭТОТ УЧАСТОК МОСКОВСКОЙ ЗЕМЛИ — НЕМОЙ СВИДЕТЕЛЬ КЛЮЧЕВЫХ ЭПОХ РАЗВИТИЯ НАШЕГО ГОРОДА. СТАРШЕ САМОЙ МОСКВЫ, ОН ВПИТАЛ В СЕБЯ ВЕЛИЧЕСТВЕННЫЙ ДУХ ВРЕМЕНИ. ЗДЕСЬ, В БЛИЗИ FORUM, ПРОХОДИЛА ОДНА ИЗ САМЫХ СТАРЫХ И СТРАТЕГИЧЕСКИ ВАЖНЫХ ДОРОГ В ИСТОРИИ РОССИИ — ОНА УПОМИНАЕТСЯ ЕЩЕ ДО ОСНОВАНИЯ МОСКВЫ В 1147 ГОДУ.`,
+      `ЭТОТ УЧАСТОК МОСКОВСКОЙ ЗЕМЛИ — НЕМОЙ СВИДЕТЕЛЬ КЛЮЧЕВЫХ ЭПОХ РАЗВИТИЯ НАШЕГО ГОРОДА. СТАРШЕ САМОЙ МОСКВЫ, ОН ВПИТАЛ В СЕБЯ ВЕЛИЧЕСТВЕННЫЙ ДУХ ВРЕМЕНИ. ЗДЕСЬ, В БЛИЗИ FORUM, ПРОХОДИЛА ОДНА ИЗ САМЫХ СТАРЫХ И СТРАТЕГИЧЕСКИ ВАЖНЫХ ДОРОГ В ИСТОРИИ РОССИИ — ОНА УПОМИНАЕТСЯ ЕЩЕ ДО ОСНОВАНИЯ МОСКВЫ В 1147 ГОДУ.`,
+      `ЭТОТ УЧАСТОК МОСКОВСКОЙ ЗЕМЛИ — НЕМОЙ СВИДЕТЕЛЬ КЛЮЧЕВЫХ ЭПОХ РАЗВИТИЯ НАШЕГО ГОРОДА. СТАРШЕ САМОЙ МОСКВЫ, ОН ВПИТАЛ В СЕБЯ ВЕЛИЧЕСТВЕННЫЙ ДУХ ВРЕМЕНИ. ЗДЕСЬ, В БЛИЗИ FORUM, ПРОХОДИЛА ОДНА ИЗ САМЫХ СТАРЫХ И СТРАТЕГИЧЕСКИ ВАЖНЫХ ДОРОГ В ИСТОРИИ РОССИИ — ОНА УПОМИНАЕТСЯ ЕЩЕ ДО ОСНОВАНИЯ МОСКВЫ В 1147 ГОДУ.`
+    ]
   }
 
   return (
@@ -101,9 +153,12 @@ export default function Home() {
       <Location locationData={locationData}/>
       <Surroundings surroundingsData={surroundingsData}/>
       <Architecture architectureData={architectureData}/>
+      <Improvement improvementData={improvementData}/>
       <Lobby lobbyData={lobbyData}/>
       <Amenities amenitiesData={amenitiesData} />
       <Facing facingsData={facingData} />
+      <Older olderData={olderData}/>
+      <Apartments apartmentsData={apartmentsData}/>
       <Footer />
     </>
   );

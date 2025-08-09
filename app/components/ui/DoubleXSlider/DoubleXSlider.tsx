@@ -1,140 +1,104 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRef, useEffect, useState } from 'react';
-import { Pagination, Navigation } from 'swiper/modules';
+import type { Swiper as SwiperClass } from 'swiper';
+import { useEffect, useRef, useState } from 'react';
+import SliderControls from '../SliderControls/SliderControls';
+import { Pagination, Navigation, EffectFade, Controller } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
-import { DoubleXSliderData } from './types';
 import styles from './DoubleXSlider.module.scss';
-import SliderControls from '../SliderControls/SliderControls';
 import Image from 'next/image';
 
-type doubleXSliderProps = {
-    doubleXSliderData: DoubleXSliderData;
-}
+type Props = {
+  doubleXSliderData: {
+    images1: string[];
+    images2: string[];
+    paragraph: string;
+  };
+};
 
-function DoubleXSlider({doubleXSliderData}: doubleXSliderProps) {
+function DoubleXSlider({ doubleXSliderData }: Props) {
+  const { images1, images2, paragraph } = doubleXSliderData;
 
-    const { images1, images2, paragraph } = doubleXSliderData;
-    const image1 = images1[0]
-    const image2 = images1[1]
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const swiperRef = useRef<any>(null);
-    const paginationRef = useRef<HTMLDivElement | null>(null);
-    const [isPaginationReady, setIsPaginationReady] = useState(false);
+  const paginationRef = useRef<HTMLDivElement | null>(null);
+  const [isPaginationReady, setIsPaginationReady] = useState(false);
 
-    useEffect(() => {
-        if (paginationRef.current) {
-            setIsPaginationReady(true);
-        }
-    }, [paginationRef.current]);
+  // ДЕРЖИМ ИНСТАНСЫ В STATE (а не только в ref)
+  const [topSwiper, setTopSwiper] = useState<SwiperClass | null>(null);
+  const [bottomSwiper, setBottomSwiper] = useState<SwiperClass | null>(null);
 
-    useEffect(() => {
-        if (swiperRef.current) {
-            swiperRef.current.navigation?.update();
-            swiperRef.current.pagination?.render();
-            swiperRef.current.pagination?.update();
-        }
-    }, [isPaginationReady]);
+  useEffect(() => {
+    if (paginationRef.current) setIsPaginationReady(true);
+  }, [paginationRef.current]);
 
-    return (
-        <div className={styles.doubleXSliderWrapper}>
-            <div className={styles.doubleXSlider}>
-                <Swiper
-                    className={styles.doubleXSlider_first}
-                >
-                    <SwiperSlide>
-                        <Image 
-                            src={image1}
-                            alt="Логотип"
-                            fill
-                            style={{ objectFit: "cover" }}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image 
-                            src={image1}
-                            alt="Логотип"
-                            fill
-                            style={{ objectFit: "cover" }}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image 
-                            src={image1}
-                            alt="Логотип"
-                            fill
-                            style={{ objectFit: "cover" }}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image 
-                            src={image1}
-                            alt="Логотип"
-                            fill
-                            style={{ objectFit: "cover" }}
-                        />
-                    </SwiperSlide>
-                </Swiper>
+  // СВЯЗЫВАЕМ, КОГДА ОБА ГОТОВЫ
+  useEffect(() => {
+    if (topSwiper && bottomSwiper && topSwiper.controller && bottomSwiper.controller) {
+      topSwiper.controller.control = bottomSwiper;
+      bottomSwiper.controller.control = topSwiper;
+    }
+  }, [topSwiper, bottomSwiper]);
 
-                {isPaginationReady && (
-                    <Swiper
-                        modules={[Navigation, Pagination]}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => {
-                            swiperRef.current = swiper;
-                        }}
-                        className={styles.doubleXSlider_second}
-                        navigation={{
-                            prevEl: '.custom-prev',
-                            nextEl: '.custom-next',
-                        }}
-                        pagination={{
-                            el: paginationRef.current,
-                            clickable: true,
-                        }}
-                    >
-                        <SwiperSlide>
-                            <Image 
-                                src={image2}
-                                alt="Логотип"
-                                fill
-                                style={{ objectFit: "cover" }}
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image 
-                                src={image1}
-                                alt="Логотип"
-                                fill
-                                style={{ objectFit: "cover" }}
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Image 
-                                src={image2}
-                                alt="Логотип"
-                                fill
-                                style={{ objectFit: "cover" }}
-                            />
-                            </SwiperSlide>
-                        <SwiperSlide>
-                            <Image 
-                                src={image1}
-                                alt="Логотип"
-                                fill
-                                style={{ objectFit: "cover" }}
-                            />
-                            </SwiperSlide>
-                    </Swiper>
-                )}
+  return (
+    <div className={styles.doubleXSliderWrapper}>
+      <div className={styles.doubleXSlider}>
+        {/* Верхний */}
+        <Swiper
+          className={styles.doubleXSlider_first}
+          modules={[EffectFade, Controller]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          speed={700}
+          onSwiper={(sw) => {
+            setTopSwiper(sw);
+            // Если нижний уже есть — связываем сразу
+            if (bottomSwiper && sw.controller && bottomSwiper.controller) {
+              sw.controller.control = bottomSwiper;
+              bottomSwiper.controller.control = sw;
+            }
+          }}
+        >
+          {images1.map((src, i) => (
+            <SwiperSlide key={i}>
+              <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-                <div className={styles.doubleXSlider__text}>
-                    <p className="paragraph">{paragraph}</p>
-                </div>
-            </div>
+        {/* Нижний */}
+        {isPaginationReady && (
+          <Swiper
+            className={styles.doubleXSlider_second}
+            modules={[Navigation, Pagination, EffectFade, Controller]}
+            navigation={{ prevEl: '.custom-prev', nextEl: '.custom-next' }}
+            pagination={{ el: paginationRef.current, clickable: true }}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            speed={700}
+            onSwiper={(sw) => {
+              setBottomSwiper(sw);
+              // Если верхний уже есть — связываем сразу
+              if (topSwiper && sw.controller && topSwiper.controller) {
+                sw.controller.control = topSwiper;
+                topSwiper.controller.control = sw;
+              }
+            }}
+          >
+            {images2.map((src, i) => (
+              <SwiperSlide key={i}>
+                <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+
+        <div className={styles.doubleXSlider__text}>
+          <p className="paragraph">{paragraph}</p>
+        </div>
+      </div>
             <div className={styles.doubleXSlider__controls}>
                 <SliderControls paginationRef={paginationRef} />
             </div>

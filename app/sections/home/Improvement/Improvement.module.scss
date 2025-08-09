@@ -1,0 +1,26 @@
+.improvement {
+    padding: 120rem 0;
+    &__logo {
+        position: relative;
+        width: 420rem;
+        height: 91rem;
+        margin-bottom: 60rem;
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: 40rem;
+        &_swiper {
+            width: 330rem;
+            height: 600rem;
+        }
+        &_text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 500rem;
+            width: 100%;
+        }
+    }
+}

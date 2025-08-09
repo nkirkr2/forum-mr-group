@@ -1,13 +1,14 @@
 import style from './Header.module.scss';
 import Logo from './Logo';
 import Sandwich from './Sandwich';
+import BurgerMenu from '../../ui/BurgerMenu/BurgerMenu';
 
 function Header() {
     return (
         <header className={style.header}>
             {/* <div className="container"> */}
                 <div className={style.header__row}>
-                    <Sandwich />
+                    <BurgerMenu />
                     <Logo />
                     <div className={style.header__row_contacts}>
                         <a href='#!'>+7 (495) 085-02-80</a>

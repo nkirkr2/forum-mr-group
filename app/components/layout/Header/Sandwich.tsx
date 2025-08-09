@@ -1,12 +1,18 @@
 import Image from "next/image";
 
-export default function Burger() {
+type SandwichProps = {
+  onClick: () => void;
+}
+
+export default function Sandwich({onClick}: SandwichProps) {
   return (
     <div
+      onClick={onClick}
       style={{
         position: "relative",
         width: "42rem",
         height: "42rem",
+        cursor: 'pointer',
       }}
     >
       <Image

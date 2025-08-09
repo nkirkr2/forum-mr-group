@@ -1,0 +1,49 @@
+.apartments {
+    &__content {
+        position: relative;
+        &_text {
+            z-index: 99;
+            background-image: url(/images/home/apartments/apartments-text.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 587rem;
+            height: 602rem;
+            position: absolute;
+            top: -1rem;
+            bottom: -1rem;
+            left: -1rem;
+            text-align: end;
+            :global(.title-b) {
+                position: absolute;
+                margin-bottom: 0;
+                top: 50%;
+                transform: translateX(-50%) rotate(-90deg);
+                left: 0;
+            }
+            :global(.paragraph) {
+                margin-left: auto;
+                max-width: 500rem;
+            }
+        }
+        &_bottom {
+            display: flex;
+            gap: 40rem;
+        }
+    }
+    &__slider_text {
+        margin: 20rem 0 0;
+        height: auto!important;
+        max-width: 800rem;
+        :global(.paragraph) {
+            font-size: 16rem;
+        }
+    }
+    &__slider_image {
+        width: 100%;
+        height: 599rem;
+        :global(.swiper-slide) {
+            width: 100%;
+            height: 599rem;
+        }   
+    }
+}

@@ -88,6 +88,9 @@
     text-align: center;
     max-width: 557rem;
     margin: 0 auto;
+    :global(.title-b) {
+      margin-bottom: 80rem;
+    }
   }
   &__image {
     position: absolute; 

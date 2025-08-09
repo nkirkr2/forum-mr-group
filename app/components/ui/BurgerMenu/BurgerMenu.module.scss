@@ -1,0 +1,28 @@
+.nav {
+    position: absolute;
+    top: 62rem;
+    opacity: 0;
+    transition: .4s ease-in;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10rem); 
+    -webkit-backdrop-filter: blur(10rem);
+    border: 1rem solid rgba(255, 255, 255, 0.3); 
+    padding: 20rem;
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 20rem;
+        a {
+            transition: .2s ease;
+            text-transform: uppercase;
+            color: var(--black);
+            &:hover {
+                color: var(--pink);
+                text-decoration: underline;
+            }
+        }
+    }
+    &__open {
+        opacity: 1;
+    }
+}

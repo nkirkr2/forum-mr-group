@@ -4,4 +4,9 @@
     padding: 10rem 0;
     text-transform: uppercase;
     color: var(--black2);
+    transition: .2s ease-in;
+    &:hover {
+        background-color: var(--black2);
+        color: var(--main-white);
+    }
 }
