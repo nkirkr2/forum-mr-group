@@ -16,7 +16,7 @@ const myFont = localFont({
 
 export const metadata: Metadata = {
   title: "FORUM - FORUM. Официальный сайт клубного дома от компании MR Group",
-  description: "Описание моего проекта",
+  description: 'Клубный дом с видовыми квартирами за бывшим кинотеатром Форум от MR Private'
 };
 
 export default function RootLayout({

@@ -1,24 +1,33 @@
-import { useState, useEffect } from "react";
+'use client'
+import { useEffect, useState } from "react";
 
-function useIsMobile(breakpoint = 500) {
-  const [isMobile, setIsMobile] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
+export default function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
-    setHasMounted(true);
+    if (typeof window === 'undefined') return;
 
-    function handleResize() {
-      setIsMobile(window.innerWidth <= breakpoint);
-      console.log(window.innerWidth)
+    const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const update = () => setIsMobile(mql.matches);
+
+    update(); // первичная установка
+    // поддержка разных браузеров
+    if (mql.addEventListener) {
+      mql.addEventListener('change', update);
+    } else {
+      mql.addListener(update);
     }
+    window.addEventListener('orientationchange', update);
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      if (mql.removeEventListener) {
+        mql.removeEventListener('change', update);
+      } else {
+        mql.removeListener(update);
+      }
+      window.removeEventListener('orientationchange', update);
+    };
   }, [breakpoint]);
 
-  return hasMounted ? isMobile : null; // <= вернем null, пока компонент не смонтирован
+  return isMobile; // null до маунта, true/false после
 }
-
-export default useIsMobile;

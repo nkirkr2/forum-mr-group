@@ -2,11 +2,12 @@ import styles from './SliderBtn.module.scss';
 
 type sliderBtnProps = {
     direction: 'prev' | 'next';
+    id: string;
 }
 
-function SliderBtn({direction}: sliderBtnProps) {
+function SliderBtn({direction, id}: sliderBtnProps) {
     return (
-        <button className={styles.slider_btn}>
+        <button className={styles.slider_btn} id={id}>
             {
                 direction === 'prev'
                 ?

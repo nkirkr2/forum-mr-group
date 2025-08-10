@@ -1,5 +1,8 @@
 .older {
     margin-bottom: 120rem;
+    &__controls {
+        margin-top: auto;
+    }
     &__content {
         position: relative;
         :global(.swiper) {
@@ -11,6 +14,8 @@
             height: 672rem;
         }
         &_text {
+            display: flex;
+            flex-direction: column;
             z-index: 99;
             background-image: url(/images/home/older/older-text.svg);
             background-size: contain;

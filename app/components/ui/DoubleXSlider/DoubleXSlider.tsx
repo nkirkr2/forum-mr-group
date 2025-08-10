@@ -18,15 +18,16 @@ type Props = {
     images2: string[];
     paragraph: string;
   };
+  name: string;
 };
 
-function DoubleXSlider({ doubleXSliderData }: Props) {
+function DoubleXSlider({ doubleXSliderData, name }: Props) {
+  console.log(name)
   const { images1, images2, paragraph } = doubleXSliderData;
 
   const paginationRef = useRef<HTMLDivElement | null>(null);
   const [isPaginationReady, setIsPaginationReady] = useState(false);
 
-  // ДЕРЖИМ ИНСТАНСЫ В STATE (а не только в ref)
   const [topSwiper, setTopSwiper] = useState<SwiperClass | null>(null);
   const [bottomSwiper, setBottomSwiper] = useState<SwiperClass | null>(null);
 
@@ -34,18 +35,16 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
     if (paginationRef.current) setIsPaginationReady(true);
   }, [paginationRef.current]);
 
-  // СВЯЗЫВАЕМ, КОГДА ОБА ГОТОВЫ
   useEffect(() => {
     if (topSwiper && bottomSwiper && topSwiper.controller && bottomSwiper.controller) {
       topSwiper.controller.control = bottomSwiper;
       bottomSwiper.controller.control = topSwiper;
     }
   }, [topSwiper, bottomSwiper]);
-
+  console.log('swiper:', name)
   return (
     <div className={styles.doubleXSliderWrapper}>
       <div className={styles.doubleXSlider}>
-        {/* Верхний */}
         <Swiper
           className={styles.doubleXSlider_first}
           modules={[EffectFade, Controller]}
@@ -54,7 +53,6 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
           speed={700}
           onSwiper={(sw) => {
             setTopSwiper(sw);
-            // Если нижний уже есть — связываем сразу
             if (bottomSwiper && sw.controller && bottomSwiper.controller) {
               sw.controller.control = bottomSwiper;
               bottomSwiper.controller.control = sw;
@@ -68,19 +66,17 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
           ))}
         </Swiper>
 
-        {/* Нижний */}
         {isPaginationReady && (
           <Swiper
             className={styles.doubleXSlider_second}
             modules={[Navigation, Pagination, EffectFade, Controller]}
-            navigation={{ prevEl: '.custom-prev', nextEl: '.custom-next' }}
+            navigation={{ prevEl: `#${name}-prev`, nextEl: `#${name}-next` }}
             pagination={{ el: paginationRef.current, clickable: true }}
             effect="fade"
             fadeEffect={{ crossFade: true }}
             speed={700}
             onSwiper={(sw) => {
               setBottomSwiper(sw);
-              // Если верхний уже есть — связываем сразу
               if (topSwiper && sw.controller && topSwiper.controller) {
                 sw.controller.control = topSwiper;
                 topSwiper.controller.control = sw;
@@ -100,7 +96,7 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
         </div>
       </div>
             <div className={styles.doubleXSlider__controls}>
-                <SliderControls paginationRef={paginationRef} />
+                <SliderControls paginationRef={paginationRef} name={name} />
             </div>
         </div>
     );

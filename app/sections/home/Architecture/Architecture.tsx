@@ -28,7 +28,7 @@ function Architecture({architectureData}: architectureProps) {
                     isMobile ?
                     <DoubleMobSlider doubleMobSliderData={architectureData}/>
                     :
-                    <DoubleXSlider doubleXSliderData={architectureData}/>
+                    <DoubleXSlider doubleXSliderData={architectureData} name={'architecture'}/>
                 }
             </div>
         </section>

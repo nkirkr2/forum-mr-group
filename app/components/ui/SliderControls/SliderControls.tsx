@@ -5,14 +5,15 @@ import { RefObject } from 'react';
 
 type SliderControlsProps = {
   paginationRef: React.RefObject<HTMLDivElement | null>;
+  name: string;
 };
 
 
-const SliderControls = ({paginationRef}: SliderControlsProps) => (
+const SliderControls = ({paginationRef, name}: SliderControlsProps) => (
   <div className={styles.slider_controls}>
-    <SliderBtn direction='prev' />
+    <SliderBtn direction='prev' id={`${name}-prev`}/>
     <div ref={paginationRef} className={`custom-pagination ${styles.pagination}`} />
-    <SliderBtn direction='next' />
+    <SliderBtn direction='next' id={`${name}-next`}/>
   </div>
 );
 

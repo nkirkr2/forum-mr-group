@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { Key } from 'react';
+import SliderControls from '@/app/components/ui/SliderControls/SliderControls';
 
 type OlderProps = {
    olderData: OlderData;
@@ -38,6 +39,9 @@ function Older({olderData}: OlderProps) {
                 <div className={styles.older__content_text}>
                     <h2 className="title-b">МЕСТО СТАРШЕ САМОЙ <span className='accent'>МОСКВЫ</span></h2>
                     <p className="paragraph">{paragraph}</p>
+                    <div className={styles.older__controls}>
+                        <SliderControls />
+                    </div>
                 </div>
                 </div>
             </div>

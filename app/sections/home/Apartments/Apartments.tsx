@@ -49,7 +49,9 @@ function Apartments({apartmentsData}: ApartmentsProps) {
                         ))
                         }
                         </Swiper>
-                        {/* <SliderControls /> */}
+                        <div className={styles.apartments__controls}>
+                            <SliderControls />  
+                        </div>
                     </div>
                 </div>
             </div>
