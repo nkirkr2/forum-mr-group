@@ -67,8 +67,6 @@ function Gallery({galleryContent}: GalleryProps) {
                             textSwiperRef.current.controller.control = swiper;
                         }
                     }}
-                    navigation={{}}
-                    pagination={{}}
                     >
                         {images && images.map((image, idx) => (
                             <SwiperSlide

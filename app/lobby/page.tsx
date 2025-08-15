@@ -1,26 +1,31 @@
 import { Metadata } from "next";
+import { lobbyData as data } from "./data";
 import Header from "../components/layout/Header/Header";
 import Hero from "../sections/typed/Hero/Hero";
 import About from "../sections/typed/About/About";
+import Gallery from "../sections/typed/Gallery/Gallery";
+import Cross from "../sections/typed/Cross/Cross";
+import Features from "../sections/typed/Features/Features";
+import Footer from "../components/layout/Footer/Footer";
 
 
 export const metadata: Metadata = {
-    title: "FORUM - Amenities. Официальный сайт клубного дома от компании MR Group",
+    title: "FORUM - Лобби. Официальный сайт клубного дома от компании MR Group",
 }
 
-function Lobby() {
+
+function Architecture() {
     return (
         <>
         <Header />
-        <Hero 
-        background={'/images/typed/lobby/hero.jpg'}
-        title={'лобби'}
-        />
-        <About
-        paragraph={'В данном проекте лобби — истинная поэзия форм и материалов. Авторы вдохновлялись геометричной строгостью 1930-х, эпохой, подарившей нам культ функциональности и лаконичной красоты. Здесь нет места случайным деталям: только чистые линии, благородная фактура натуральных материалов    и осмысленная сдержанность.'}
-        />
+        <Hero heroContent={data.hero} />
+        <About aboutContent={data.about}/>
+        <Gallery galleryContent={data.gallery}/>
+        <Cross crossContent={data.cross}/>
+        <Features featuresContent={data.features}/>
+        <Footer />
         </> 
     )
 }
 
-export default Lobby;
+export default Architecture;
