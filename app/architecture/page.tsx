@@ -1,26 +1,31 @@
 import { Metadata } from "next";
+import { architectureData as data } from "./data";
 import Header from "../components/layout/Header/Header";
 import Hero from "../sections/typed/Hero/Hero";
 import About from "../sections/typed/About/About";
+import Gallery from "../sections/typed/Gallery/Gallery";
+import Cross from "../sections/typed/Cross/Cross";
+import Features from "../sections/typed/Features/Features";
+import Footer from "../components/layout/Footer/Footer";
 
 
 export const metadata: Metadata = {
-    title: "FORUM - Amenities. Официальный сайт клубного дома от компании MR Group",
+    title: "FORUM - Architecture. Официальный сайт клубного дома от компании MR Group",
 }
 
-function Amenities() {
+
+function Architecture() {
     return (
         <>
         <Header />
-        <Hero 
-        background={'/images/typed/architecture/hero.jpg'}
-        title={'Architecture'}
-        />
-        <About
-        paragraph={'FORUM — создаёт не просто облик, а атмосферу. Дом точно вписан в ритм Садового кольца          и продолжает историю места, переосмысляя её в современном ключе. Архитектура FORUM ведёт тонкий диалог с легендарным электротеатром «Форум» — раньше здесь собирались на сеансы, теперь каждый резидент наблюдает за городом из своего личного кинозала с панорамным остеклением.'}
-        />
+        <Hero heroContent={data.hero} />
+        <About aboutContent={data.about}/>
+        <Gallery galleryContent={data.gallery}/>
+        <Cross crossContent={data.cross}/>
+        <Features featuresContent={data.features}/>
+        <Footer />
         </> 
     )
 }
 
-export default Amenities;
+export default Architecture;

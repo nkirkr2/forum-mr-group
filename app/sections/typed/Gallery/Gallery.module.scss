@@ -1,3 +1,89 @@
 .gallery {
-    
+    &__content {
+        position: relative;
+        &_img {
+            width: 1321rem;
+            height: 884rem;
+            &_slide {
+                width: 1321rem;
+                height: 884rem;
+            }
+        }
+        &_text {
+            position: absolute!important;
+            left: 32rem;
+            bottom: 42rem;
+            max-width: 746rem;
+            :global(.paragraph) {
+                color: var(--main-white);
+            }
+        }
+        &_controls {
+            z-index: 9;
+            position: absolute;
+            bottom: 29rem;
+            right: 26rem;
+            display: flex;
+            align-items: center;
+            gap: 10rem;
+            button {
+                svg {
+                    path {
+                        transition: .3s ease-in;
+                    }
+                }
+                outline: 1rem solid var(--main-white);
+                background-color: transparent;
+                &:hover {
+                    background-color: var(--main-white);
+                    svg {
+                        path {
+                            fill: black;
+                        }
+                    }
+                }
+            }
+            :global(.swiper-pagination-bullet) {
+                background: var(--text-gray)!important;                
+            } 
+            :global(.swiper-pagination-bullet-active) {
+                background: var(--main-white)!important;                
+            } 
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        :global(.container) {
+            padding: 0;
+        }
+        &__content {
+            &_img {
+                width: 100%;
+                height: 500rem;
+                &_slide {
+                    width: 100%;
+                    height: 500rem;
+                }
+            }
+            &_text {
+                padding: 0 20rem;
+                max-width: 350rem;
+                position: unset!important;
+                margin-top: 20rem;
+                :global(.paragraph) {
+                    color: var(--text-gray);
+                    text-align: center;
+                }
+            }
+            &_controls {
+                padding: 0 20rem;
+                right: unset;
+                bottom: unset;
+                top: 446rem;
+                :global(.swiper-pagination-bullet-active) {
+                    width: 90rem!important;               
+                } 
+            }
+        }
+    }
 }

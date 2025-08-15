@@ -1,0 +1,107 @@
+.silence {
+    height: 1190rem;
+    margin-top: 97rem;
+    margin-bottom: 120rem;
+    :global(.title-b) {
+        margin-top: 37rem;
+        max-width: 602rem;
+        text-align: end;
+        margin-left: auto;
+    }
+    :global(.container) {
+        height: 100%;
+    }
+    &__content {
+        height: 100%;
+        text-align: center;
+        position: relative;
+        &_img {
+            img {
+                position: absolute;
+                &:nth-child(1) {
+                    margin-bottom: 20rem;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 535rem;
+                    height: 793rem;
+                    clip-path: polygon(
+                    84.3% 61.2%,
+                    84.3% 80%,
+                    67.6% 80%,
+                    67.6% 100%,
+                    32.4% 100%,
+                    32.4% 80%,
+                    15.7% 80%,
+                    15.7% 61.2%,
+                    0% 61.2%,
+                    0% 38.7%,
+                    15.7% 38.7%,
+                    15.7% 18.7%,
+                    32.4% 18.7%,
+                    32.4% 0%,
+                    67.6% 0%,
+                    67.6% 18.7%,
+                    84.3% 18.7%,
+                    84.3% 38.7%,
+                    100% 38.7%,
+                    100% 61.2%,
+                    84.3% 61.2%
+                );
+                }
+                &:nth-child(2) {
+                    top: 0;
+                    left: 0;
+                    width: 303rem;
+                    height: 495rem;
+                }
+                &:nth-child(3) {
+                    bottom: 67rem;
+                    right: 0;
+                    width: 303rem;
+                    height: 495rem;
+                }
+            }
+        }
+        &_text {
+            position: absolute;
+            text-align: start;
+            max-width: 330rem;
+            bottom: 67rem;
+            left: 0;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        height: auto;
+        &__content {
+            :global(.title-b) {
+                text-align: center;
+                font-size: 24rem;
+                margin-left: 0;
+                margin-bottom: 30rem;
+            }
+            &_img {
+                img {
+                    position: unset;  
+                &:nth-child(1) {
+                    top: auto;
+                    left: auto;
+                    transform: none;
+                    width: 350rem;
+                    height: 518rem;
+                }
+                &:nth-child(2) {
+                   display: none;
+                }
+                &:nth-child(3) {
+                    display: none;
+                }
+            }
+        }
+        &_text {
+            position: unset;
+        }
+        }
+    }
+}

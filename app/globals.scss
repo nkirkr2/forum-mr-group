@@ -179,8 +179,47 @@ section {
 }
 
 .slider-controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10rem;
 }
 
+.slider-btn {
+    width: 70rem;
+    height: 35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black2);
+    border-radius: 40rem;
+    flex-shrink: 0;
+	transition: .3s ease-in;
+    svg {
+       width: 44rem;
+       height: 15rem; 
+    }
+	&:hover {
+		background-color: var(--text-gray);
+	}
+}
+.swiper-pagination {
+	position: unset!important;
+	display: flex!important;
+	gap: 10rem!important;
+	&-bullet {
+		flex-shrink: 0;
+		transition: .3s ease-in!important;
+		width: 24rem!important;
+		height: 4rem!important;
+		border-radius: 20rem!important;
+		background: var(--text-gray)!important;
+		&-active {
+			background: var(--black2)!important;
+    		width: 199rem!important;
+		}
+	}
+}
 @media only screen and (max-width: 1280px) {
 	html {
 		font-size: calc(1vw / 12.8);

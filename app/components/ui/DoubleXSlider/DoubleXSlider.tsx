@@ -22,7 +22,6 @@ type Props = {
 };
 
 function DoubleXSlider({ doubleXSliderData, name }: Props) {
-  console.log(name)
   const { images1, images2, paragraph } = doubleXSliderData;
 
   const paginationRef = useRef<HTMLDivElement | null>(null);
@@ -41,7 +40,6 @@ function DoubleXSlider({ doubleXSliderData, name }: Props) {
       bottomSwiper.controller.control = topSwiper;
     }
   }, [topSwiper, bottomSwiper]);
-  console.log('swiper:', name)
   return (
     <div className={styles.doubleXSliderWrapper}>
       <div className={styles.doubleXSlider}>

@@ -19,7 +19,6 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
     return (
         <div className={styles.doubleMobSlider}>
             <Swiper
-                onSwiper={(swiper) => console.log(swiper)}
                 slidesPerView={1}
                 className='mobiler'
                 >
@@ -47,8 +46,6 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
             </div>
             <Swiper
                 modules={[Navigation, Pagination]}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 slidesPerView={1}
                 >
                 <SwiperSlide>

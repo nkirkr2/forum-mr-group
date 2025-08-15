@@ -1,7 +1,7 @@
 'use client'
 
 import DoubleXSlider from "@/app/components/ui/DoubleXSlider/DoubleXSlider";
-import DoubleMobSlider from "@/app/components/ui/DoubleMobSlider/DoubleMobSlider";
+import PyramidSlider from "@/app/components/ui/PyramidSlider/PyramidSlider";
 import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
 import useIsMobile from "@/app/hooks/useIsMobile";
 
@@ -17,8 +17,6 @@ function Amenities({amenitiesData}: amenitiesProps) {
     if (isMobile === null) return null;
 
 
-    console.log(window.innerWidth)
-    console.log(isMobile)
     
     return (
         <section>
@@ -26,7 +24,7 @@ function Amenities({amenitiesData}: amenitiesProps) {
                 <h2 className="title-b">{title}</h2>
                 {
                     isMobile ?
-                    <DoubleMobSlider doubleMobSliderData={amenitiesData}/>
+                    <PyramidSlider pyramidSliderData={amenitiesData}/>
                     :
                     <DoubleXSlider doubleXSliderData={amenitiesData}/>
                 }

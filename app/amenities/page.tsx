@@ -1,7 +1,12 @@
 import { Metadata } from "next";
+import { amenitiesData as data } from "./data";
 import Header from "../components/layout/Header/Header";
 import Hero from "../sections/typed/Hero/Hero";
 import About from "../sections/typed/About/About";
+import Gallery from "../sections/typed/Gallery/Gallery";
+import Cross from "../sections/typed/Cross/Cross";
+import Features from "../sections/typed/Features/Features";
+import Footer from "../components/layout/Footer/Footer";
 
 
 export const metadata: Metadata = {
@@ -12,13 +17,13 @@ function Amenities() {
     return (
         <>
         <Header />
-        <Hero 
-        background={'/images/typed/amenities/hero.jpg'}
-        title={'Amenities'}
+        <Hero heroContent={data.hero} />
+        <About aboutContent={data.about}
         />
-        <About
-        paragraph={'FORUM переосмысливает понятие комфорта. Здесь забота о себе становится неотъемлемой частью повседневности — изысканной, продуманной до мелочей и, главное, доступной без лишних усилий.'}
-        />
+        <Gallery galleryContent={data.gallery}/>
+        <Cross crossContent={data.cross}/>
+        <Features featuresContent={data.features}/>
+        <Footer />
         </> 
     )
 }

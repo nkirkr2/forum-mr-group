@@ -1,26 +1,31 @@
 import { Metadata } from "next";
+import { improvementData as data } from "./data";
 import Header from "../components/layout/Header/Header";
 import Hero from "../sections/typed/Hero/Hero";
 import About from "../sections/typed/About/About";
+import Gallery from "../sections/typed/Gallery/Gallery";
+import Cross from "../sections/typed/Cross/Cross";
+import Features from "../sections/typed/Features/Features";
+import Footer from "../components/layout/Footer/Footer";
 
 
 export const metadata: Metadata = {
-    title: "FORUM - Amenities. Официальный сайт клубного дома от компании MR Group",
+    title: "FORUM - Благоустройство. Официальный сайт клубного дома от компании MR Group",
 }
 
-function Improvement() {
+
+function Architecture() {
     return (
         <>
         <Header />
-        <Hero 
-        background={'/images/typed/improvement/hero.jpg'}
-        title={'БЛАГОУТРОЙСТВО  '}
-        />
-        <About
-        paragraph={'Ландшафтная архитектура FORUM — продолжение философии проекта, в котором каждая деталь работает на ощущение уединенной, глубоко продуманной среды. Пространство организовано в виде двух внешних зон с разными сценариями и настроением, разграниченных по функции и атмосфере.'}
-        />
+        <Hero heroContent={data.hero} />
+        <About aboutContent={data.about}/>
+        <Gallery galleryContent={data.gallery}/>
+        <Cross crossContent={data.cross}/>
+        <Features featuresContent={data.features}/>
+        <Footer />
         </> 
     )
 }
 
-export default Improvement;
+export default Architecture;

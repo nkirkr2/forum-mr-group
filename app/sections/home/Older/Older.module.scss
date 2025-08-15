@@ -2,6 +2,13 @@
     margin-bottom: 120rem;
     &__controls {
         margin-top: auto;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        gap: 10rem;
+        :global(.swiper-pagination-bullet-active) {
+            width: 74rem!important;
+        }
     }
     &__content {
         position: relative;

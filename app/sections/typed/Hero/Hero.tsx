@@ -1,11 +1,13 @@
 import styles from './Hero.module.scss';
 
 type HeroProps = {
-    background: string;
-    title: string;
+    heroContent: {background: string, title: string}
 }
 
-function Hero({background, title}: HeroProps) {
+function Hero({ heroContent }: HeroProps) {
+
+    const { background, title } = heroContent;
+
     return (
         <section className={styles.hero} style={{'backgroundImage': `url(${background})`}}>
             <div className={styles.hero__title}>

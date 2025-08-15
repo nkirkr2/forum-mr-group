@@ -1,0 +1,57 @@
+.cross {
+    margin: 200rem 0;
+    &__content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40rem;
+        &_media {
+            position: relative;
+            width: 606rem;
+            height: 898rem;
+            img {
+                clip-path: polygon(
+                    84.3% 61.2%,
+                    84.3% 80%,
+                    67.6% 80%,
+                    67.6% 100%,
+                    32.4% 100%,
+                    32.4% 80%,
+                    15.7% 80%,
+                    15.7% 61.2%,
+                    0% 61.2%,
+                    0% 38.7%,
+                    15.7% 38.7%,
+                    15.7% 18.7%,
+                    32.4% 18.7%,
+                    32.4% 0%,
+                    67.6% 0%,
+                    67.6% 18.7%,
+                    84.3% 18.7%,
+                    84.3% 38.7%,
+                    100% 38.7%,
+                    100% 61.2%,
+                    84.3% 61.2%
+                );
+            }
+        }
+        p {
+            max-width: 894rem;
+        }
+        h2 {
+            max-width: 879rem;
+        }
+    }
+
+    @media (max-width: 500px) {
+        margin: 60rem 0 120rem;
+        &__content {
+            gap: 20rem;
+            &_media {
+                width: 100%;
+                height: 520rem;
+            }
+        }
+    }
+}

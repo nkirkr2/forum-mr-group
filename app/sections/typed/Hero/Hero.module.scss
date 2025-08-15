@@ -11,4 +11,9 @@
             color: var(--main-white);
         }
     }
+    @media only screen and (max-width: 500px) {
+        &__title {
+            display: none;
+        }
+    }
 }

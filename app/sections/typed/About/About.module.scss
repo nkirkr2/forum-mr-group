@@ -6,4 +6,9 @@
         margin: 0 auto;
         text-align: center;
     }
+    @media screen {
+        &__content {
+            padding: 60rem 20rem;
+        }
+    }
 }

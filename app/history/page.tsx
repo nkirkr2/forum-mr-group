@@ -1,20 +1,31 @@
+import { Metadata } from "next";
+import { historyData as data } from "./data";
 import Header from "../components/layout/Header/Header";
 import Hero from "../sections/typed/Hero/Hero";
 import About from "../sections/typed/About/About";
+import Gallery from "../sections/typed/Gallery/Gallery";
+import Cross from "../sections/typed/Cross/Cross";
+import Features from "../sections/typed/Features/Features";
+import Footer from "../components/layout/Footer/Footer";
 
-function History() {
+
+export const metadata: Metadata = {
+    title: "FORUM - История места. Официальный сайт клубного дома от компании MR Group",
+}
+
+
+function Architecture() {
     return (
         <>
         <Header />
-        <Hero
-        background={'/images/typed/history/hero.jpg'}
-        title={'История места'}
-        />
-        <About 
-        paragraph={'Этот участок московской земли — немой свидетель ключевых эпох развития нашего города. Старше самой Москвы, он впитал в себя величественный дух времени. Здесь, вблизи FORUM, проходила одна из самых старых и стратегически важных дорог в истории России — она упоминается еще           до основания Москвы в 1147 году.'}
-        />
-        </>
+        <Hero heroContent={data.hero} />
+        <About aboutContent={data.about}/>
+        <Gallery galleryContent={data.gallery}/>
+        <Cross crossContent={data.cross}/>
+        <Features featuresContent={data.features}/>
+        <Footer />
+        </> 
     )
 }
 
-export default History;
+export default Architecture;
