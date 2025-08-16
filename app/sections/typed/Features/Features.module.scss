@@ -37,7 +37,18 @@
         }
     }
 
-    @media only screen and (max-width: 500px) {
+    @media screen and (max-width: 1280px) {
+        &__content {
+            &_item {
+                gap: 40rem;
+                &__img {
+                    height: 703rem;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
         height: auto;
         &__content {
             padding: 0 20rem;

@@ -72,7 +72,32 @@
         }
     }
 
+    @media screen and (max-width: 1280px) {
+        margin-bottom: 320rem;
+        height: 800rem;
+        margin-top: 218rem;
+        &__content {
+            &_img {
+                img {
+                    &:nth-child(1) {
+                        width: 378rem;
+                        height: 560rem;
+                    }
+                    &:nth-child(2) {
+                        width: 246rem;
+                        height: 401rem;
+                    }
+                    &:nth-child(3) {
+                        width: 246rem;
+                        height: 401rem;
+                    }
+                }
+            }
+        }
+    }
+
     @media only screen and (max-width: 500px) {
+        margin-bottom: 120rem;
         height: auto;
         &__content {
             :global(.title-b) {

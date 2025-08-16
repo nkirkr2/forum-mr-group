@@ -50,4 +50,31 @@
             width: 580rem!important;
         }
     }
+
+    @media screen and (max-width: 1280px) {
+        height: 496rem;
+        &_first {
+            width: 876rem!important;
+            :global(.swiper-slide) {
+                width: 876rem!important;
+            }
+        }
+        &_second {
+            width: 364rem!important;
+            :global(.swiper-slide) {
+                width: 364rem!important;
+            }
+        }
+        &_slide {
+            height: 498rem!important;
+        }
+        &__text {
+            height: 498rem;
+            width: 335rem;
+            left: 708rem;
+            :global(.paragraph) {
+                max-width: 198rem;
+            }
+        }
+    }
 }

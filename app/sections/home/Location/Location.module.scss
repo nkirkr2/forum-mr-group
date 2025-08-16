@@ -22,7 +22,21 @@
         }
     }
 
-    @media only screen and (max-width: 500px) {
+    @media screen and (max-width: 1280px) {
+        margin-bottom: 120rem;
+        &__content {
+            flex-direction: column;
+            h2 {
+                max-width: 314rem;
+            }
+            &_map {
+                width: 100%;
+                height: 595rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
         &__title {
             position: absolute;
         }

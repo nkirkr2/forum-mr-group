@@ -1,15 +1,18 @@
 import styles from './HeroHome.module.scss';
 
 type HeroHomeProps = {
-  backgroundImage: string;
+  heroData: {background: string};
 };
 
-function HeroHome({ backgroundImage }: HeroHomeProps) {
+function HeroHome({ heroData }: HeroHomeProps) {
+
+  const { background } = heroData;
+
   return (
     <div
       className={styles.hero}
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${background})`,
       }}
     >
     <div className="container">

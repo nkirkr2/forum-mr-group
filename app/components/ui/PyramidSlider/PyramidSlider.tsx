@@ -15,10 +15,9 @@ type PyramidSliderProps = {
         images2: string[];
         paragraph: string;
     };
-    name: string;
 };
 
-function PyramidSlider({pyramidSliderData, name}: PyramidSliderProps) {
+function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
 
     const { images1, images2, paragraph } = pyramidSliderData;
     

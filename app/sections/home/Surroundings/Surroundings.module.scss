@@ -30,7 +30,25 @@
         height: 281rem;
     }
 
-    @media only screen and (max-width: 500px) {
+    @media screen and (max-width: 1280px) {
+        &__content {
+            :global(.paragraph) {
+                font-size: 16rem;
+            }
+            img {
+                &:nth-child(1) {
+                    width: 610rem;
+                    height: 749rem;
+                }
+                &:nth-child(2) {
+                    width: 610rem;
+                    height: 627rem;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
         &__content {
             h2 {
                 position: absolute;

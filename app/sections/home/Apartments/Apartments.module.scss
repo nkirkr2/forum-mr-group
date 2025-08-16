@@ -49,4 +49,17 @@
             height: 599rem;
         }   
     }
+
+    @media screen and (max-width: 1280px) {
+        &__content {
+            &_text {
+                width: 202rem;
+                height: 600rem;
+                top: 0;
+            }
+        }
+        &__slider_image {
+            height: 597rem;
+        }
+    }
 }

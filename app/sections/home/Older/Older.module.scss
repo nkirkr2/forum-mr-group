@@ -45,4 +45,26 @@
             }
         }
     }
+
+    @media screen and (max-width: 1280px) {
+        &__content {
+            :global(.swiper) {
+                height: 598rem;
+            }
+            :global(.swiper-slide) {
+                height: 598rem;
+            }
+            &_text {
+                width: 523rem;
+                height: 600rem;
+                :global(.paragraph) {
+                    font-size: 16rem;
+                    max-width: 414rem;
+                }
+            }
+        }
+        &__controls {
+            padding-bottom: 20rem;
+        }
+    }
 }

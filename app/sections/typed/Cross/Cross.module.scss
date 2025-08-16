@@ -44,6 +44,16 @@
         }
     }
 
+    @media screen and (max-width: 1280px) {
+        margin: 120rem 0;
+        &__content {
+            &_media {
+                width: 474rem;
+                height: 703rem;
+            }
+        }
+    }
+
     @media (max-width: 500px) {
         margin: 60rem 0 120rem;
         &__content {

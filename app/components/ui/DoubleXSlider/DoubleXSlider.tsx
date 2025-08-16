@@ -11,17 +11,13 @@ import 'swiper/css/effect-fade';
 
 import styles from './DoubleXSlider.module.scss';
 import Image from 'next/image';
+import { DoubleXSliderData } from './types';
 
 type Props = {
-  doubleXSliderData: {
-    images1: string[];
-    images2: string[];
-    paragraph: string;
-  };
-  name: string;
+  doubleXSliderData: DoubleXSliderData;
 };
 
-function DoubleXSlider({ doubleXSliderData, name }: Props) {
+function DoubleXSlider({ doubleXSliderData }: Props) {
   const { images1, images2, paragraph } = doubleXSliderData;
 
   const paginationRef = useRef<HTMLDivElement | null>(null);
@@ -94,7 +90,7 @@ function DoubleXSlider({ doubleXSliderData, name }: Props) {
         </div>
       </div>
             <div className={styles.doubleXSlider__controls}>
-                <SliderControls paginationRef={paginationRef} name={name} />
+                <SliderControls paginationRef={paginationRef} />
             </div>
         </div>
     );

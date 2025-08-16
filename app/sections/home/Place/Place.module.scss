@@ -1,86 +1,3 @@
-// .place {
-//   &__content {
-//     padding-top: 34.438rem;
-//     padding-bottom: 13.375rem;
-//     text-align: center;
-//     max-width: 34.813rem;
-//     margin: 0 auto;
-//   }
-//   &__image {
-//     position: absolute; 
-//     img {
-//       width: 100%;
-//       height: 100%;
-//       object-fit: cover;
-//     }
-//     &:nth-child(1) {
-//       width: 14.75rem; 
-//       height: 22.125rem;
-//       top: 5.688rem;
-//       left: 12.438rem;
-//     }
-
-//     &:nth-child(2) {
-//       width: 11.688rem; 
-//       height: 17.563rem;
-//       top: 9.063rem;
-//       right: 23.625rem;
-//     }
-
-//     &:nth-child(3) {
-//       width: 15.063rem; 
-//       height: 22.625rem;
-//       right: 2.625rem;
-//       bottom: 18.438rem;
-//     }
-
-//     &:nth-child(4) {
-//       width: 14.75rem; 
-//       height: 22.125rem;
-//       bottom: 3.813rem;
-//       left: 4.375rem;
-//     }
-
-//   }
-
-//   @media only screen and (max-width: 500px) {
-//     margin-bottom: 60rem;
-//     &__content {
-//       padding-top: 360rem;
-//       padding-bottom: 426rem;
-//       h2 {
-//         font-size: 24rem;
-//       }
-//     }
-//     &__image {
-//       &:nth-child(1) {
-//         width: 6.063rem; 
-//         height: 9.125rem;
-//         top: 7.313rem;
-//         left: 1.25rem;
-//       }
-//       &:nth-child(2) {
-//         width: 172rem; 
-//         height: 259rem;
-//         top: 61rem;
-//         left: unset;
-//         right: 20rem;
-//       }
-//       &:nth-child(3) {
-//         width: 146rem; 
-//         height: 220rem;
-//         bottom: 166rem;
-//         right: 20rem;
-//       }
-//       &:nth-child(4) {
-//         width: 165rem; 
-//         height: 250rem;
-//         bottom: 60rem;
-//         left: 20rem;
-//       }
-//     }
-//   }
-// }
 .place {
   &__content {
     padding-top: 551rem;
@@ -129,7 +46,40 @@
 
   }
 
-  @media only screen and (max-width: 500px) {
+  @media screen and (max-width: 1280px) {
+    &__content {
+      padding-top: 404rem;
+      padding-bottom: 214rem;
+    }
+    &__image {
+      &:nth-child(1) {
+        width: 204rem;
+        height: 305rem;
+        left: 20rem;
+        top: 62rem
+      }
+      &:nth-child(2) {
+        width: 162rem;
+        height: 242rem;
+        top: 25rem;
+        right: 312rem;
+      }
+      &:nth-child(3) {
+        width: 207rem;
+        height: 310rem;
+        top: 165rem;
+        right: 22rem;
+      }
+      &:nth-child(4) {
+        width: 208rem;
+        height: 312rem;
+        bottom: 52rem;
+        left: 70rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
     margin-bottom: 60rem;
     &__content {
       padding-top: 360rem;
