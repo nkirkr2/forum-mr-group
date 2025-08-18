@@ -1,5 +1,5 @@
 export type OlderData = {
-    images: string[];
-    title: string;
-    paragraph: string;
-}
+  title: string;
+  images: string[];
+  paragraphs: string[];
+};

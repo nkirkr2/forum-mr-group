@@ -13,8 +13,10 @@ function Place({placeData}: placeProps) {
         <section className={styles.place}>
           <div className="container">
             <div className={styles.place__content}>
-              <h2 className="title-b">ЖИТЬ ТАМ, ГДЕ ТУРИСТЫ
-ФОТОГРАФИРУЮТ <span className='accent'>ФАСАДЫ</span></h2>
+          <h2
+          className="title-b"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
               <p className='paragraph'>{paragraph}</p>
 
               {images && images.length > 0 && (

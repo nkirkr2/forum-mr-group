@@ -216,9 +216,32 @@ section {
 		background: var(--text-gray)!important;
 		&-active {
 			background: var(--black2)!important;
-    		width: 199rem!important;
+    		// width: 199rem!important;
+			flex-grow: 1;
+			width: 100%;
 		}
 	}
+}
+.swiper-button-disabled {
+	background: transparent;
+	outline: 1rem solid var(--black2);
+	svg {
+		path {
+			fill: var(--black2);
+		}
+	}
+}
+
+.page-link {
+	display: inline-block;
+    width: 100%;
+    text-align: center;
+	font-family: var(--font-family);
+	font-size: 24rem;
+	text-transform: uppercase;
+	text-decoration: underline!important;
+	text-decoration-skip-ink: none;
+	color: var(--pink);
 }
 @media only screen and (max-width: 1280px) {
 	html {
@@ -239,4 +262,14 @@ section {
 	.title-b {
 		font-size: 32rem;
 	}
+	.swiper-pagination {
+		&-bullet {
+			width: 15rem!important;
+			&-active {
+				width: 100%;
+				flex-grow: 1
+				;
+			}
+		}
+}
 }

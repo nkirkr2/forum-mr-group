@@ -1,5 +1,5 @@
 export type PlaceData = {
-  title?: string;
+  title: string;
   paragraph?: string;
   images?: string[];
 };

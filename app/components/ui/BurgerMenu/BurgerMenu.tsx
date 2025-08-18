@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import styles from './BurgerMenu.module.scss';
 import Sandwich from '../../layout/Header/Sandwich';
-import { APP_ROUTES } from '@/app/consts';
 import Link from 'next/link';
 
 function BurgerMenu() {

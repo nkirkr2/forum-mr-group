@@ -1,6 +1,8 @@
 .older {
     margin-bottom: 120rem;
     &__controls {
+        max-width: 369rem;
+        width: 100%;
         margin-top: auto;
         display: flex;
         align-items: center;
@@ -45,7 +47,46 @@
             }
         }
     }
-
+    &__mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 20rem;
+        &_img {
+            height: 624rem;
+            width: 100%;
+            &_slide {
+                position: relative;
+            }
+        }
+        &_text {
+            z-index: 9;
+            text-align: center;
+            position: relative;
+            z-index: 999;
+            color: var(--text-gray);
+            text-align: center;
+            h2 {
+                max-width: 208rem;
+                margin: 0 auto;
+                margin-bottom: 20rem;
+            }
+        }
+        &_bg {
+            position: absolute;
+            top: 590rem;
+            z-index: 8;
+            width: 246rem;
+            height: 246rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &_controls {
+            display: flex;
+            align-items: center;
+            gap: 10rem;
+            margin: 20rem 0;
+        }
+    }
     @media screen and (max-width: 1280px) {
         &__content {
             :global(.swiper) {

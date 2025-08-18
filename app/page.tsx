@@ -28,7 +28,7 @@ export default function Home() {
       <Improvement improvementData={data.improvement}/>
       <Lobby lobbyData={data.lobby}/>
       <Amenities amenitiesData={data.amenities} />
-      <Silence />
+      <Silence silenceData={data.silence}/>
       <Facing facingsData={data.facing} />
       <Older olderData={data.older}/>
       <Apartments apartmentsData={data.apartments}/>

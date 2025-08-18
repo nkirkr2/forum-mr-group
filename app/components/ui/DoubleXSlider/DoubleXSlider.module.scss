@@ -10,6 +10,7 @@
         width: 405rem;
         height: 602rem;
         z-index: 99;
+        text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,8 +24,14 @@
         }
     }
     &__controls {
+        max-width: 494rem;
         width: 100%;
         text-align: end;
+        display: flex;
+        align-items: center;
+        gap: 10rem;
+        margin-top: 20rem;
+        margin-left: auto;
     }
     &_slide {
         height: 600rem!important;

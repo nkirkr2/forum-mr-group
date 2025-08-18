@@ -8,6 +8,7 @@
     }
     &__content {
         display: flex;
+        position: relative;
         align-items: center;
         gap: 40rem;
         &_swiper {
@@ -29,5 +30,50 @@
         align-items: center;
         gap: 10rem;
         margin-top: 20rem;
+        max-width: 500rem;
+        width: 100%;
+    }
+
+    &__mobile {
+        gap: 20rem;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        &_img {
+            width: 100%;
+            height: 440rem;
+            &__slide {
+                position: relative;
+            }
+        }
+        &_text {
+            margin-top: 20rem;
+            position: relative;
+            z-index: 999;
+        }
+        &_controls {
+            margin: 20rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 10rem;
+        }
+        &_bg {
+            position: absolute;
+            top: 400rem;
+            z-index: 8;
+            width: 246rem;
+            height: 246rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    @media screen and (max-width: 500px) {
+        padding: 60rem 0 0rem 0;
+        &__content {
+            flex-direction: column;
+            gap: 0;
+        }
     }
 }

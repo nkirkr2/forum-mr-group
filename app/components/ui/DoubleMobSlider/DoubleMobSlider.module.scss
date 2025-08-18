@@ -11,4 +11,29 @@
             height: 450rem!important;
         }
     }
+    &__controls {
+        max-width: 330rem;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        position: absolute;
+        bottom: 20rem;
+        z-index: 999;
+        gap: 10rem;
+        align-items: center;
+        justify-content: space-between;
+        :global(.swiper-button-disabled) {
+            outline-color: var(--main-white);
+            svg {
+                path {
+                    fill: var(--main-white);
+                }
+            }
+        }
+        
+        :global(.swiper-pagination-bullet) {
+            background: var(--main-white)!important;
+        }
+    }
 }

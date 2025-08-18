@@ -1,20 +1,30 @@
 import styles from './Silence.module.scss';
+import { SilenceData } from './types';
 import Image from 'next/image';
 
-function Silence() {
+
+type SilenceProps = {
+    silenceData: SilenceData
+}
+
+function Silence({ silenceData }: SilenceProps) {
+
+    const { title, paragraph } = silenceData;
+
     return (
         <section className={styles.silence}>
             <div className="container">
                 <div className={styles.silence__content}>
-                    <h2 className="title-b">РЕСТОРАНЫ — В РАДИУСЕ.
-    ТИШИНА — <span className="accent">В КВАРТИРЕ.</span></h2>
+                    <h2
+                    className="title-b"
+                    dangerouslySetInnerHTML={{ __html: title }}
+                    />
                     <div className={styles.silence__content_img}>
                         <img src="/images/home/silence/silence0.jpg" alt="" />
                         <img src="/images/home/silence/silence0.jpg" alt="" />
                         <img src="/images/home/silence/silence1.jpg" alt="" />
                     </div>
-                    <p className={styles.silence__content_text}>РАСПОЛОЖЕННЫЙ РЯДОМ С&nbsp;ЦВЕТНЫМ БУЛЬВАРОМ, ЭТОТ ДОМ СЛОВНО ПРОДОЛЖЕНИЕ&nbsp;ИСТОРИИ: ОН ВОБРАЛ В СЕБЯ ДУХ СТАРОГО ЭЛЕКТРОТЕАТРА «ФОРУМ»,
-НО&nbsp;ГОВОРИТ НА ЯЗЫКЕ&nbsp;СОВРЕМЕННОЙ АРХИТЕКТУРЫ. ЗДЕСЬ РОСКОШЬ В&nbsp;ДЕТАЛЯХ. В&nbsp;ШЕПОТЕ ЛИСТВЫ ЦВЕТНОГО БУЛЬВАРА. МЕСТО&nbsp;ДЛЯ&nbsp;ТЕХ, КТО ЦЕНИТ ПОДЛИННОСТЬ.
+                    <p className={styles.silence__content_text}>{paragraph}
 </p>
                 </div>
             </div>

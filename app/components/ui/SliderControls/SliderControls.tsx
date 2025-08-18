@@ -1,6 +1,5 @@
 import styles from './SliderControls.module.scss';
 import SliderBtn from '../SliderBtn/SliderBtn';
-import { RefObject } from 'react';
 
 
 type SliderControlsProps = {

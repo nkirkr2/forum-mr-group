@@ -1,18 +1,25 @@
+'use client'
 import styles from './HeroHome.module.scss';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 type HeroHomeProps = {
-  heroData: {background: string};
+  heroData: {
+    background: string
+    backgroundMobile: string;
+  };
 };
 
 function HeroHome({ heroData }: HeroHomeProps) {
 
-  const { background } = heroData;
+  const isMobile = useIsMobile();
+
+  const { background, backgroundMobile } = heroData;
 
   return (
     <div
       className={styles.hero}
       style={{
-        backgroundImage: `url(${background})`,
+        backgroundImage: `url(${isMobile ? backgroundMobile : background})`,
       }}
     >
     <div className="container">

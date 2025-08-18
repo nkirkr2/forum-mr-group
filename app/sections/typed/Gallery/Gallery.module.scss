@@ -19,6 +19,8 @@
             }
         }
         &_controls {
+            max-width: 494rem;
+            width: 100%;
             z-index: 9;
             position: absolute;
             bottom: 29rem;
@@ -29,11 +31,12 @@
             button {
                 svg {
                     path {
+                        fill: var(--black2);
                         transition: .3s ease-in;
                     }
                 }
                 outline: 1rem solid var(--main-white);
-                background-color: transparent;
+                background-color: var(--main-white);
                 &:hover {
                     background-color: var(--main-white);
                     svg {
@@ -44,7 +47,8 @@
                 }
             }
             :global(.swiper-pagination-bullet) {
-                background: var(--text-gray)!important;                
+                background: var(--text-gray)!important;   
+                opacity: 1;             
             } 
             :global(.swiper-pagination-bullet-active) {
                 background: var(--main-white)!important;                

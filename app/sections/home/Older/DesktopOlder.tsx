@@ -1,28 +1,26 @@
 'use client'
-import styles from './PyramidSlider.module.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { PaginationOptions } from 'swiper/types';
-import type { Swiper as SwiperClass } from 'swiper';
-import { useEffect, useRef } from 'react';
+import styles from './Older.module.scss';
+import { useRef, useEffect } from 'react';
 import { Pagination, Navigation, EffectFade, Controller } from 'swiper/modules';
+import { Swiper as SwiperClass } from 'swiper';
+import { PaginationOptions } from 'swiper/types';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { OlderData } from './types';
 import Image from 'next/image';
-import 'swiper/css/effect-fade';
+
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { Key } from 'react';
 
 
-type PyramidSliderProps = {
-    pyramidSliderData: {
-        images1: string[];
-        images2: string[];
-        paragraphs: string[];
-    };
-};
+type OlderDesktopProps = {
+    olderContent: OlderData;
+}
 
-function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
+function DesktopOlder({olderContent}: OlderDesktopProps) {
 
-    const { images1, paragraphs } = pyramidSliderData;
+    const {images, paragraphs} = olderContent
 
-    console.log('older', pyramidSliderData)
-
+    const text = paragraphs[0];
 
     const imgSwiperRef = useRef<SwiperClass | null>(null);
     const textSwiperRef = useRef<SwiperClass | null>(null);
@@ -58,9 +56,9 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
     }, []);
 
     return (
-        <div className={styles.pyramidSliderWrapper}>
+        
+        <div className={styles.older__content}>
             <Swiper
-            className={styles.pyramidSlider__first}
             modules={[EffectFade, Controller, Navigation, Pagination]}
             effect="fade"
             fadeEffect={{ crossFade: true }}
@@ -73,36 +71,23 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
                 }
             }}
             >
-                {images1 && images1.map((src, i) => (
-                <SwiperSlide key={i}>
-                    <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
-                </SwiperSlide>
-                ))}
-            </Swiper>
-
-            <Swiper
-            className={styles.pyramidSlider__second}
-            modules={[EffectFade, Controller]}
-            effect="fade"
-            fadeEffect={{ crossFade: true }}
-            speed={700}
-            onSwiper={(swiper) => {
-                textSwiperRef.current = swiper;
-                if (imgSwiperRef.current && swiper.controller && imgSwiperRef.current.controller) {
-                    swiper.controller.control = imgSwiperRef.current;
-                    imgSwiperRef.current.controller.control = swiper;
-                }
-            }}
-            >
-            {paragraphs && paragraphs.map((paragraph, idx) => (
+            {images && images.map((image: string | StaticImport, idx: Key | null | undefined) => (
                 <SwiperSlide key={idx}>
-                    <p className="paragraph">{paragraph}</p>
+                    <Image 
+                        src={image}
+                        alt="Логотип"
+                        fill
+                        style={{ objectFit: "cover" }}
+                    />
                 </SwiperSlide>
-            ))}
+            ))
+            }
             </Swiper>
-
-            <div className={styles.pyramidSlider__controls}>
-               <button className='slider-btn' id='older-prev' ref={prevBtnRef}>
+        <div className={styles.older__content_text}>
+            <h2 className="title-b">МЕСТО СТАРШЕ САМОЙ <span className='accent'>МОСКВЫ</span></h2>
+            <p className="paragraph">{text}</p>
+            <div className={styles.older__controls}>
+                <button className='slider-btn' id='older-prev' ref={prevBtnRef}>
                         <svg width="44" height="15" viewBox="0 0 44 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M42.4717 8.53516C43.024 8.53516 43.4717 8.08744 43.4717 7.53516C43.4717 6.98287 43.024 6.53516 42.4717 6.53516L42.4717 8.53516ZM0.821175 6.82805C0.430653 7.21857 0.430653 7.85174 0.821175 8.24226L7.18513 14.6062C7.57566 14.9967 8.20882 14.9967 8.59935 14.6062C8.98988 14.2157 8.98988 13.5825 8.59935 13.192L2.9425 7.53516L8.59935 1.8783C8.98988 1.48778 8.98988 0.854614 8.59935 0.464089C8.20882 0.0735648 7.57566 0.0735648 7.18514 0.464089L0.821175 6.82805ZM42.4717 7.53516L42.4717 6.53516L1.52828 6.53516L1.52828 7.53516L1.52828 8.53516L42.4717 8.53516L42.4717 7.53516Z" fill="#EFEFEF" />
                         </svg>
@@ -114,16 +99,10 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
                         </svg>
                 </button>
             </div>
-            <div className={styles.pyramidSlider__bg}>
-                <Image
-                src={'/images/pyramid-frame.svg'} 
-                alt=""
-                fill
-                style={{ objectFit: "contain" }}
-                />
-            </div>
         </div>
+    </div>
+        
     )
 }
 
-export default PyramidSlider;
+export default DesktopOlder;

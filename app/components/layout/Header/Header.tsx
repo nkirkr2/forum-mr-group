@@ -1,6 +1,5 @@
 import style from './Header.module.scss';
 import Logo from './Logo';
-import Sandwich from './Sandwich';
 import BurgerMenu from '../../ui/BurgerMenu/BurgerMenu';
 
 function Header() {
