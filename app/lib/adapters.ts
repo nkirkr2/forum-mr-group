@@ -9,6 +9,7 @@ type Api = {
 
   mapTitle?: string;
   mapText?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   mapSlider?: any[]; 
 
   environmentTitle?: string;
