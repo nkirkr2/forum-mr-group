@@ -17,10 +17,19 @@
         background-image: url(/images/doubleXSlider/cross.svg);
         background-size: contain;
         background-repeat: no-repeat;
+        &_slider {
+            height: 100%;
+        }
+        &_slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         :global(.paragraph) {
             max-width: 240rem;
             text-align: center;
             font-size: 16rem;
+            margin: 0 auto;
         }
     }
     &__controls {

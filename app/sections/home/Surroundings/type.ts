@@ -1,5 +1,6 @@
 export type SurroundingsData = {
-  title?: string;
-  paragraph?: string;
-  images?: string[];
+  title: string;
+  paragraphs: string[];
+  images1: string[];
+  images2: string[];
 };

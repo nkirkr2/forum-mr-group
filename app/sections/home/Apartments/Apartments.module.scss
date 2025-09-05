@@ -18,7 +18,7 @@
                 margin-bottom: 0;
                 top: 50%;
                 transform: translateX(-50%) rotate(-90deg);
-                left: 0;
+                left: 20rem;
             }
             :global(.paragraph) {
                 margin-left: auto;
@@ -57,27 +57,6 @@
             left: 50%;
             transform: translateX(-50%);
         }
-    }
-    &__controls {
-        margin-left: auto;
-        max-width: 500rem;
-        width: 100%;
-    }
-    &__slider_text {
-        margin: 20rem 0 0;
-        height: auto!important;
-        max-width: 760rem;
-        :global(.paragraph) {
-            font-size: 16rem;
-        }
-    }
-    &__slider_image {
-        width: 100%;
-        height: 599rem;
-        :global(.swiper-slide) {
-            width: 100%;
-            height: 599rem;
-        }   
     }
 
     @media screen and (max-width: 1280px) {

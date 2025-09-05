@@ -1,0 +1,18 @@
+mixin elector-scheme()
+  section.elector(data-elector="parent")&attributes(attributes)
+    h2.visually-hidden Выборщик дом
+    .elector__container.container
+      .elector__wrapper
+        .elector__aside
+          .elector__controls
+            a.elector__control.is-active(href="elector-house.html")
+              span Схема
+            a.elector__control(href="elector-list.html")
+              span Список
+          .elector__info(data-elector="info")
+
+        .elector__content
+          .elector__scheme.elector__scheme--desktop(data-elector="scheme")
+            +scheme()
+          .elector__scheme.elector__scheme--mobile
+            +scheme-mobile()

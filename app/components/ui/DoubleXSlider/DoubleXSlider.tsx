@@ -1,8 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import type { Swiper as SwiperClass } from 'swiper';
-import { useEffect, useRef } from 'react';
-import { PaginationOptions } from 'swiper/types';
+import { useDoubleXSlider } from '@/app/hooks/useDoubleXSlider';
 import { Pagination, Navigation, EffectFade, Controller } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -21,43 +19,16 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
 
   const { images1, images2, paragraphs } = doubleXSliderData;
 
-  const paragraph = paragraphs[0];
 
-
-  const imgSwiperRef = useRef<SwiperClass | null>(null);
-  const textSwiperRef = useRef<SwiperClass | null>(null);
-  const prevBtnRef = useRef<HTMLButtonElement | null>(null);
-  const nextBtnRef = useRef<HTMLButtonElement | null>(null);
-  const paginationRef = useRef<HTMLDivElement | null>(null);
-
-
-
-
-    useEffect(() => {
-
-      if (!imgSwiperRef.current || !prevBtnRef.current || !nextBtnRef.current || !paginationRef.current) return;
-
-      const swiper = imgSwiperRef.current;
-
-      if (swiper.params.navigation && swiper.params.navigation !== true) {
-          const navigation = swiper.params.navigation;
-          navigation.prevEl = prevBtnRef.current;
-          navigation.nextEl = nextBtnRef.current;
-          swiper.navigation.destroy();
-          swiper.navigation.init();
-          swiper.navigation.update();
-      }
-
-      if (swiper.params.pagination) {
-          const pagination = swiper.params.pagination as PaginationOptions;
-          pagination.el = paginationRef.current;
-          pagination.clickable = true;
-          swiper.pagination.destroy();
-          swiper.pagination.init();
-          swiper.pagination.render();
-          swiper.pagination.update();
-      }
-  }, []);
+  const {
+    img1SwiperRef,
+    img2SwiperRef,
+    textSwiperRef,
+    prevBtnRef,
+    nextBtnRef,
+    paginationRef,
+    linkControllers,
+  } = useDoubleXSlider();
   
   return (
     <div className={styles.doubleXSliderWrapper}>
@@ -69,11 +40,8 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
           fadeEffect={{ crossFade: true }}
           speed={700}
           onSwiper={(swiper) => {
-              imgSwiperRef.current = swiper;
-              if (textSwiperRef.current && swiper.controller && textSwiperRef.current.controller) {
-                  swiper.controller.control = textSwiperRef.current;
-                  textSwiperRef.current.controller.control = swiper;
-              }
+              img1SwiperRef.current = swiper;
+              linkControllers();
           }}
         >
           {images1.map((src, i) => (
@@ -90,11 +58,8 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
           fadeEffect={{ crossFade: true }}
           speed={700}
           onSwiper={(swiper) => {
-              textSwiperRef.current = swiper;
-              if (imgSwiperRef.current && swiper.controller && imgSwiperRef.current.controller) {
-                  swiper.controller.control = imgSwiperRef.current;
-                  imgSwiperRef.current.controller.control = swiper;
-              }
+              img2SwiperRef.current = swiper;
+              linkControllers();
           }}
         >
             {images2.map((src, i) => (
@@ -105,7 +70,29 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
           </Swiper>
 
         <div className={styles.doubleXSlider__text}>
-          <p className="paragraph">{paragraph}</p>
+          <Swiper
+          modules={[EffectFade, Controller]}
+          className={styles.doubleXSlider__text_slider}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          speed={700}
+          onSwiper={(swiper) => {
+            textSwiperRef.current = swiper;
+            linkControllers();
+          }}
+          >
+            {
+            paragraphs && paragraphs.map((paragraph, idx) => (
+              <SwiperSlide
+              key={idx}
+              className={styles.doubleXSlider__text_slide}
+              >
+              <p className="paragraph">{paragraph}</p>
+              </SwiperSlide>
+            ))
+          }
+          </Swiper>
+
         </div>
       </div>
       <div className={styles.doubleXSlider__controls}>

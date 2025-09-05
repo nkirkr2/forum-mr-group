@@ -1,0 +1,190 @@
+-
+  const mapPinsDefault = [
+    {
+      icon: "icon-medicine.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [20.45, 41.1]
+    },
+    {
+      icon: "icon-medicine.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [3.89, 61.4]
+    },
+    {
+      icon: "icon-medicine.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [18.3, 61.56]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [37.6, 58]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [42.1, 41.1]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [48.5, 65.03]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [55.3, 31.3]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [59.42, 33.22]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [60.7, 51.51]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [69.6, 54.9]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [78, 44.66]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [87.3, 35.35]
+    },
+    {
+      icon: "icon-museum.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [86.2, 58.83]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [20.1, 52]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [27.7, 61.56]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [32.7, 52.25]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [32.9, 61.14]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [39.1, 50.73]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [40.5, 53.73]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [61.4, 47.16]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [69.9, 33.3]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [72.4, 36.4]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [75.2, 39.35]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [71.9, 42.25]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [71.9, 45.5]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [78.6, 59.5]
+    },
+    {
+      icon: "icon-restaurant.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [85.4, 55.45]
+    },
+    {
+      icon: "icon-study.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [35.75, 53.73]
+    },
+    {
+      icon: "icon-study.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [50.7, 54.77]
+    },
+    {
+      icon: "icon-study.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [56.8, 60]
+    },
+    {
+      icon: "icon-tshirt.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [26.6, 52.7]
+    },
+    {
+      icon: "icon-tshirt.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [30.6, 48.32]
+    },
+    {
+      icon: "icon-tshirt.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [54.1, 48.73]
+    },
+    {
+      icon: "icon-tshirt.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [64.9, 51.52]
+    },
+    {
+      icon: "icon-tshirt.svg",
+      content: "ТЕАТР ET CETERA",
+      position: [67.2, 44.1]
+    },
+  ]
+
+mixin map(pins = mapPinsDefault)
+  .map(data-map="block")
+    .map__content(data-map="content")
+      img(src="img/content/map/map.png", width="6912", height="3388", alt="")
+      each pin in pins
+        .map__pin(style={top: `${pin.position[0]}%`, left: `${pin.position[1]}%`}, data-pin="element")
+          .map__pin-icon(style={"background-image": `url(./img/svg/${pin.icon})`})
+          .map__pin-content
+            .map__pin-content-wrapper(data-pin="content")
+              .map__pin-content-post-wrapper(data-pin="wrapper")
+                span.map__pin-text !{pin.content}

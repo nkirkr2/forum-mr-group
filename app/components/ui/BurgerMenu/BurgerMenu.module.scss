@@ -1,13 +1,26 @@
 .nav {
+    --glass-blur: 24rem;         
+    --glass-sat: 1.35;          
+    --glass-fill-1: rgba(255,255,255,0.14);
+    --glass-fill-2: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.28);
+    --glass-shadow: rgba(0,0,0,0.20);
     position: absolute;
     top: 62rem;
     opacity: 0;
     pointer-events: none;
-    transition: .4s ease-in;
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10rem); 
-    -webkit-backdrop-filter: blur(10rem);
-    border: 1rem solid rgba(255, 255, 255, 0.3); 
+    transition: .3s ease-in;
+   background:
+            linear-gradient(180deg, var(--glass-fill-1), var(--glass-fill-2));
+        border: 1rem solid var(--glass-border);
+        background-clip: padding-box;
+        box-shadow:
+            0 8rem 24rem var(--glass-shadow),
+            inset 0 1rem 0 rgba(255,255,255,0.25);
+
+        backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+        -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    border-top: none;
     padding: 20rem;
     &__list {
         display: flex;

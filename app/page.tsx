@@ -11,11 +11,20 @@ import Facing from "./sections/home/Facing/Facing";
 import Improvement from "./sections/home/Improvement/Improvement";
 import Older from "./sections/home/Older/Older";
 import Apartments from "./sections/home/Apartments/Apartments";
-import Silence from "./sections/home/Silence/Silence";
-import { homepageData as data } from "./data";
 
+import { mapApiToHomepage } from "./lib/adapters";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const res = await fetch(`https://forum.mr-group.ru/api/index/`, {
+    // next: { revalidate: 60 }
+  });
+  const api = await res.json();
+  console.log('data from api:', api);
+  const data = mapApiToHomepage(api);
+
+  console.log(data);
 
   return (
     <>
@@ -28,8 +37,7 @@ export default function Home() {
       <Improvement improvementData={data.improvement}/>
       <Lobby lobbyData={data.lobby}/>
       <Amenities amenitiesData={data.amenities} />
-      <Silence silenceData={data.silence}/>
-      <Facing facingsData={data.facing} />
+      <Facing facingData={data.facing} />
       <Older olderData={data.older}/>
       <Apartments apartmentsData={data.apartments}/>
       <Footer />

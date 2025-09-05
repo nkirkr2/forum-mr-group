@@ -1,32 +1,33 @@
 .lobby {
     &__content {
-        &_cards {
-            display: flex;
-            gap: 20rem;
-            &__item {
-                position: relative;
-                transition: .3s ease-in;
-                width: 426rem;
-                // width: calc(100% / 3);
-                height: 500rem;
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-                // &:hover {
-                //     width: 920rem;
-                // }
-                &:nth-child(1) {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    justify-content: flex-end;
-                }
+        position: relative;
+        &_text {
+            z-index: 99;
+            background-image: url(/images/home/apartments/apartments-text.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 587rem;
+            height: 602rem;
+            position: absolute;
+            top: -1rem;
+            bottom: -1rem;
+            left: -1rem;
+            text-align: end;
+            :global(.title-b) {
+                position: absolute;
+                margin-bottom: 0;
+                top: 50%;
+                transform: translateX(-50%) rotate(-90deg);
+                left: 0;
             }
+            :global(.paragraph) {
+                margin-left: auto;
+                max-width: 500rem;
+            }
+        }
+        &_bottom {
+            display: flex;
+            gap: 40rem;
         }
     }
     &__card_text {

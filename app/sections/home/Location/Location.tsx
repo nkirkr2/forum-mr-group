@@ -1,6 +1,6 @@
 'use client'
 
-import { LocationData } from './types';
+import { LocationData, LocationPin } from './types';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Pagination } from 'swiper/modules';
@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { PaginationOptions } from 'swiper/types';
 import { SwiperClass } from 'swiper/react';
 import styles from './Location.module.scss';
-import { Key } from 'react';
+import Map from '../../../components/ui/Map/Map';
 import { useRef } from 'react';
 
 type locationProps = {
@@ -18,11 +18,17 @@ type locationProps = {
 function Location({locationData}: locationProps) {
 
     const { title, paragraph, locations } = locationData;
+    console.log(locations)
 
     const swiperRef = useRef<SwiperClass | null>(null);
     const prevBtnRef = useRef<HTMLButtonElement | null>(null);
     const nextBtnRef = useRef<HTMLButtonElement | null>(null);
     const paginationRef = useRef<HTMLDivElement | null>(null);
+
+
+   const getPinIndex = (id: number) => {
+        console.log('current index is:', id);
+   }
 
 
     useEffect(() => {
@@ -59,9 +65,7 @@ function Location({locationData}: locationProps) {
                         <h2 className="title-b">{title}</h2>
                         <p className="paragraph">{paragraph}</p>
                     </div>
-                    <div className={styles.location__content_map}>
-                        <img src="/images/map.png" alt="" />
-                    </div>
+                    <Map locations={locations} onToggleClick={getPinIndex}/>
                 </div>
             <div className={styles.location__swiper}>
                 <Swiper
@@ -72,11 +76,14 @@ function Location({locationData}: locationProps) {
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper;
                 }}
+                onSlideChange={(swiper) => {
+                    console.log(`Current slide index is ${swiper.activeIndex}`);
+                }}
                 
                 >
-                {locations.map((location: { title: string; description: string }, idx: number) => (
+                {locations.map((location: LocationPin) => (
                     <SwiperSlide 
-                    key={idx}
+                    key={location.id}
                     className={styles.location__swiper_slide}
                     >
                         <h3>{location.title}</h3>

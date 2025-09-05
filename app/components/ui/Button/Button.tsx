@@ -3,6 +3,7 @@ import styles from './Button.module.scss';
 
 type buttonProps = {
     children: string;
+    type: string;
 }
 
 function Button({children}: buttonProps) {

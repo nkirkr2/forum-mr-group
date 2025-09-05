@@ -1,0 +1,47 @@
+.electorWrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    :global(footer) {
+        margin-top: auto;
+    }
+}
+.elector {
+    padding-top: 100rem;
+    background-color: var(--main-white);
+    &__controls {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30rem;
+        &_btn {
+            font-size: 20rem;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 24rem;
+            max-width: 205rem;
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            min-width: 103rem;
+            min-height: 33rem;
+            margin-right: -1rem;
+            margin-bottom: -1rem;
+            padding: 3rem 15rem;
+            cursor: pointer;
+            -webkit-transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+            text-transform: uppercase;
+            color: #808080;
+            border: 1rem solid #808080;
+            outline: none;
+            background: rgba(255, 255, 255, 0);
+        }
+    }
+}

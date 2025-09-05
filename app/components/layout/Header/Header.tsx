@@ -7,8 +7,8 @@ function Header() {
         <header className={style.header}>
             {/* <div className="container"> */}
                 <div className={style.header__row}>
-                    <BurgerMenu />
                     <Logo />
+                    <BurgerMenu />
                     <div className={style.header__row_contacts}>
                         <a href='#!'>+7 (495) 085-02-80</a>
                         <a href='#!'>Купить квартиру</a>

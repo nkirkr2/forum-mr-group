@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './BurgerMenu.module.scss';
-import Sandwich from '../../layout/Header/Sandwich';
+import Sandwich from '../../layout/Header/Sandwich/Sandwich';
 import Link from 'next/link';
 
 function BurgerMenu() {
@@ -14,7 +14,7 @@ function BurgerMenu() {
 
     return (
         <>
-        <Sandwich onClick={toggleMenu}/>
+        <Sandwich onClick={toggleMenu} isOpen={isOpen}/>
         <nav className={`${styles.nav} ${isOpen ? styles.nav__open : ''}`}>
           <ul className={styles.nav__list}>
             <li><Link href="/architecture">Архитектура</Link></li>
@@ -24,6 +24,7 @@ function BurgerMenu() {
             <li><Link href="/surroundings">Локация и окружение</Link></li>
             <li><Link href="/history">История места</Link></li>
             <li><Link href="/apartments">Квартиры</Link></li>
+            <li><Link href="/elector">Выбрать квартиру</Link></li>
             <li><a href="tel:+74950850280">+7 (495) 085-02-80</a></li>
           </ul>
         </nav>

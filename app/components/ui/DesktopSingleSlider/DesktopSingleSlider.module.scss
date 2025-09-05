@@ -1,0 +1,25 @@
+.sliderImage {
+    width: 100%;
+    height: 599rem;
+    :global(.swiper-slide) {
+        width: 100%;
+        height: 599rem;
+    }   
+}
+.sliderText {
+    margin: 20rem 0 0;
+    height: auto!important;
+    max-width: 760rem;
+    :global(.paragraph) {
+        font-size: 16rem;
+    }
+}
+.contentBottom {
+    display: flex;
+    gap: 40rem;
+}
+.sliderControls {
+    margin-left: auto;
+    max-width: 500rem;
+    width: 100%;
+}

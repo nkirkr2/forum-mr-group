@@ -6,12 +6,12 @@ import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
 import useIsMobile from "@/app/hooks/useIsMobile";
 
 type amenitiesProps = {
-    facingsData: DoubleXSliderData;
+    facingData: DoubleXSliderData;
 }
 
-function Facing({facingsData}: amenitiesProps) {
+function Facing({facingData}: amenitiesProps) {
 
-    const { title } = facingsData;
+    const { title } = facingData;
 
     const isMobile = useIsMobile();
 
@@ -26,9 +26,9 @@ function Facing({facingsData}: amenitiesProps) {
                 <h2 className="title-b">{title}</h2>
                 {
                     isMobile ?
-                    <DoubleMobSlider doubleMobSliderData={facingsData}/>
+                    <DoubleMobSlider doubleMobSliderData={facingData}/>
                     :
-                    <DoubleXSlider doubleXSliderData={facingsData}/>
+                    <DoubleXSlider doubleXSliderData={facingData}/>
                 }
             </div>
         </section>

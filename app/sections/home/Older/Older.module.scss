@@ -8,9 +8,7 @@
         align-items: center;
         margin-left: auto;
         gap: 10rem;
-        :global(.swiper-pagination-bullet-active) {
-            width: 74rem!important;
-        }
+       
     }
     &__content {
         position: relative;
@@ -106,6 +104,7 @@
         }
         &__controls {
             padding-bottom: 20rem;
+            max-width: 330rem;
         }
     }
 }

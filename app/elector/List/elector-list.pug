@@ -1,0 +1,19 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "FORUM — Выбор квартиры"
+  - const wrapperMods = "wrapper--elector"
+  - const hasHeader = true
+  - const headerMods = "header--bg-grey2"
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "elector-list.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+  - const pageName = "Выбор квартиры"
+  - const hasLoader = true
+  - const hasCookie = true
+
+block main
+  main
+    +elector-list().elector--list
+
+block modals

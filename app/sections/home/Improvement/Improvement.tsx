@@ -1,16 +1,17 @@
 'use client'
 import styles from './Improvement.module.scss'
 import useIsMobile from '@/app/hooks/useIsMobile';
-import PyramidSlider from '@/app/components/ui/PyramidSlider/PyramidSlider';
 import { ImprovementData } from './types';
-import DesktopContent from './DesktopContent';
-import MobileContent from './MobileContent';
+import DesktopSingleSlider from '@/app/components/ui/DesktopSingleSlider/DesktopSingleSlider';
+import PyramidSlider from '@/app/components/ui/PyramidSlider/PyramidSlider';
 
 type ImprovementProps = {
   improvementData: ImprovementData;
 };
 
 function Improvement({ improvementData }: ImprovementProps) {
+
+  const { title } = improvementData;
 
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
@@ -19,22 +20,30 @@ function Improvement({ improvementData }: ImprovementProps) {
   return (
     <section className={styles.improvement}>
       <div className="container">
-        <div className={styles.improvement__content}>
-
-          {
-            isMobile 
-            ?
-            <>
-            <h2 style={{marginRight: 'auto'}}className="title-b">{improvementData.title}</h2>
-            <MobileContent sliderData={improvementData} />
-            </>
-            :
-            <DesktopContent sliderData={improvementData}/>
-          }
-
-
+        {
+          isMobile 
+          ?
+          <>
+          <h2 className="title-b">{title}</h2>
+            <PyramidSlider
+              pyramidSliderData={{
+                  images1: improvementData.images,
+                  images2: [], 
+                  paragraphs: improvementData.paragraphs,
+              }}
+              />
+          </>
+          :
+          <>
+            <div className={styles.improvement__content}>
+              <div className={styles.improvement__content_text}>
+                <h2 className="title-b">{title}</h2>
+              </div>
+              <DesktopSingleSlider sectionData={improvementData}/>
+            </div>
+          </>
+        }
         </div>
-      </div>
     </section>
   );
 }

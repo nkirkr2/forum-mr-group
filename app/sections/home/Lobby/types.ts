@@ -1,5 +1,5 @@
 export type LobbyData = {
-  title?: string;
-  paragraph?: string;
-  images?: string[];
+  title: string;
+  paragraphs: string[];
+  images: string[];
 };

@@ -11,16 +11,6 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        &_map {
-            width: 820rem;
-            height: 600rem;
-            flex-shrink: 0;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
     }
 
     &__swiper {
@@ -66,7 +56,7 @@
         }
     }
 
-    @media screen and (max-width: 1280px) {
+    @media screen and (max-width: 1024px) {
         
         margin-bottom: 120rem;
         &__content {

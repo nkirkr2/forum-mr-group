@@ -1,5 +1,8 @@
+'use client';
 import styles from './Surroundings.module.scss';
-import Logo from './Logo';
+import DoubleXSlider from '@/app/components/ui/DoubleXSlider/DoubleXSlider';
+import DoubleMobSlider from '@/app/components/ui/DoubleMobSlider/DoubleMobSlider';
+import useIsMobile from '@/app/hooks/useIsMobile';
 import { SurroundingsData } from './type';
 
 type surroundingsProps = {
@@ -8,23 +11,24 @@ type surroundingsProps = {
 
 function Surroundings({surroundingsData}: surroundingsProps) {
 
-    const { title, paragraph, images } = surroundingsData;
+    const { title } = surroundingsData;
+
+    const isMobile = useIsMobile();
+    
+    if (isMobile === null) {
+        return;
+    }
 
     return (
         <section className={styles.surroundings}>
             <div className="container">
-                <div className={styles.surroundings__content}>
-                    <h2 className="title-b">{title}</h2>
-                    <div className={styles.surroundings__content_cards}>
-                        {images && <img src={images[1]} alt="" />}
-                        <div>
-                            <p className="paragraph">{paragraph}</p>
-                            {images && <img src={images[0]} alt="" />}
-                        </div>
-                    </div>
-                    
-                    <Logo />
-                </div>
+                <h2 className="title-b">{title}</h2>
+                {
+                    isMobile ?
+                    <DoubleMobSlider doubleMobSliderData={surroundingsData}/>
+                    :
+                    <DoubleXSlider doubleXSliderData={surroundingsData}/>
+                }
             </div>
         </section>
     )

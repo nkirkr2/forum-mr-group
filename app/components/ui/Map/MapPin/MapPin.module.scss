@@ -1,0 +1,65 @@
+.MapPin {
+    position: absolute;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-width: 16rem;
+    height: 16rem;
+    background-color: var(--black2);
+    cursor: pointer;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: .3s ease-in;
+    &__icon {
+        height: 16rem;
+        width: 16rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    &__content {
+        max-width: 0;
+        height: 100%;
+        color: var(--main-white);
+        background-color: var(--black2);
+        transition: .3s ease-in;
+        &_wrapper {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            overflow: hidden;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 0;
+            height: 100%;
+            -webkit-transition: width 0.3s ease;
+            transition: width 0.3s ease;
+            background-color: #1a1a1a;
+            &__post {
+                display: -webkit-inline-box;
+                display: -ms-inline-flexbox;
+                display: inline-flex;
+                max-width: 360rem;
+                padding: 0 11rem 0 12rem;
+            }
+        }
+    }
+    &__text {
+        font-size: 12rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+    }
+}

@@ -1,5 +1,9 @@
+'use client';
 import styles from './Lobby.module.scss';
 import { LobbyData } from './types';
+import DesktopSingleSlider from '@/app/components/ui/DesktopSingleSlider/DesktopSingleSlider';
+import PyramidSlider from '@/app/components/ui/PyramidSlider/PyramidSlider';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 type lobbyProps = {
     lobbyData: LobbyData;
@@ -7,34 +11,30 @@ type lobbyProps = {
 
 function Lobby({lobbyData}: lobbyProps) {
 
-    const { title, paragraph, images } = lobbyData;
+    const isMobile = useIsMobile();
+    if (isMobile === null) return null;
 
     return (
-        <section className={styles.lobby}>
+        <section>
             <div className="container">
                 <div className={styles.lobby__content}>
-                    <h2 className="title-b">{title}</h2>
-                       {images && images.length > 0 && (
-                            <div className={styles.lobby__content_cards}>
-                            {images.map((src, i) => (
-                                <div className={styles.lobby__content_cards__item} key={i}>
-                                {
-                                    i === 0 
-                                    ? 
-                                    <div className={styles.lobby__card_text}>
-                                        <h3>{title}</h3>
-                                        <p>{paragraph}</p>
-                                    </div>
-                                    :
-                                    ''
-                                }
-                                <img src={src} alt="" />
-                                </div>
-                            ))}
-                            </div>
-                        )}
-                    </div>
+                {
+                    isMobile ? (
+                        <div className={styles.lobby__content_mobileSlider}>
+                            <PyramidSlider
+                            pyramidSliderData={{
+                                images1: lobbyData.images,
+                                images2: [], 
+                                paragraphs: lobbyData.paragraphs,
+                            }}
+                            />
+                        </div>
+                    ) : (
+                        <DesktopSingleSlider sectionData={lobbyData} />
+                    )
+                }
                 </div>
+            </div>
         </section>
     )
 }

@@ -1,0 +1,27 @@
+mixin elector-list()
+  section.elector(data-elector="parent")&attributes(attributes)
+    h2.visually-hidden Выборщик дом
+    .elector__container.container
+      .elector__wrapper.elector__wrapper--apartment
+        .elector__aside
+          .elector__controls
+            a.elector__control(href="elector-house.html")
+              span Схема
+            a.elector__control.is-active(href="elector-list.html")
+              span Список
+
+        +filter().elector__filter(data-elector="filter")
+      .elector__list.apartments-list(data-elector="list")
+      template#card-template
+        .card
+          .card__img(data-card="img")
+          a.card__link(href="#", data-card="link")
+          .card__content
+            button.card__favorites(type="button", data-favorite-button, aria-label="Избранное")
+              +icon("icon-like", 16, 15)
+              +icon("icon-like-fill", 16, 15)
+            p.card__description(data-card="description")
+      .paragraph.elector__empty(data-elector-list-empty)
+        .paragraph__header
+          span.paragraph__title К сожалению, по выбранным параметрам ничего не найдено.
+        p.paragraph__text Попробуйте скорректировать критерии.

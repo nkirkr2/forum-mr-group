@@ -8,6 +8,9 @@
     :global(.title-b) {
       margin-bottom: 80rem;
     }
+    span {
+      color: var(--pink);
+    }
   }
   &__image {
     position: absolute; 
