@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useEffect, useRef, useState } from "react";  
+import { useEffect, useRef } from "react";  
 import MapPinsList from "./MapPinsList/MapPinsList";
 import Panzoom from "@panzoom/panzoom";
 import styles from './Map.module.scss';
@@ -8,13 +8,14 @@ import { LocationPin } from "@/app/sections/home/Location/types";
 
 type MapProps = {
   locations: LocationPin[];
-  onToggleClick: (index: number) => void;
+  activePin: number | null;
+  onToggleClick: (id: number) => void;
 };
 
-export default function Map({ locations, onToggleClick }: MapProps) {
+export default function Map({ locations, onToggleClick, activePin }: MapProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const [openedPin, setOpenedPin] = useState<number | null>(null);
+  const panzoomRef = useRef<ReturnType<typeof Panzoom> | null>(null);
 
   useEffect(() => {
     if (!mapRef.current || !contentRef.current) return;
@@ -25,9 +26,9 @@ export default function Map({ locations, onToggleClick }: MapProps) {
     const panzoom = Panzoom(contentEl, {
       disableZoom: false,
       contain: "outside",
-      duration: 0,
+      duration: 400,
       startScale: 1,
-      animate: false,
+      // animate: true,
       startX:
         mapEl.offsetWidth !== contentEl.scrollWidth
           ? (mapEl.offsetWidth - contentEl.scrollWidth) / 2
@@ -35,6 +36,8 @@ export default function Map({ locations, onToggleClick }: MapProps) {
     });
 
     mapEl.addEventListener("wheel", panzoom.zoomWithWheel);
+    panzoomRef.current = panzoom; 
+
 
     return () => {
       mapEl.removeEventListener("wheel", panzoom.zoomWithWheel);
@@ -42,11 +45,41 @@ export default function Map({ locations, onToggleClick }: MapProps) {
     };
   }, []);
 
+useEffect(() => {
+  if (!activePin || !mapRef.current || !contentRef.current || !panzoomRef.current) return;
 
-  const togglePin = (index: number) => {
-    setOpenedPin((prev) => (prev === index ? null : index));
-    console.log(index);
-  };
+  const pinEl = contentRef.current.querySelector(`[data-pin-id="${activePin}"]`) as HTMLElement;
+  if (!pinEl) return;
+
+  const mapEl = mapRef.current;
+  const contentEl = contentRef.current;
+  const panzoom = panzoomRef.current;
+
+  const mapRect = mapEl.getBoundingClientRect();
+  const contentRect = contentEl.getBoundingClientRect();
+  const pinRect = pinEl.getBoundingClientRect();
+
+  // центр пина в координатах контента
+  const pinCenterX = pinRect.left - contentRect.left + pinRect.width / 2;
+  const pinCenterY = pinRect.top - contentRect.top + pinRect.height / 2;
+
+  // нужно сдвинуть так, чтобы этот центр оказался в центре контейнера
+  const targetX = mapRect.width / 2 - pinCenterX;
+  const targetY = mapRect.height / 2 - pinCenterY;
+
+  // 🚩 вот так будет плавно
+  panzoom.pan(targetX, targetY, { animate: true, duration: 600 });
+
+  // 🚩 и зум к центру контейнера
+  panzoom.zoomToPoint(1.2, {
+    clientX: mapRect.width / 2,
+    clientY: mapRect.height / 2,
+  });
+}, [activePin]);
+
+
+
+
 
   return (
     <div className={styles.map} ref={mapRef}>
@@ -55,11 +88,9 @@ export default function Map({ locations, onToggleClick }: MapProps) {
 
         <MapPinsList
           pinsList={locations}
-          onClick={togglePin}
-          openedPin={openedPin}
+          activePin={activePin}
           onToggleClick={onToggleClick}
         />
-
       </div>
     </div>
   );

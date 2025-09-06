@@ -1,7 +1,7 @@
 'use client';
-import { useState } from "react";
-import List from "./List/List";
-import Scheme from "./Scheme/Scheme";
+// import { useState } from "react";
+// import List from "./List/List";
+// import Scheme from "./Scheme/Scheme";
 import styles from './Elector.module.scss';
 import Header from "../components/layout/Header/Header";
 import Footer from "../components/layout/Footer/Footer";

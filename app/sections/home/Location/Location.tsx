@@ -9,7 +9,7 @@ import { PaginationOptions } from 'swiper/types';
 import { SwiperClass } from 'swiper/react';
 import styles from './Location.module.scss';
 import Map from '../../../components/ui/Map/Map';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 type locationProps = {
     locationData: LocationData
@@ -18,7 +18,8 @@ type locationProps = {
 function Location({locationData}: locationProps) {
 
     const { title, paragraph, locations } = locationData;
-    console.log(locations)
+
+    const [activePin, setActivePin] = useState<number | null>(null);
 
     const swiperRef = useRef<SwiperClass | null>(null);
     const prevBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -26,10 +27,19 @@ function Location({locationData}: locationProps) {
     const paginationRef = useRef<HTMLDivElement | null>(null);
 
 
-   const getPinIndex = (id: number) => {
-        console.log('current index is:', id);
+    const getToPinById = (id: number) => {
+        const index = locations.findIndex(l => l.id === id);
+        if (index !== -1) {
+            swiperRef.current?.slideTo(index)
+            setActivePin(id);
+        }
    }
 
+    useEffect(() => {
+        if (activePin === null && locations.length > 0) {
+        setActivePin(locations[0].id);
+        }
+    }, [locations, activePin]);
 
     useEffect(() => {
     
@@ -65,7 +75,10 @@ function Location({locationData}: locationProps) {
                         <h2 className="title-b">{title}</h2>
                         <p className="paragraph">{paragraph}</p>
                     </div>
-                    <Map locations={locations} onToggleClick={getPinIndex}/>
+                    <Map locations={locations} 
+                    onToggleClick={getToPinById}
+                    activePin={activePin}
+                    />
                 </div>
             <div className={styles.location__swiper}>
                 <Swiper
@@ -77,7 +90,8 @@ function Location({locationData}: locationProps) {
                     swiperRef.current = swiper;
                 }}
                 onSlideChange={(swiper) => {
-                    console.log(`Current slide index is ${swiper.activeIndex}`);
+                    const idx = swiper.activeIndex;
+                    setActivePin(locations[idx].id);
                 }}
                 
                 >

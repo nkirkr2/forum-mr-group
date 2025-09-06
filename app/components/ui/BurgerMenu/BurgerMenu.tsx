@@ -1,20 +1,16 @@
 'use client';
-import { useState } from 'react';
 import styles from './BurgerMenu.module.scss';
 import Sandwich from '../../layout/Header/Sandwich/Sandwich';
 import Link from 'next/link';
 
-function BurgerMenu() {
+type BurgerMenuProps = {
+  isOpen: boolean
+}
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    }
+function BurgerMenu({isOpen}: BurgerMenuProps) {
 
     return (
         <>
-        <Sandwich onClick={toggleMenu} isOpen={isOpen}/>
         <nav className={`${styles.nav} ${isOpen ? styles.nav__open : ''}`}>
           <ul className={styles.nav__list}>
             <li><Link href="/architecture">Архитектура</Link></li>

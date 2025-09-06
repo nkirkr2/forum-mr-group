@@ -16,7 +16,7 @@
 
         position: fixed;
         inset: 0 auto auto 0;
-        z-index: 999;
+        z-index: 1000;
         width: 100%;
 
         display: flex;
@@ -41,7 +41,6 @@
         align-items: center;
         justify-content: space-between;
         position: fixed;
-        z-index: 999;
         width: 100%;
         &_contacts {
             display: flex;
@@ -49,6 +48,14 @@
             a {
                 text-transform: uppercase;
                 color: var(--black);
+                transition: .2s ease-in;
+                &:nth-child(2) {
+                    border-bottom: 1rem solid var(--black);
+                }
+                &:hover {
+                    color: var(--pink);
+                    border-color: var(--pink);
+                }
             }
         }
     }

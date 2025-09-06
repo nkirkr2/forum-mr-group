@@ -62,4 +62,7 @@
         text-overflow: ellipsis;
         text-transform: uppercase;
     }
+    &.active {
+        z-index: 9;
+    }
 }

@@ -4,19 +4,18 @@ import { useEffect, useRef } from 'react';
 
 type MapPinProps = {
   pin: MapPinTypes;
-  onClick: (index: number) => void;
   index: number;
-  isOpen: boolean;
-  onToggleClick: (index: number) => void;
+  isOpen: boolean;                
+  onToggleClick: (id: number) => void;
 }
 
-function MapPin({ pin, onClick, index, isOpen, onToggleClick }: MapPinProps) {
+function MapPin({ pin, index, isOpen, onToggleClick }: MapPinProps) {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const content = contentRef.current;             
-    const wrapper = wrapperRef.current;             
+    const content = contentRef.current;
+    const wrapper = wrapperRef.current;
     if (!content || !wrapper) return;
 
     content.style.overflow = 'hidden';
@@ -60,12 +59,12 @@ function MapPin({ pin, onClick, index, isOpen, onToggleClick }: MapPinProps) {
 
   return (
     <div
-      className={styles.MapPin}
+      className={`${styles.MapPin} ${isOpen ? styles.active : ''}`} 
+      data-pin-id={pin.id} 
       style={{ top: `${pin.position[0]}%`, left: `${pin.position[1]}%` }}
       onClick={(e) => {
         e.stopPropagation();
-        onClick(index);
-        onToggleClick(index);
+        onToggleClick(pin.id); 
       }}
     >
       <div

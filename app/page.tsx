@@ -18,20 +18,20 @@ export const revalidate = 60;
 
 export default async function Home() {
   const res = await fetch(`https://forum.mr-group.ru/api/index/`, {
-    // next: { revalidate: 60 }
+    next: { revalidate: 60 }
   });
   const api = await res.json();
   console.log('data from api:', api);
   const data = mapApiToHomepage(api);
-
-  console.log(data);
 
   return (
     <>
       <Header />
       <HeroHome heroData={data.hero}/>
       <Place placeData={data.place}/>
-      <Location locationData={data.location}/>
+      <Location 
+      // @ts-expect-error: API возвращает position как number[], а у нас [number, number]
+      locationData={data.location}/>
       <Surroundings surroundingsData={data.surroundings}/>
       <Architecture architectureData={data.architecture}/>
       <Improvement improvementData={data.improvement}/>

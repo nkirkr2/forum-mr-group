@@ -1,5 +1,7 @@
 // sections/home/Location/types.ts
-export type Coordinates = readonly [topPct: number, leftPct: number];
+
+// Кортеж из двух чисел: [top%, left%]
+export type Coordinates = [topPct: number, leftPct: number];
 
 export interface LocationPin {
   id: number;

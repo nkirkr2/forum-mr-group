@@ -1,24 +1,21 @@
 import { MapPinTypes } from "../../Map/types";
 import MapPin from "../MapPin/MapPin";
 
-
 type MapPinsListProps = {
   pinsList: MapPinTypes[];
-  onClick: (index: number) => void;
-  openedPin: number | null;
-  onToggleClick: (index: number) => void;
+  onToggleClick: (id: number) => void;
+  activePin: number | null;
 }
 
-function MapPinsList({ pinsList, onClick, openedPin, onToggleClick }: MapPinsListProps) {
+function MapPinsList({ pinsList, onToggleClick, activePin }: MapPinsListProps) {
   return (
     <>
       {pinsList.map((pin, index) => (
         <MapPin
-          key={index}
+          key={pin.id}
           pin={pin}
           index={index}
-          isOpen={openedPin === index}
-          onClick={onClick}
+          isOpen={activePin === pin.id}  
           onToggleClick={onToggleClick}
         />
       ))}

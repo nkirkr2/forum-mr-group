@@ -2,6 +2,7 @@
     width: 820rem;
     height: 600rem;
     flex-shrink: 0;
+    pointer-events: none;
     img {
         width: 100%;
         height: 100%;
@@ -9,6 +10,7 @@
     }
     &__inner {
         height: 100%;
+        transition: .3s ease-in!important;
         position: relative;
     }
     @media (max-width: 1024px) {

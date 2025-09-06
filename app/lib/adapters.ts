@@ -40,16 +40,12 @@ type Api = {
 const pickImages = (arr?: ImgText[]) => (arr ?? []).map(i => i.image).filter(Boolean) as string[];
 const pickTexts  = (arr?: ImgText[]) => (arr ?? []).map(i => (i.text ?? "")).filter(Boolean);
 
-// делим массив картинок пополам: в images1 и images2 (если нужно — поменяйте логику)
 function splitImages(arr?: ImgText[]) {
   const imgs = pickImages(arr);
   const mid = Math.ceil(imgs.length / 2);
   return { images1: imgs.slice(0, mid), images2: imgs.slice(mid) };
 }
 
-// Иногда сервер присылает html-теги (<span>, <br>). Либо рендерим как HTML,
-// либо чистим их. Здесь просто оставим как есть — компоненты смогут
-// отрендерить через dangerouslySetInnerHTML.
 const keepHtml = (s?: string) => s ?? "";
 
 export function mapApiToHomepage(api: Api) {
@@ -78,7 +74,36 @@ export function mapApiToHomepage(api: Api) {
     location: {
       title: keepHtml(api.mapTitle),
       paragraph: keepHtml(api.mapText),
-      locations: [], 
+      locations: [
+            {
+                id: 1,
+                title: 'Универмаг «Цветной»',
+                description: 'ЗДЕСЬ СТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИ',
+                position: [20.45, 41.1],
+                icon: "/images/map/icon-medicine.svg"
+            },
+            {
+                id: 2,
+                title: 'Ресторан «IKURA»',
+                description: 'ЗДЕСЬ СТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИ',
+                position: [37.6, 58],
+                icon: "/images/map/icon-museum.svg"
+            },
+            {
+                id: 3,
+                title: 'Универмаг «Цветной»',
+                description: 'ЗДЕСЬ СТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИ',
+                position: [20.1, 52],
+                icon: "/images/map/icon-restaurant.svg"
+            },
+            {
+                id: 4,
+                title: 'ТЕАТР ET CETERA',
+                description: 'ЗДЕСЬ СТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИ',
+                position: [26.6, 52.7],
+                icon:  "/images/map/icon-tshirt.svg"
+            },
+        ]
     },
 
     surroundings: {
