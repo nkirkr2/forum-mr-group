@@ -11,6 +11,7 @@
   "dependencies": {
     "@panzoom/panzoom": "^4.6.0",
     "classnames": "^2.5.1",
+    "inputmask": "^5.0.9",
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/inputmask": "^5.0.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

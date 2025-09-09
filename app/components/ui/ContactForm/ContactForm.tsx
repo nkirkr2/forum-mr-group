@@ -1,11 +1,13 @@
 'use client'
 import Input from "../Input/Input";
 import styles from './ContactForm.module.scss';
+import Inputmask from "inputmask";
 import Button from "../Button/Button";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function ContactForm() {
 
+    const inputRef = useRef<HTMLInputElement>(null);
     const [formData, setFormData] = useState({
         name: '',
         phone: ''
@@ -21,6 +23,14 @@ function ContactForm() {
         console.log(formData)
     }
 
+    useEffect(() => {
+    if (inputRef.current) {
+       const im = new Inputmask('+7 999 999 99 99', { 'placeholder': 'X', 'showMaskOnHover': false });
+      im.mask(inputRef.current);
+    }
+  }, []);
+
+
     return (
         <form className={styles.contact_form} onSubmit={handleSubmit}>
             <Input
@@ -31,6 +41,7 @@ function ContactForm() {
             onChange={handleChange}
             />
             <Input
+            ref={inputRef}
             type="tel"
             name='phone'
             placeholder="Телефон"

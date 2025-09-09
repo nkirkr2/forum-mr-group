@@ -11,11 +11,11 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 80rem;
         &_left {
-            p {
+            p, address {
                 font-size: 16rem;
-                &:nth-child(1) {
-                    margin-bottom: 20rem;
-                }
+            }
+            address {
+                margin-bottom: 20rem;
             }
             display: flex;
             flex-direction: column;
@@ -24,6 +24,9 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20rem;
+                button {
+                    width: 100%;
+                }
             }
         }
     }

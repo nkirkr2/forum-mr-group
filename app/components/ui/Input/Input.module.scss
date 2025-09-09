@@ -3,4 +3,11 @@
     color: var(--black);
     padding-bottom: 5rem;
     border-bottom: 1rem solid var(--black);
+    input {
+        text-transform: uppercase;
+        color: var(--black);
+        &::placeholder {
+            color: var(--black);
+        }
+    }
 }

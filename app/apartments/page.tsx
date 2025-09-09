@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { surroundingsData as data } from "./data";
+import { apartmentsData as data } from "./data";
 import Header from "../components/layout/Header/Header";
 import Hero from "../sections/typed/Hero/Hero";
 import About from "../sections/typed/About/About";
@@ -10,19 +10,17 @@ import Footer from "../components/layout/Footer/Footer";
 
 
 export const metadata: Metadata = {
-    title: "FORUM - Окружение. Официальный сайт клубного дома от компании MR Group",
+    title: "FORUM - Amenities. Официальный сайт клубного дома от компании MR Group",
 }
 
+async function Apartments() {
 
-async function Surroundings() {
-
-    const res = await fetch(`https://forum.mr-group.ru/api/page/?id=environment`, {
+    const res = await fetch(`https://forum.mr-group.ru/api/page/?id=apartments`, {
     next: { revalidate: 60 }
     });
     const api = await res.json();
     console.log('data from api:', api)
     console.log('arch banner:', typeof api.mainBanner, api.mainBanner);
-
 
     return (
         <>
@@ -40,4 +38,4 @@ async function Surroundings() {
     )
 }
 
-export default Surroundings;
+export default Apartments;

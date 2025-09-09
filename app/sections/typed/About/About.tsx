@@ -1,17 +1,15 @@
 import styles from './About.module.scss';
 
 type AboutProps = {
-    aboutContent: {paragraph: string}
+    text: string;
 }
 
-function About({ aboutContent }: AboutProps) {
-
-    const paragraph = aboutContent.paragraph;
+function About({ text }: AboutProps) {
 
     return (
         <section className={styles.about}>
             <div className={styles.about__content}>
-                <p className="paragraph">{[paragraph]}</p>
+                <p className="paragraph">{text}</p>
             </div>
         </section>
     )

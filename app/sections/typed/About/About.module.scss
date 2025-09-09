@@ -1,5 +1,6 @@
 .about {
-    height: 546rem;
+    height: 616rem;
+    margin-bottom: 0;
     &__content {
         max-width: 1138rem;
         height: 100%;
@@ -16,7 +17,7 @@
     @media (max-width: 500px) {
         height: auto;
         &__content {
-            padding: 0 20rem;
+            padding: 60rem 20rem;
         }
     }
 }

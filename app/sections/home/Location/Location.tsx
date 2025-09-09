@@ -118,7 +118,7 @@ function Location({locationData}: locationProps) {
                         </svg>
                     </button>
                 </div>
-                <Link href="/location" className='page-link'>Подробнее</Link>
+                {/* <Link href="/location" className='page-link'>Подробнее</Link> */}
             </div>
             </div>
         </section>

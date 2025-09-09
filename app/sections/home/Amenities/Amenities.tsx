@@ -1,35 +1,32 @@
-'use client'
-
-import DoubleXSlider from "@/app/components/ui/DoubleXSlider/DoubleXSlider";
-import PyramidSlider from "@/app/components/ui/PyramidSlider/PyramidSlider";
 import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
-import useIsMobile from "@/app/hooks/useIsMobile";
+import styles from './Amenities.module.scss';
+import ClientAmenities from "./ClientAmenities";
+import Link from "next/link";
 
-type amenitiesProps = {
-    amenitiesData: DoubleXSliderData;
+type AmenitiesProps = {
+  amenitiesData: DoubleXSliderData;
+};
+
+function Amenities({ amenitiesData }: AmenitiesProps) {
+  const { title, paragraphs } = amenitiesData;
+
+  return (
+    <section className={styles.amenities}>
+      <div className="container">
+        <h2 className="title-b">{title}</h2>
+
+        <div className="visually-hidden">
+          {paragraphs?.map((p, idx) => (
+            <p key={idx}>{p}</p>
+          ))}
+        </div>
+        
+        <ClientAmenities amenitiesData={amenitiesData} />
+
+        <Link className='page-link' href='/amenities'>Подробнее</Link>
+      </div>
+    </section>
+  );
 }
 
-function Amenities({amenitiesData}: amenitiesProps) {
-
-    const { title } = amenitiesData;
-
-    const isMobile = useIsMobile();
-    if (isMobile === null) return null;
-
-
-    
-    return (
-        <section>
-            <div className="container">
-                <h2 className="title-b">{title}</h2>
-                {
-                    isMobile ?
-                    <PyramidSlider pyramidSliderData={amenitiesData}/>
-                    :
-                    <DoubleXSlider doubleXSliderData={amenitiesData}/>
-                }
-            </div>
-        </section>
-    )
-}
 export default Amenities;

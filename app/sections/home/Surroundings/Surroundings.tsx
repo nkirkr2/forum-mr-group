@@ -1,37 +1,33 @@
-'use client';
 import styles from './Surroundings.module.scss';
-import DoubleXSlider from '@/app/components/ui/DoubleXSlider/DoubleXSlider';
-import DoubleMobSlider from '@/app/components/ui/DoubleMobSlider/DoubleMobSlider';
-import useIsMobile from '@/app/hooks/useIsMobile';
 import { SurroundingsData } from './type';
+import ClientSurroundings from './ClientSurroundings';
+import Link from 'next/link';
 
-type surroundingsProps = {
-    surroundingsData: SurroundingsData
-}
+type SurroundingsProps = {
+  surroundingsData: SurroundingsData;
+};
 
-function Surroundings({surroundingsData}: surroundingsProps) {
+function Surroundings({ surroundingsData }: SurroundingsProps) {
+  const { title, paragraphs } = surroundingsData;
 
-    const { title } = surroundingsData;
+  return (
+    <section className={styles.surroundings}>
+      <div className="container">
+        <h2 className="title-b">{title}</h2>
 
-    const isMobile = useIsMobile();
-    
-    if (isMobile === null) {
-        return;
-    }
+        <div className="visually-hidden">
+          {paragraphs?.map((p, idx) => (
+            <p key={idx}>{p}</p>
+          ))}
+        </div>
 
-    return (
-        <section className={styles.surroundings}>
-            <div className="container">
-                <h2 className="title-b">{title}</h2>
-                {
-                    isMobile ?
-                    <DoubleMobSlider doubleMobSliderData={surroundingsData}/>
-                    :
-                    <DoubleXSlider doubleXSliderData={surroundingsData}/>
-                }
-            </div>
-        </section>
-    )
+        <ClientSurroundings surroundingsData={surroundingsData} />
+
+        <Link className='page-link' href='/surroundings'>Подробнее</Link>
+
+      </div>
+    </section>
+  );
 }
 
 export default Surroundings;

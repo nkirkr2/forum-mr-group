@@ -4,6 +4,9 @@ import OlderDesktop from './DesktopOlder';
 import OlderMobile from './MobileOlder';
 import { OlderData } from './types';
 import useIsMobile from '@/app/hooks/useIsMobile';
+import ClientOlder from './ClientOlder';
+
+// import ClientOlder from './ClientOlder';
 
 type OlderProps = {
    olderData: OlderData;
@@ -11,22 +14,21 @@ type OlderProps = {
 
 function Older({olderData}: OlderProps) {
 
+    const { title, paragraphs } = olderData;
+
     const isMobile = useIsMobile();
     if (isMobile === null) return;
 
     return (
         <section className={styles.older}>
+            <div className="visually-hidden">
+            <h2>{title}</h2>
+            {paragraphs?.map((p, idx) => (
+                <p key={idx}>{p}</p>
+            ))}
+            </div>
             <div className="container">
-                {
-                    isMobile
-                    ?
-                    <>
-                    <h2 className="title-b">История места</h2>
-                    <OlderMobile olderContent={olderData} />
-                    </>
-                    :
-                    <OlderDesktop olderContent={olderData} />
-                }
+                <ClientOlder olderData={olderData}/>
             </div>
         </section>
     )

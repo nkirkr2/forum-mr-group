@@ -1,6 +1,6 @@
 'use client';
 import styles from './BurgerMenu.module.scss';
-import Sandwich from '../../layout/Header/Sandwich/Sandwich';
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 type BurgerMenuProps = {
@@ -8,6 +8,14 @@ type BurgerMenuProps = {
 }
 
 function BurgerMenu({isOpen}: BurgerMenuProps) {
+
+    useEffect(() => {
+    if (isOpen) {
+      document.documentElement.classList.add('no-scroll');
+    } else {
+      document.documentElement.classList.remove('no-scroll');
+    }
+  }, [isOpen]);
 
     return (
         <>

@@ -6,6 +6,5 @@ export async function getCmsData() {
     if (!res.ok) {
         throw new Error('Не получилось получить данные!');
     }
-    console.log('Данные получены');
     return await res.json();
 }

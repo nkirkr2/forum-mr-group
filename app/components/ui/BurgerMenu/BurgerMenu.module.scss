@@ -42,11 +42,12 @@
         opacity: 1;
         pointer-events: all;
     }
-
+    
     @media only screen and (max-width: 500px) {
         left: 0;
         width: 100%;
         border: none;
         text-align: center;
+        height: 100%;
     }
 }

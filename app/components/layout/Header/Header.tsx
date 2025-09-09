@@ -2,8 +2,11 @@
 import style from './Header.module.scss';
 import { useState } from 'react';
 import Logo from './Logo';
-import BurgerMenu from '../../ui/BurgerMenu/BurgerMenu';
 import Sandwich from './Sandwich/Sandwich';
+import dynamic from 'next/dynamic';
+const BurgerMenu = dynamic(() => import('../../ui/BurgerMenu/BurgerMenu'), {
+  ssr: false,
+});
 
 function Header() {
 
@@ -15,20 +18,18 @@ function Header() {
 
     return (
         <header className={style.header}>
-            {/* <div className="container"> */}
-                <div className={style.header__row}>
-                    <Sandwich
-                    onClick={toggleMenu}
-                    isOpen={isOpen}
-                    />
-                    <Logo />
-                    <div className={style.header__row_contacts}>
-                        <a href='#!'>+7 (495) 085-02-80</a>
-                        <a href='#!'>Купить квартиру</a>
-                    </div>
+            <div className={style.header__row}>
+                <Sandwich
+                onClick={toggleMenu}
+                isOpen={isOpen}
+                />
+                <Logo />
+                <div className={style.header__row_contacts}>
+                    <a href='tel:+74950850280'>+7 (495) 085-02-80</a>
+                    <a href='/buy'>Купить квартиру</a>
                 </div>
-                <BurgerMenu isOpen={isOpen}/>
-            {/* </div> */}
+            </div>
+            <BurgerMenu isOpen={isOpen}/>
         </header>
     )
 }

@@ -1,4 +1,5 @@
 .lobby {
+    margin-bottom: 120rem;
     &__content {
         position: relative;
         &_text {
@@ -17,8 +18,8 @@
                 position: absolute;
                 margin-bottom: 0;
                 top: 50%;
-                transform: translateX(-50%) rotate(-90deg);
-                left: 0;
+                transform: translate(-50%, -50%) rotate(-90deg);
+                left: 20rem;
             }
             :global(.paragraph) {
                 margin-left: auto;

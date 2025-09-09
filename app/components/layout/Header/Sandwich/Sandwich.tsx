@@ -13,7 +13,7 @@ export default function Sandwich({onClick, isOpen}: SandwichProps) {
       className={`${styles.Sandwich} ${isOpen ? styles.active : ""}`}
       style={{
         position: "relative",
-        width: "42rem",
+        width: "32rem",
         height: "24rem",
         cursor: 'pointer',
       }}

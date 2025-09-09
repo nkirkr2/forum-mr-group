@@ -3,7 +3,7 @@
     padding-top: 551rem;
     padding-bottom: 214rem;
     text-align: center;
-    max-width: 557rem;
+    max-width: 597rem;
     margin: 0 auto;
     :global(.title-b) {
       margin-bottom: 80rem;
@@ -37,7 +37,8 @@
       width: 241rem; 
       height: 362rem;
       right: 42rem;
-      bottom: 295rem;
+      top: 381rem;
+      // bottom: 295rem;
     }
 
     &:nth-child(4) {
@@ -70,7 +71,8 @@
       &:nth-child(3) {
         width: 207rem;
         height: 310rem;
-        bottom: 458rem;
+        top: 165rem;
+        // bottom: 458rem;
         right: 22rem;
       }
       &:nth-child(4) {
@@ -109,6 +111,7 @@
         width: 146rem; 
         height: 220rem;
         bottom: 166rem;
+        top: unset;
         right: 20rem;
       }
       &:nth-child(4) {

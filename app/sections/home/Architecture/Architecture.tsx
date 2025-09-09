@@ -1,9 +1,6 @@
-'use client'
-
-import DoubleXSlider from "@/app/components/ui/DoubleXSlider/DoubleXSlider";
-import DoubleMobSlider from "@/app/components/ui/DoubleMobSlider/DoubleMobSlider";
 import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
-import useIsMobile from "@/app/hooks/useIsMobile";
+import ClientArchitecture from "./ClientArchitecture";
+import Link from "next/link";
 
 type architectureProps = {
     architectureData: DoubleXSliderData;
@@ -11,25 +8,21 @@ type architectureProps = {
 
 function Architecture({architectureData}: architectureProps) {
 
-    const { title } = architectureData;
+    const { title, paragraphs } = architectureData;
 
-    const isMobile = useIsMobile();
-
-    if (isMobile === null) {
-        return;
-    }
-
- 
     return (
         <section>
             <div className="container">
                 <h2 className="title-b">{title}</h2>
-                {
-                    isMobile ?
-                    <DoubleMobSlider doubleMobSliderData={architectureData}/>
-                    :
-                    <DoubleXSlider doubleXSliderData={architectureData}/>
-                }
+
+                <div className="visually-hidden">
+                {paragraphs?.map((p, idx) => (
+                    <p key={idx}>{p}</p>
+                ))}
+                </div>
+
+                <ClientArchitecture architectureData={architectureData}/>
+                <Link className='page-link' href='/architecture'>Подробнее</Link>
             </div>
         </section>
     )

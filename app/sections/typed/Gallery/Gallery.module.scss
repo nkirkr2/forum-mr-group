@@ -27,6 +27,7 @@
             right: 26rem;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 10rem;
             button {
                 svg {
@@ -51,7 +52,7 @@
                 opacity: 1;             
             } 
             :global(.swiper-pagination-bullet-active) {
-                background: var(--main-white)!important;                
+                background: var(--main-white)!important;   
             } 
         }
     }
@@ -67,6 +68,9 @@
                 left: 50%;
                 transform: translateX(-50%);
                 bottom: 60rem;
+            }
+            &_controls {
+                bottom: -60rem;
             }
         }
     }

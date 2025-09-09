@@ -21,8 +21,6 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
 
     const { images1, paragraphs } = pyramidSliderData;
 
-    console.log('older', pyramidSliderData)
-
 
     const imgSwiperRef = useRef<SwiperClass | null>(null);
     const textSwiperRef = useRef<SwiperClass | null>(null);
@@ -59,26 +57,36 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
 
     return (
         <div className={styles.pyramidSliderWrapper}>
-            <Swiper
-            className={styles.pyramidSlider__first}
-            modules={[EffectFade, Controller, Navigation, Pagination]}
-            effect="fade"
-            fadeEffect={{ crossFade: true }}
-            speed={700}
-            onSwiper={(swiper) => {
-                imgSwiperRef.current = swiper;
-                if (textSwiperRef.current && swiper.controller && textSwiperRef.current.controller) {
-                    swiper.controller.control = textSwiperRef.current;
-                    textSwiperRef.current.controller.control = swiper;
-                }
-            }}
-            >
-                {images1 && images1.map((src, i) => (
-                <SwiperSlide key={i}>
-                    <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
-                </SwiperSlide>
-                ))}
-            </Swiper>
+            <div style={{position: 'relative'}}>
+                <Swiper
+                className={styles.pyramidSlider__first}
+                modules={[EffectFade, Controller, Navigation, Pagination]}
+                effect="fade"
+                fadeEffect={{ crossFade: true }}
+                speed={700}
+                onSwiper={(swiper) => {
+                    imgSwiperRef.current = swiper;
+                    if (textSwiperRef.current && swiper.controller && textSwiperRef.current.controller) {
+                        swiper.controller.control = textSwiperRef.current;
+                        textSwiperRef.current.controller.control = swiper;
+                    }
+                }}
+                >
+                    {images1 && images1.map((src, i) => (
+                    <SwiperSlide key={i}>
+                        <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
+                    </SwiperSlide>
+                    ))}
+                </Swiper>
+                 <div className={styles.pyramidSlider__bg}>
+                <Image
+                src={'/images/pyramid-frame.svg'} 
+                alt=""
+                fill
+                style={{ objectFit: "contain" }}
+                />
+            </div>
+            </div>
 
             <Swiper
             className={styles.pyramidSlider__second}
@@ -113,14 +121,6 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
                             <path d="M1.3208 6.53516C0.768516 6.53516 0.320801 6.98287 0.320801 7.53516C0.320801 8.08744 0.768516 8.53516 1.3208 8.53516L1.3208 6.53516ZM42.3864 8.24227C42.7769 7.85174 42.7769 7.21858 42.3864 6.82805L36.0224 0.464091C35.6319 0.0735664 34.9987 0.0735663 34.6082 0.464091C34.2177 0.854615 34.2177 1.48778 34.6082 1.8783L40.2651 7.53516L34.6082 13.192C34.2177 13.5825 34.2177 14.2157 34.6082 14.6062C34.9987 14.9968 35.6319 14.9968 36.0224 14.6062L42.3864 8.24227ZM1.3208 7.53516L1.3208 8.53516L41.6793 8.53516L41.6793 7.53516L41.6793 6.53516L1.3208 6.53516L1.3208 7.53516Z" fill="#EFEFEF" />
                         </svg>
                 </button>
-            </div>
-            <div className={styles.pyramidSlider__bg}>
-                <Image
-                src={'/images/pyramid-frame.svg'} 
-                alt=""
-                fill
-                style={{ objectFit: "contain" }}
-                />
             </div>
         </div>
     )

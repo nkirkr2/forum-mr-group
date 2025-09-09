@@ -1,9 +1,8 @@
-'use client'
 
-import DoubleXSlider from "@/app/components/ui/DoubleXSlider/DoubleXSlider";
-import DoubleMobSlider from "@/app/components/ui/DoubleMobSlider/DoubleMobSlider";
 import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
-import useIsMobile from "@/app/hooks/useIsMobile";
+import ClientFacing from "./ClientFacing";
+import Link from "next/link";
+import styles from './Facing.module.scss';
 
 type amenitiesProps = {
     facingData: DoubleXSliderData;
@@ -11,25 +10,23 @@ type amenitiesProps = {
 
 function Facing({facingData}: amenitiesProps) {
 
-    const { title } = facingData;
+    const { title, paragraphs } = facingData;
 
-    const isMobile = useIsMobile();
-
-    if (isMobile === null) {
-        return;
-    }
-
- 
     return (
-        <section>
+        <section className={styles.facing}>
             <div className="container">
                 <h2 className="title-b">{title}</h2>
-                {
-                    isMobile ?
-                    <DoubleMobSlider doubleMobSliderData={facingData}/>
-                    :
-                    <DoubleXSlider doubleXSliderData={facingData}/>
-                }
+
+                <div className="visually-hidden">
+                {paragraphs?.map((p, idx) => (
+                    <p key={idx}>{p}</p>
+                ))}
+                </div>
+                
+                <ClientFacing facingData={facingData}/>
+
+                <Link className='page-link' href='/facing'>Подробнее</Link>
+
             </div>
         </section>
     )

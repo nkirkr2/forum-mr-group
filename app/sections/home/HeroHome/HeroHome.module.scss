@@ -3,8 +3,10 @@
     aspect-ratio: 1440 / 900;
 
     &__content {
-        text-align: end;
         padding-top: 120rem;
+        max-width: 686rem;
+        text-align: start;
+        margin-left: auto;
         img {
             width: 685rem;
             height: 147rem;

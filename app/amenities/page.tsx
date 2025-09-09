@@ -13,14 +13,24 @@ export const metadata: Metadata = {
     title: "FORUM - Amenities. Официальный сайт клубного дома от компании MR Group",
 }
 
-function Amenities() {
+async function Amenities() {
+
+    const res = await fetch(`https://forum.mr-group.ru/api/page/?id=amenities`, {
+    next: { revalidate: 60 }
+    });
+    const api = await res.json();
+    console.log('data from api:', api)
+    console.log('arch banner:', typeof api.mainBanner, api.mainBanner);
+
     return (
         <>
         <Header />
-        <Hero heroContent={data.hero} />
-        <About aboutContent={data.about}
+        <Hero
+        background={api.mainBanner} 
+        title={api.mainTitle}
         />
-        <Gallery galleryContent={data.gallery}/>
+        <About text={api.text} />
+        <Gallery galleryContent={api.slider}/>
         <Cross crossContent={data.cross}/>
         <Features featuresContent={data.features}/>
         <Footer />

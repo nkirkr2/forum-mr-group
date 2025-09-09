@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 
-export default function useIsMobile(breakpoint = 768) {
+export default function useIsMobile(breakpoint = 500) {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -10,8 +10,7 @@ export default function useIsMobile(breakpoint = 768) {
     const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
     const update = () => setIsMobile(mql.matches);
 
-    update(); // первичная установка
-    // поддержка разных браузеров
+    update(); 
     if (mql.addEventListener) {
       mql.addEventListener('change', update);
     } else {
