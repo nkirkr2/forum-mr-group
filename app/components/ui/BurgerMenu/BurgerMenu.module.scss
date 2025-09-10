@@ -36,13 +36,16 @@
                 color: var(--pink);
                 text-decoration: underline;
             }
+            &.active {
+                color: var(--pink);
+                text-decoration: underline!important;
+            }
         }
     }
     &__open {
         opacity: 1;
         pointer-events: all;
     }
-    
     @media only screen and (max-width: 500px) {
         left: 0;
         width: 100%;

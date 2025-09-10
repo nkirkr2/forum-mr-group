@@ -49,6 +49,11 @@
     }
 
     @media screen and (max-width: 500px) {
+        margin-bottom: 165rem;
+        :global(.page-link) {
+            transform: translate(0);
+            left: 20rem;
+        }
         &__content {
             h2 {
                 position: absolute;

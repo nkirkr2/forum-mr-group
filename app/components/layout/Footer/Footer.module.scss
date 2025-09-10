@@ -37,11 +37,16 @@
             color: var(--main-white);
             font-size: 14rem;
             text-transform: uppercase;
-            border-bottom: 1rem solid var(--main-white);
             transition: .2s ease-in;
+            background-image: linear-gradient(var(--main-white), var(--main-white));
+            background-position: 0 0.95em;
+            background-repeat: no-repeat;
+            background-size: 100% 2rem;
+            -webkit-transition: background-size 0.3s ease;
+            transition: background-size 0.3s ease;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
             &:hover {
-                color: var(--pink);
-                border-color: var(--pink);
+                background-size: 0% 2rem;
             }
         }
         padding: 20rem 0;
@@ -83,6 +88,9 @@
                 &__buttons {
                     margin-top: 20rem;
                 }
+            }
+            address {
+                text-align: center;
             }
         }
         &__bottom {

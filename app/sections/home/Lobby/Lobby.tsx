@@ -1,4 +1,5 @@
 import ClientLobby from './ClientLobby';
+import Link from 'next/link';
 import styles from './Lobby.module.scss';
 import { LobbyData } from './types';
 
@@ -14,15 +15,16 @@ function Lobby({lobbyData}: lobbyProps) {
         <section className={styles.lobby}>
             <div className="container">
                 <div className={styles.lobby__content}>
+                <h2 className='title-b mobile-visible'>{title}</h2>
 
                 <div className="visually-hidden">
-                <h2>{title}</h2>
                 {paragraphs?.map((p, idx) => (
                     <p key={idx}>{p}</p>
                 ))}
                 </div>
                 
                 <ClientLobby lobbyData={lobbyData}/>
+                <Link className='page-link mobile-visible' href='/lobby'>Подробнее</Link>
                 </div>
             </div>
         </section>

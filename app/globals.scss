@@ -237,12 +237,26 @@ section {
 	font-family: var(--font-family);
 	font-size: 24rem;
 	text-transform: uppercase;
-	text-decoration: underline!important;
-	text-decoration-skip-ink: none;
 	color: var(--pink);
 	width: fit-content;
 	bottom: 9rem;
 	position: absolute;
+	background-image: linear-gradient(var(--pink), var(--pink));
+	background-position: 0 0.95em;
+	background-repeat: no-repeat;
+	background-size: 100% 2rem;
+	-webkit-transition: background-size 0.3s ease;
+	transition: background-size 0.3s ease;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	&:hover {
+		background-size: 0% 2rem;
+	}
+}
+.mobile-visible {
+	display: none;
+}
+.zhopa {
+	color: red;
 }
 .block-404 {
 	margin-bottom: 0;
@@ -296,6 +310,9 @@ section {
 	html {
 		font-size: calc(1vw / 3.9);
 	}
+	.mobile-visible {
+		display: inline-block;
+	}
 	.paragraph {
 		font-size: 16rem;
 	}
@@ -316,5 +333,8 @@ section {
 		bottom: -45rem;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+	section {
+		margin-bottom: 165rem;
 	}
 }

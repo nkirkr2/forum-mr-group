@@ -1,6 +1,7 @@
 type ImgText = { image?: string; text?: string };
 type Api = {
   firstBlockImage?: string;
+  firstBlockMobileImage?: string;
   firstBlockText?: string;
 
   secondBlockTitle?: string;
