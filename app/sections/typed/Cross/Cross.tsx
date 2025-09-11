@@ -15,7 +15,7 @@ function Cross({crossContent}: CrossProps) {
         <section className={styles.cross}>
             <div className="container">
                 <div className={styles.cross__content}>
-                    <h2 
+                    <p 
                     className="title-b"
                     dangerouslySetInnerHTML={{ __html: title }}
                     />

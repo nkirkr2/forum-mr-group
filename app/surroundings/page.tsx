@@ -11,7 +11,7 @@ import Footer from "../components/layout/Footer/Footer";
 
 
 async function getData() {
-  return fetchApiData(API_ROUTES.LOBBY);
+  return fetchApiData(API_ROUTES.SURROUNDINGS);
 }
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -39,10 +39,10 @@
                 outline: 1rem solid var(--main-white);
                 background-color: var(--main-white);
                 &:hover {
-                    background-color: var(--main-white);
+                    outline: none;
                     svg {
                         path {
-                            fill: black;
+                            fill: var(--main-white);
                         }
                     }
                 }

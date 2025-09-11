@@ -36,10 +36,11 @@
                 );
             }
         }
-        p {
+        :global(.paragraph) {
             max-width: 894rem;
+            color: var(--black);
         }
-        h2 {
+        :global(.title-b) {
             max-width: 879rem;
             span {
                 color: var(--pink);
