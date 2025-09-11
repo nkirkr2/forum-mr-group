@@ -54,6 +54,15 @@
             :global(.swiper-pagination-bullet-active) {
                 background: var(--main-white)!important;   
             } 
+            :global(.swiper-button-disabled) {
+                background: transparent;
+                outline: 1rem solid var(--main-white);
+                svg {
+                    path {
+                        fill: var(--main-white);
+                    }
+                }
+            }
         }
     }
 

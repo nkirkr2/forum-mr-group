@@ -3,27 +3,31 @@ import Image from 'next/image';
 
 
 type CrossProps = {
-    crossContent: {title: string, media: string, paragraph: string}
+    crossContent: {title: string, image: string, text: string}
 }
 
 function Cross({crossContent}: CrossProps) {
 
-    const { title, media, paragraph } = crossContent
+    const { title, image, text } = crossContent;
+
 
     return (
         <section className={styles.cross}>
             <div className="container">
                 <div className={styles.cross__content}>
-                    <h2 className="title-b">{title}</h2>
+                    <h2 
+                    className="title-b"
+                    dangerouslySetInnerHTML={{ __html: title }}
+                    />
                     <div className={styles.cross__content_media}>
                         <Image
-                        src={media}
+                        src={image}
                         fill
                         alt=''
                         style={{objectFit: 'cover'}}
                         />
                     </div>
-                    <p className="paragraph">{paragraph}</p>
+                    <p className="paragraph">{text}</p>
                 </div>
             </div>
         </section>
