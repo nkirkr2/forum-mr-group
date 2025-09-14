@@ -27,45 +27,43 @@ function Location({locationData}: locationProps) {
     const paginationRef = useRef<HTMLDivElement | null>(null);
 
 
-    const getToPinById = (id: number) => {
+    const getToPinById = (id: number | null) => {
+        if (id === null) {
+            setActivePin(null);  
+            return;
+        }
+
         const index = locations.findIndex(l => l.id === id);
         if (index !== -1) {
-            swiperRef.current?.slideTo(index)
+            swiperRef.current?.slideTo(index);
             setActivePin(id);
         }
-   }
+    };
 
     useEffect(() => {
-        if (activePin === null && locations.length > 0) {
-        setActivePin(locations[0].id);
+        if (!swiperRef.current || !prevBtnRef.current || !nextBtnRef.current || !paginationRef.current) return;
+
+        const swiper = swiperRef.current;
+
+        if (swiper.params.navigation && swiper.params.navigation !== true) {
+            const navigation = swiper.params.navigation;
+            navigation.prevEl = prevBtnRef.current;
+            navigation.nextEl = nextBtnRef.current;
+            swiper.navigation.destroy();
+            swiper.navigation.init();
+            swiper.navigation.update();
         }
-    }, [locations, activePin]);
 
-    useEffect(() => {
-    
-            if (!swiperRef.current || !prevBtnRef.current || !nextBtnRef.current || !paginationRef.current) return;
-    
-            const swiper = swiperRef.current;
-    
-            if (swiper.params.navigation && swiper.params.navigation !== true) {
-                const navigation = swiper.params.navigation;
-                navigation.prevEl = prevBtnRef.current;
-                navigation.nextEl = nextBtnRef.current;
-                swiper.navigation.destroy();
-                swiper.navigation.init();
-                swiper.navigation.update();
-            }
-    
-            if (swiper.params.pagination) {
-                const pagination = swiper.params.pagination as PaginationOptions;
-                pagination.el = paginationRef.current;
-                pagination.clickable = true;
-                swiper.pagination.destroy();
-                swiper.pagination.init();
-                swiper.pagination.render();
-                swiper.pagination.update();
-            }
-        }, []);
+        if (swiper.params.pagination) {
+            const pagination = swiper.params.pagination as PaginationOptions;
+            pagination.el = paginationRef.current;
+            pagination.clickable = true;
+            swiper.pagination.destroy();
+            swiper.pagination.init();
+            swiper.pagination.render();
+            swiper.pagination.update();
+        }
+    }, []);
 
     return (
         <section className={styles.location}>

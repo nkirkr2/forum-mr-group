@@ -11,9 +11,7 @@ import Facing from "./sections/home/Facing/Facing";
 import Improvement from "./sections/home/Improvement/Improvement";
 import Older from "./sections/home/Older/Older";
 import Apartments from "./sections/home/Apartments/Apartments";
-
 import { mapApiToHomepage } from "./lib/adapters";
-import Cookies from "./components/layout/Cookies/Cookies";
 
 export const revalidate = 60;
 
@@ -22,8 +20,8 @@ export default async function Home() {
     next: { revalidate: 60 }
   });
   const api = await res.json();
-  console.log('data from api:', api)
   const data = mapApiToHomepage(api);
+  console.log(data)
 
   return (
     <>

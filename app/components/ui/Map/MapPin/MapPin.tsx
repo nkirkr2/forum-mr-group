@@ -9,7 +9,7 @@ type MapPinProps = {
   onToggleClick: (id: number) => void;
 }
 
-function MapPin({ pin, index, isOpen, onToggleClick }: MapPinProps) {
+function MapPin({ pin, isOpen, onToggleClick }: MapPinProps) {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
