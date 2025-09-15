@@ -15,7 +15,7 @@ function Place({placeData}: placeProps) {
             <div className={styles.place__content}>
           <h2
           className="title-b"
-          dangerouslySetInnerHTML={{ __html: title }}
+          dangerouslySetInnerHTML={{ __html: title || ''}}
         />
               <p className='paragraph'>{paragraph}</p>
 

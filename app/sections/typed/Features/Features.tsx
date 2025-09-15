@@ -8,13 +8,16 @@ type FeaturesProps = {
 }
 
 function Features({featuresContent}: FeaturesProps) {
-    console.log(featuresContent)
+    const featuresItems = [
+    { image: featuresContent.image1, title: featuresContent.title1, text: featuresContent.paragraph1 },
+    { image: featuresContent.image2, title: featuresContent.title2, text: featuresContent.paragraph2 },
+    ];
 
 
     return (
         <section className={styles.features}>
                 <div className={styles.features__content}>
-                    {featuresContent && featuresContent.map((el, idx) => (
+                    {featuresItems && featuresItems.map((el, idx) => (
                         <div key={idx} className={styles.features__content_item}>
                             {idx === 0 ?
                                 <>
@@ -28,11 +31,11 @@ function Features({featuresContent}: FeaturesProps) {
                                 <div className={styles.features__content_item__text}>
                                     <h2 
                                     className="title-b"
-                                    dangerouslySetInnerHTML={{ __html: el.title }}
+                                    dangerouslySetInnerHTML={{ __html: el.title || '' }}
                                     />
                                     <p 
                                     className="paragraph"
-                                    dangerouslySetInnerHTML={{ __html: el.text }}
+                                    dangerouslySetInnerHTML={{ __html: el.text || '' }}
                                     />
                                 </div>
                                 </>
@@ -41,11 +44,11 @@ function Features({featuresContent}: FeaturesProps) {
                                 <div className={styles.features__content_item__text}>
                                     <h2 
                                     className="title-b"
-                                    dangerouslySetInnerHTML={{ __html: el.title }}
+                                    dangerouslySetInnerHTML={{ __html: el.title || '' }}
                                     />
                                     <p 
                                     className="paragraph"
-                                    dangerouslySetInnerHTML={{ __html: el.text }}
+                                    dangerouslySetInnerHTML={{ __html: el.text || '' }}
                                     />
                                 </div>
                                 <div className={styles.features__content_item__img}>

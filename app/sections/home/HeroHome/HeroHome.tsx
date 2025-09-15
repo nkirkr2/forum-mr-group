@@ -14,7 +14,6 @@ function HeroHome({ heroData }: HeroHomeProps) {
   const isMobile = useIsMobile();
 
   const { background, backgroundMobile } = heroData;
-  console.log(backgroundMobile, 'bg mob')
 
   return (
     <div

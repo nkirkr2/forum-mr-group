@@ -35,8 +35,14 @@ async function Surroundings() {
         />
         <About text={api.text} />
         <Gallery galleryContent={api.slider}/>
-        <Cross crossContent={api.blocks[0]}/>
-        <Features featuresContent={api.blocks.slice(1, 3)}/>
+        <Cross 
+        crossContent={{
+          title: api.squareTitle,
+          text: api.squareText,
+          image: api.squareImage,
+        }} 
+        />
+        <Features featuresContent={api.blocks}/>
         <Footer />
         </> 
     )

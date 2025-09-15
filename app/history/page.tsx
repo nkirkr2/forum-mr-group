@@ -33,8 +33,14 @@ async function History() {
         title={api.mainTitle}
         />
         <About text={api.text} />
-        <Cross crossContent={api.blocks[0]}/>
-        <Features featuresContent={api.blocks.slice(1, 3)}/>
+        <Cross crossContent={{
+          title: api.squareTitle,
+          text: api.squareText,
+          image: api.squareImage,
+        }} 
+        style={{ marginTop: '0' }}
+        />
+        <Features featuresContent={api.blocks}/>
         <Footer />
         </> 
     )

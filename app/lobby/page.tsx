@@ -34,7 +34,11 @@ async function Lobby() {
         />
         <About text={api.text} />
         <Gallery galleryContent={api.slider}/>
-        <Cross crossContent={api.blocks[0]}/>
+        <Cross crossContent={{
+          title: api.squareTitle,
+          text: api.squareText,
+          image: api.squareImage,
+        }} />
         <Footer />
         </> 
     )

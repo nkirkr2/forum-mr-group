@@ -25,13 +25,11 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
 
     const panzoom = Panzoom(contentEl, {
       disableZoom: false,
-      disablePan: true,
       contain: "outside",
       duration: 400,
       startScale: 1,
       minScale: 1.2,  
-      maxScale: 3,
-      // animate: true,
+      maxScale: 2,
       startX:
         mapEl.offsetWidth !== contentEl.scrollWidth
           ? (mapEl.offsetWidth - contentEl.scrollWidth) / 2

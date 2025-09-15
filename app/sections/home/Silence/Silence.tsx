@@ -17,7 +17,7 @@ function Silence({ silenceData }: SilenceProps) {
                 <div className={styles.silence__content}>
                     <h2
                     className="title-b"
-                    dangerouslySetInnerHTML={{ __html: title }}
+                    dangerouslySetInnerHTML={{ __html: title || '' }}
                     />
                     <div className={styles.silence__content_img}>
                         <img src="/images/home/silence/silence0.jpg" alt="" />

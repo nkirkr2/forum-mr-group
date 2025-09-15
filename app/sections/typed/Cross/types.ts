@@ -1,5 +1,5 @@
 export type CrossData = {
-    title: string;
+    title?: string;
     media: string;
     paragraph: string;
 }

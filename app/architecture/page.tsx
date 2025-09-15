@@ -35,8 +35,12 @@ async function Architecture() {
         />
         <About text={api.text} />
         <Gallery galleryContent={api.slider}/>
-        <Cross crossContent={api.blocks[2]}/>
-        <Features featuresContent={api.blocks.slice(0, 2)}/>
+        <Cross crossContent={{
+          title: api.squareTitle,
+          text: api.squareText,
+          image: api.squareImage,
+        }} />
+        <Features featuresContent={api.blocks}/>
         <Footer />
         </> 
     )
