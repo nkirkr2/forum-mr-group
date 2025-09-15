@@ -12,8 +12,14 @@
             justify-content: space-between;
         }
     }
-
+    &__pinTitle {
+        font-size: 32rem;
+        text-transform: uppercase;
+        color: var(--black2);
+        margin-bottom: 20rem;
+    }
     &__swiper {
+        transition: .3s ease-in;
         display: flex;
         flex-direction: column;
         background: rgba(255, 255, 255, 0.1); 
@@ -29,21 +35,12 @@
         :global(.swiper) {
             width: 100%;
         }
-        :global(.swiper-pagination-bullet-active) {
-            // width: 90rem!important;
-        }
         &_slide {
             text-align: start;
             width: 365rem;
-            h3 {
-                font-size: 32rem;
-                text-transform: uppercase;
-                color: var(--black2);
-                margin-bottom: 20rem;
-            }
         }
-        
         &_controls {
+            transition: .3s ease-in;
             margin-top: auto;
             display: flex;
             gap: 10rem;
@@ -57,8 +54,6 @@
     }
 
     @media screen and (max-width: 1280px) {
-        
-        // margin-bottom: 120rem;
         &__content {
             flex-direction: column;
             h2 {
@@ -88,10 +83,8 @@
             position: unset;
             height: 172rem;
             padding: 0;
-            &_slide {
-                h3 {
-                    font-size: 24rem;
-                }
+            &__pinTitle {
+                font-size: 24rem;
             }
             :global(.page-link) {
                 display: inline-block;

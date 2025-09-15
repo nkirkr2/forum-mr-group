@@ -21,7 +21,6 @@ export default async function Home() {
   });
   const api = await res.json();
   const data = mapApiToHomepage(api);
-  console.log(data)
 
   return (
     <>
