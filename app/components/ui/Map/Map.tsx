@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useEffect, useRef } from "react";  
 import MapPinsList from "./MapPinsList/MapPinsList";
 import Panzoom from "@panzoom/panzoom";
 import styles from './Map.module.scss';
+import Image from "next/image";
 import { LocationPin } from "@/app/sections/home/Location/types";
 
 type MapProps = {
@@ -47,37 +47,43 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
   }, []);
 
   useEffect(() => {
-    if (!activePin || !mapRef.current || !contentRef.current || !panzoomRef.current) return;
-
-    const pinEl = contentRef.current.querySelector(`[data-pin-id="${activePin}"]`) as HTMLElement;
-    if (!pinEl) return;
-
+    if (!mapRef.current || !contentRef.current || !panzoomRef.current) return;
+    
     const mapEl = mapRef.current;
     const contentEl = contentRef.current;
     const panzoom = panzoomRef.current;
+    
+    if (activePin === null) {
+      panzoom.zoom(1.2);
+      return;
+    }
+
+    const pinEl = contentRef.current.querySelector(`[data-pin-id="${activePin}"]`) as HTMLElement;
+    if (!pinEl) return;
 
     const mapRect = mapEl.getBoundingClientRect();
     const contentRect = contentEl.getBoundingClientRect();
     const pinRect = pinEl.getBoundingClientRect();
 
-    // центр пина в координатах контента
     const pinCenterX = pinRect.left - contentRect.left + pinRect.width / 2;
     const pinCenterY = pinRect.top - contentRect.top + pinRect.height / 2;
 
-    // нужно сдвинуть так, чтобы этот центр оказался в центре контейнера
     const targetX = mapRect.width / 2 - pinCenterX;
     const targetY = mapRect.height / 2 - pinCenterY;
 
-    // 🚩 вот так будет плавно
     panzoom.pan(targetX, targetY, { animate: true, duration: 600 });
 
-    // 🚩 и зум к центру контейнера
-    panzoom.zoomToPoint(1.2, {
+    panzoom.zoomToPoint(1.5, {
       clientX: mapRect.width / 2,
       clientY: mapRect.height / 2,
     });
+
+    if (activePin === null) {
+      console.log('null теперь')
+      panzoom.zoom(1.2)
+    }
   }, [activePin]);
-  
+
 
   return (
     <div 
@@ -86,8 +92,11 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
     onClick={() => onToggleClick(null)}
     >
       <div className={styles.map__inner} ref={contentRef}>
-        <img src="/images/map-bg.png" alt="Карта" />
-
+        <Image
+        src='/images/map-bg.png'
+        fill
+        alt='Карта'
+        />
         <MapPinsList
           pinsList={locations}
           activePin={activePin}

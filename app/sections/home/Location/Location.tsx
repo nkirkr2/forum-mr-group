@@ -67,12 +67,6 @@ function Location({locationData}: locationProps) {
         }
     }, []);
 
-    // useEffect(() => {
-    //     if (activePin === null) {
-    //         setActivePin(defaultPin);
-    //     }
-    // }, [activePin])
-
     return (
         <section className={styles.location}>
             <div className="container">

@@ -11,6 +11,7 @@ import Facing from "./sections/home/Facing/Facing";
 import Improvement from "./sections/home/Improvement/Improvement";
 import Older from "./sections/home/Older/Older";
 import Apartments from "./sections/home/Apartments/Apartments";
+import Cookies from "./components/layout/Cookies/Cookies";
 import { mapApiToHomepage } from "./lib/adapters";
 
 export const revalidate = 60;
@@ -39,7 +40,7 @@ export default async function Home() {
       <Older olderData={data.older}/>
       <Apartments apartmentsData={data.apartments}/>
       <Footer />
-      {/* <Cookies /> */}
+      <Cookies />
     </>
   );
 }
