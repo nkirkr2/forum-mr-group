@@ -6,6 +6,7 @@ class Cookie {
   constructor(public name: string) {}
 
   get() {
+    if (typeof document === "undefined") return false;
     const matches = document.cookie.match(
       new RegExp(
         "(?:^|; )" + this.name.replace(/([.$?*|{}()\\[\]\\/+^])/g, "\\$1") +
@@ -16,6 +17,7 @@ class Cookie {
   }
 
   set(value: string, days: number) {
+    if (typeof document === "undefined") return; 
     let expires = "";
     if (days) {
       const date = new Date();
