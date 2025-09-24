@@ -12,6 +12,7 @@ import Improvement from "./sections/home/Improvement/Improvement";
 import Older from "./sections/home/Older/Older";
 import Apartments from "./sections/home/Apartments/Apartments";
 import Cookies from "./components/layout/Cookies/Cookies";
+import Preloader from "./components/layout/Preloader/Preloader";
 import { mapApiToHomepage } from "./lib/adapters";
 
 export const revalidate = 60;
@@ -25,6 +26,7 @@ export default async function Home() {
 
   return (
     <>
+      <Preloader />
       <Header />
       <HeroHome heroData={data.hero}/>
       <Place placeData={data.place}/>

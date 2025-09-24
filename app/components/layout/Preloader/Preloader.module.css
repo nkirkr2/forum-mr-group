@@ -1,0 +1,68 @@
+.root {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: var(--main-white);
+    color: var(--white);
+    font-family: 'Loos ExtraWide', Arial;
+    
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.root.fadeOut {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.txt_perc {
+    font-size: 20rem;
+    opacity: 1;
+    margin: 0 0 6rem 0;
+    max-width: 400rem;
+    text-align: center;
+    color: var(--pink);
+    font-family: 'Aeronautic Luce', Arial, SansSerif;
+    
+    transition: opacity 0.3s ease;
+}
+
+.progress {
+    width: 200rem;
+    height: 1rem;
+    background-color: var(--main-white);
+    margin: 0 auto 15rem auto;
+    overflow: hidden; 
+}
+
+.progress span {
+    display: block;
+    width: 0; 
+    height: 100%;
+    background-color: var(--pink);
+    
+    transition: width 0.3s ease;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.txt {
+    animation: fadeInUp 0.5s ease-out;
+}
