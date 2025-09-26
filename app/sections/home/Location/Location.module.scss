@@ -78,11 +78,13 @@
             }
         }
         &__swiper {
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 325rem;
+            padding: 15rem;
             width: 100%;
-            margin-top: 20rem;
-            position: unset;
-            height: 172rem;
-            padding: 0;
+            height: auto;
+            padding-bottom: 15rem;
             &__pinTitle {
                 font-size: 24rem;
             }
@@ -90,6 +92,13 @@
                 display: inline-block;
                 margin-top: 20rem;
             }
+        }
+        &__pinTitle {
+            font-size: 24rem;
+        }
+        &__pinDescr {
+            font-size: 14rem;
+            padding-bottom: 15rem;
         }
     }
 }

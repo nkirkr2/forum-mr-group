@@ -10,6 +10,7 @@ import { SwiperClass } from 'swiper/react';
 import styles from './Location.module.scss';
 import Map from '../../../components/ui/Map/Map';
 import { useRef, useState } from 'react';
+import classNames from 'classnames';
 
 type locationProps = {
     locationData: LocationData
@@ -110,7 +111,7 @@ function Location({locationData}: locationProps) {
                         className={styles.location__swiper_slide}
                         >
                             <h3 className={styles.location__pinTitle}>{location.title}</h3>
-                            <p className="paragraph">{location.description}</p>
+                            <p className={classNames(styles.location__pinDescr, 'paragraph')}>{location.description}</p>
                         </SwiperSlide>
                     ))}
                     </Swiper>

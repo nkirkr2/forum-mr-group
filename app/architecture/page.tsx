@@ -18,8 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const api = await getData();
 
   return {
-    title: api?.meta?.title ?? "Fallback title",
-    description: api?.meta?.description ?? "Fallback description",
+    title: api?.meta?.title ?? "FORUM - FORUM. Официальный сайт клубного дома от компании MR Group",
+    description: api?.meta?.description ?? "Клубный дом с видовыми квартирами за бывшим кинотеатром Форум от MR Private",
   };
 }
 

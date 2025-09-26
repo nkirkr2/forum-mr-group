@@ -1,12 +1,9 @@
 'use client'
 import styles from './Older.module.scss';
-import OlderDesktop from './DesktopOlder';
-import OlderMobile from './MobileOlder';
 import { OlderData } from './types';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import ClientOlder from './ClientOlder';
 
-// import ClientOlder from './ClientOlder';
 
 type OlderProps = {
    olderData: OlderData;

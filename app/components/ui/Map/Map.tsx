@@ -34,9 +34,11 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
         mapEl.offsetWidth !== contentEl.scrollWidth
           ? (mapEl.offsetWidth - contentEl.scrollWidth) / 2
           : 0,
+      zoomDoubleClick: false, 
+      zoomPinch: false,
     });
 
-    mapEl.addEventListener("wheel", panzoom.zoomWithWheel);
+
     panzoomRef.current = panzoom; 
 
 

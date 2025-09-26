@@ -79,7 +79,7 @@ export function mapApiToHomepage(api: Api) {
             {
                 id: 1,
                 title: 'Универмаг «Цветной»',
-                description: 'ЗДЕСЬ СТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИ',
+                description: 'ЗДЕСЬ СТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИСТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИСТРОЧКА О МЕСТЕ, НА КОТОРОЕ КЛИКНУЛИ',
                 position: [20.45, 41.1],
                 icon: "/images/map/icon-medicine.svg"
             },
