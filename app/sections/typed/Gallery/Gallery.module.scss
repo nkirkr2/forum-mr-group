@@ -38,7 +38,7 @@
                 }
                 outline: 1rem solid var(--main-white);
                 background-color: var(--main-white);
-                &:hover {
+                @media (hover: hover) {
                     outline: none;
                     svg {
                         path {

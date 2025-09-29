@@ -4,6 +4,9 @@ import { useState, useRef, useEffect } from 'react';
 import Logo from './Logo';
 import Sandwich from './Sandwich/Sandwich';
 import dynamic from 'next/dynamic';
+import classNames from 'classnames';
+import GlassButton from '../../ui/GlassBtn/GlassBtn';
+
 const BurgerMenu = dynamic(() => import('../../ui/BurgerMenu/BurgerMenu'), {
   ssr: false,
 });
@@ -14,37 +17,21 @@ function Header() {
     const menuRef = useRef<HTMLDivElement | null>(null);
     const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  useEffect(() => {
-    let lastScroll = 0;
-    const defaultOffset = 200;
-
-    const handleScroll = () => {
-      const currentScroll =
-        window.pageYOffset || document.documentElement.scrollTop;
-
-      if (currentScroll > lastScroll && currentScroll > defaultOffset) {
-        // скролл вниз
-        setIsHidden(true);
-      } else if (currentScroll < lastScroll) {
-        // скролл вверх
-        setIsHidden(false);
-      }
-
-      lastScroll = currentScroll;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
-
-
-
-
-    const toggleMenu = () => {
+  const toggleMenu = () => {
         setIsOpen(!isOpen);
     }
+    
+    useEffect(() => {
+      const feImage = document.querySelector("feImage");
+      if (feImage) {
+        fetch("/map.png")
+          .then((res) => res.blob())
+          .then((blob) => {
+            const url = URL.createObjectURL(blob);
+            feImage.setAttribute("href", url);
+          });
+      }
+    }, []);
 
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {

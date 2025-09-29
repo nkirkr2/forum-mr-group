@@ -196,9 +196,11 @@ section {
        width: 44rem;
        height: 15rem; 
     }
-	&:hover {
-		background-color: var(--text-gray);
-	}
+	@media (hover: hover) {
+        &:hover {
+            background-color: var(--text-gray);
+        }
+    }
 }
 .swiper-pagination {
 	width: 100%;
@@ -223,6 +225,7 @@ section {
 .swiper-button-disabled {
 	background: transparent;
 	outline: 1rem solid var(--black2);
+	pointer-events: none;
 	svg {
 		path {
 			fill: var(--black2);
@@ -335,4 +338,21 @@ section {
 	section {
 		margin-bottom: 165rem;
 	}
+}
+
+
+.glass-button {
+	width: 400rem;
+	height: 400rem;
+	position: fixed;
+	z-index: 999;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+
+  backdrop-filter: url(#glass);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 2.2);
 }

@@ -104,7 +104,10 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
             >
             {paragraphs && paragraphs.map((paragraph, idx) => (
                 <SwiperSlide key={idx}>
-                    <p className="paragraph">{paragraph}</p>
+                    <p 
+                    className="paragraph"
+                    dangerouslySetInnerHTML={{ __html: paragraph || ''}}
+                    />
                 </SwiperSlide>
             ))}
             </Swiper>

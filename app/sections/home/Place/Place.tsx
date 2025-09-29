@@ -1,4 +1,5 @@
 import styles from './Place.module.scss';
+import classNames from 'classnames';
 import { PlaceData } from './types';
 
 type placeProps = {
@@ -10,14 +11,16 @@ function Place({placeData}: placeProps) {
     const { title, paragraph, images } = placeData;
 
     return (
-        <section className={styles.place}>
+        <section className={classNames(styles.root, styles.place)}>
           <div className="container">
-            <div className={styles.place__content}>
-          <h2
-          className="title-b"
-          dangerouslySetInnerHTML={{ __html: title || ''}}
-        />
-              <p className='paragraph'>{paragraph}</p>
+            <div className={classNames(styles.content, styles.place__content)}>
+              <h2
+              className={classNames(styles.title, 'title-b')}
+              dangerouslySetInnerHTML={{ __html: title || ''}}
+              />
+              <p className={classNames(styles.paragraph, 'paragraph')}
+              dangerouslySetInnerHTML={{ __html: paragraph || ''}}
+              />
 
               {images && images.length > 0 && (
                 <div className={styles.images}>

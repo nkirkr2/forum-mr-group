@@ -21,6 +21,17 @@ function Location({locationData}: locationProps) {
 
     const { title, paragraph, locations } = locationData;
 
+    console.log(locations);
+
+    // const mapLocations = locations.map((location, index) => ({
+    // ...location,
+    // id: index + 1
+    // }));
+
+    // console.log(mapLocations)
+
+
+
 
     const [activePin, setActivePin] = useState<number | null>(null);
 
@@ -74,7 +85,10 @@ function Location({locationData}: locationProps) {
                 <div className={styles.location__content}>
                     <div className={styles.location__content_text}>
                         <h2 className="title-b">{title}</h2>
-                        <p className="paragraph">{paragraph}</p>
+                        <p 
+                        className="paragraph"
+                        dangerouslySetInnerHTML={{ __html: paragraph || ''}}
+                        />
                     </div>
                     <Map locations={locations} 
                     onToggleClick={getToPinById}
@@ -99,12 +113,6 @@ function Location({locationData}: locationProps) {
                     }}
                     
                     >
-                    {/* {activePin === null && (
-                        <SwiperSlide className={styles.location__swiper_slide}>
-                        <h3 className={styles.location__pinTitle}>Выберите локацию</h3>
-                        <p className="paragraph">Информация появится здесь после выбора пина на карте</p>
-                        </SwiperSlide>
-                    )} */}
                     {locations.map((location: LocationPin) => (
                         <SwiperSlide 
                         key={location.id}

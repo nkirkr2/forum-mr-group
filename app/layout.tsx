@@ -26,7 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" className={myFont.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

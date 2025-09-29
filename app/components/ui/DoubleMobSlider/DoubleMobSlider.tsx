@@ -82,7 +82,10 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
                 ))}
             </Swiper>
             <div className={styles.doubleMoblider__text}>
-                <p className="paragraph">{text}</p>
+                <p 
+                className="paragraph"
+                dangerouslySetInnerHTML={{ __html: text || ''}}
+                />
             </div>
             <Swiper
                 modules={[EffectFade, Controller]}

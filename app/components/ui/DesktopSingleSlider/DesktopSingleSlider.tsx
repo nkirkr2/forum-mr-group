@@ -90,7 +90,10 @@ function DesktopSingleSlider({sectionData}: singleSliderProps) {
                 >
                 {paragraphs?.map((paragraph: string, idx: number) => (
                 <SwiperSlide key={idx}>
-                    <p className="paragraph">{paragraph}</p>
+                    <p 
+                    className="paragraph"
+                    dangerouslySetInnerHTML={{ __html: paragraph || ''}}
+                    />
                 </SwiperSlide>
                 ))}
             </Swiper>

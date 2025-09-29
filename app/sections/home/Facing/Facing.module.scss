@@ -1,9 +1,12 @@
-.facing {
+.root {
     margin-bottom: 120rem;
-    @media (max-width: 500px) {
-        :global(.page-link) {
-            transform: translate(0);
-            left: 20rem;
-        }
+}
+@media (max-width: 768px) {
+    .root {
+        margin-bottom: 165rem;
+    }
+    .link {
+        transform: translate(0);
+        left: 20rem;
     }
 }

@@ -79,6 +79,11 @@
         padding-bottom: 0;
         min-width: 104rem;
         line-height: 1.2;
+
+        &:hover {
+            background-color: var(--main-white);
+            color: var(--black)
+        }
     }
     @media (max-width: 500px) {
         -webkit-box-orient: vertical;

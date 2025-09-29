@@ -13,6 +13,7 @@ import Older from "./sections/home/Older/Older";
 import Apartments from "./sections/home/Apartments/Apartments";
 import Cookies from "./components/layout/Cookies/Cookies";
 import Preloader from "./components/layout/Preloader/Preloader";
+import Success from "./components/layout/Success/Success";
 import { mapApiToHomepage } from "./lib/adapters";
 
 export const revalidate = 60;
@@ -22,15 +23,25 @@ export default async function Home() {
     next: { revalidate: 60 }
   });
   const api = await res.json();
+  console.log(api)
   const data = mapApiToHomepage(api);
+
+
+  console.log(data)
 
   return (
     <>
-      <Preloader />
+      {/* <Preloader /> */}
       <Header />
       <HeroHome heroData={data.hero}/>
       <Place placeData={data.place}/>
       <Location 
+      //   locationData={{
+      //     title: api.mapTitle,
+      //     paragraph: api.mapText, 
+      //     locations: api.mapLocation
+      //   }}
+      // />
       // @ts-expect-error: API возвращает position как number[], а у нас [number, number]
       locationData={data.location}/>
       <Surroundings surroundingsData={data.surroundings}/>
@@ -42,7 +53,8 @@ export default async function Home() {
       <Older olderData={data.older}/>
       <Apartments apartmentsData={data.apartments}/>
       <Footer />
-      <Cookies />
+      {/* <Cookies /> */}
+      {/* <Success /> */}
     </>
   );
 }

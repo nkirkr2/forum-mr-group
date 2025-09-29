@@ -87,7 +87,10 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
               key={idx}
               className={styles.doubleXSlider__text_slide}
               >
-              <p className="paragraph">{paragraph}</p>
+              <p 
+              className="paragraph"
+              dangerouslySetInnerHTML={{ __html: paragraph || ''}}
+              />
               </SwiperSlide>
             ))
           }

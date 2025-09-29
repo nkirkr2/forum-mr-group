@@ -94,7 +94,10 @@ function MobileApartments({apartmentsData}: ApartmentsProps) {
                 >
                     {paragraphs && paragraphs.map((text, idx) => (
                         <SwiperSlide key={idx}>
-                            <p className="paragraph">{text}</p>
+                            <p 
+                            className="paragraph"
+                            dangerouslySetInnerHTML={{ __html: text || ''}}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>

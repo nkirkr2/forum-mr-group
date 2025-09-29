@@ -11,7 +11,7 @@ type Api = {
   mapTitle?: string;
   mapText?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  mapSlider?: any[]; 
+  mapSlider?: string[]; 
 
   environmentTitle?: string;
   environmentSlider?: ImgText[];
@@ -63,7 +63,7 @@ export function mapApiToHomepage(api: Api) {
   return {
     hero: {
       background: api.firstBlockImage ?? "",
-      backgroundMobile: api.firstBlockImage ?? "",
+      backgroundMobile: api.firstBlockMobileImage ?? "",
     },
 
     place: {
@@ -75,6 +75,7 @@ export function mapApiToHomepage(api: Api) {
     location: {
       title: keepHtml(api.mapTitle),
       paragraph: keepHtml(api.mapText),
+      // locations: keepHtml(api.mapSlider),
       locations: [
             {
                 id: 1,

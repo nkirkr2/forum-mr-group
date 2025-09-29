@@ -3,6 +3,7 @@ import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
 import ClientFacing from "./ClientFacing";
 import Link from "next/link";
 import styles from './Facing.module.scss';
+import classNames from "classnames";
 
 type amenitiesProps = {
     facingData: DoubleXSliderData;
@@ -13,7 +14,7 @@ function Facing({facingData}: amenitiesProps) {
     const { title, paragraphs } = facingData;
 
     return (
-        <section className={styles.facing}>
+        <section className={styles.root}>
             <div className="container">
                 <h2 className="title-b">{title}</h2>
 
@@ -25,7 +26,7 @@ function Facing({facingData}: amenitiesProps) {
                 
                 <ClientFacing facingData={facingData}/>
 
-                <Link className='page-link' href='/facing'>Подробнее</Link>
+                <Link className={classNames(styles.link, 'page-link')} href='/facing'>Подробнее</Link>
 
             </div>
         </section>

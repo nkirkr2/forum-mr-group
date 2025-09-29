@@ -1,6 +1,7 @@
 'use client'
 import styles from './HeroHome.module.scss';
 import useIsMobile from '@/app/hooks/useIsMobile';
+// import GlassButton from '@/app/components/ui/GlassBtn/GlassBtn';
 
 type HeroHomeProps = {
   heroData: {
@@ -27,6 +28,7 @@ function HeroHome({ heroData }: HeroHomeProps) {
             <img src="/images/home/hero-h1.svg" alt="FORUM" />
             <p>ДОМ, КОТОРЫЙ <br />
     ВОСПИТЫВАЕТ <span className='accent'>ВКУС</span></p>
+      {/* <GlassButton /> */}
         </div>
     </div>
     </div>
