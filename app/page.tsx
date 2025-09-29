@@ -53,7 +53,7 @@ export default async function Home() {
       <Older olderData={data.older}/>
       <Apartments apartmentsData={data.apartments}/>
       <Footer />
-      {/* <Cookies /> */}
+      <Cookies />
       {/* <Success /> */}
     </>
   );

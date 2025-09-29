@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from "react";
 import styles from "./Cookies.module.scss";
 
@@ -9,7 +10,8 @@ class Cookie {
     if (typeof document === "undefined") return false;
     const matches = document.cookie.match(
       new RegExp(
-        "(?:^|; )" + this.name.replace(/([.$?*|{}()\\[\]\\/+^])/g, "\\$1") +
+        "(?:^|; )" +
+         (this.name as string).replace(/([.$?*|{}()\[\]\\/+^])/g, "\\$1") +
           "=([^;]*)"
       )
     );
@@ -17,7 +19,7 @@ class Cookie {
   }
 
   set(value: string, days: number) {
-    if (typeof document === "undefined") return; 
+    if (typeof document === "undefined") return;
     let expires = "";
     if (days) {
       const date = new Date();
@@ -32,15 +34,22 @@ class Cookie {
   }
 }
 
-const BASE_DURATION = 30; 
+const BASE_DURATION = 30;
 
 function Cookies() {
   const consentCookie = new Cookie("has_cookie_consent");
-  const [active, setActive] = useState(false);
+
+  const [mounted, setMounted] = useState(false); 
+  const [active, setActive] = useState(false);  
+  const [hasConsent, setHasConsent] = useState(false); 
 
   useEffect(() => {
-    if (!consentCookie.get()) {
-       const timer = setTimeout(() => setActive(true), 310);
+    setMounted(true); 
+    const consent = !!consentCookie.get();
+    setHasConsent(consent);
+
+    if (!consent) {
+      const timer = setTimeout(() => setActive(true), 310);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -48,14 +57,16 @@ function Cookies() {
   const handleAccept = (e: React.MouseEvent) => {
     e.preventDefault();
     consentCookie.set("yes", BASE_DURATION);
+    setHasConsent(true);
     setActive(false);
   };
+
+  if (!mounted || hasConsent) return null;
 
   return (
     <div
       className={`${styles.cookie} ${active ? "is-active" : ""}`}
       data-cookies
-      style={{ display: consentCookie.get() ? "none" : undefined }}
     >
       <div className={styles.cookie__content}>
         <p className={styles.cookie__text}>
