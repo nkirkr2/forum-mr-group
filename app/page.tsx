@@ -30,7 +30,7 @@ export default async function Home() {
 
   return (
     <>
-      {/* <Preloader /> */}
+      <Preloader />
       <Header />
       <HeroHome 
       heroData={{
@@ -39,17 +39,15 @@ export default async function Home() {
         text: api.firstBlockText,
       }}
       />
-      {/* heroData={data.hero}/> */}
       <Place placeData={data.place}/>
       <Location 
-      //   locationData={{
-      //     title: api.mapTitle,
-      //     paragraph: api.mapText, 
-      //     locations: api.mapLocation
-      //   }}
-      // />
-      // @ts-expect-error: API возвращает position как number[], а у нас [number, number]
-      locationData={data.location}/>
+        locationData={{
+          title: api.mapTitle,
+          paragraph: api.mapText, 
+          locations: api.mapLocation
+        }}
+      />
+      {/* // @ts-expect-error: API возвращает position как number[], а у нас [number, number] */}
       <Surroundings surroundingsData={data.surroundings}/>
       <Architecture architectureData={data.architecture}/>
       <Improvement improvementData={data.improvement}/>

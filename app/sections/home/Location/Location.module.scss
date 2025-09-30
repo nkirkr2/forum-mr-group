@@ -43,10 +43,18 @@
             transition: .3s ease-in;
             margin-top: auto;
             display: flex;
-            gap: 10rem;
+            gap: 5rem;
             width: 100%;
             align-items: center;
             justify-content: space-between;
+            width: 100%;
+            :global(.swiper-pagination) {
+                gap: unset!important;
+                overflow: hidden;
+            }
+            :global(.swiper-pagination-bullet) {
+                // width: auto!important;
+            }
         }
         :global(.page-link) {
             display: none;
@@ -102,3 +110,10 @@
         }
     }
 }
+
+// .controls {
+//     width: 100%;
+//     :global(.swiper-pagination-bullet) {
+//         width: auto!important;
+//     }
+// }

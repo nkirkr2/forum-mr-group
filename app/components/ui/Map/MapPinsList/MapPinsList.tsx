@@ -8,6 +8,9 @@ type MapPinsListProps = {
 }
 
 function MapPinsList({ pinsList, onToggleClick, activePin }: MapPinsListProps) {
+
+  // console.log(pinsList)
+  // console.log(activePin)
   return (
     <>
       {pinsList.map((pin, index) => (

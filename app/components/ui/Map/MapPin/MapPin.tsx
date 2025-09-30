@@ -13,6 +13,8 @@ function MapPin({ pin, isOpen, onToggleClick }: MapPinProps) {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
+  const coords = pin.coords.split(', ')
+
   useEffect(() => {
     const content = contentRef.current;
     const wrapper = wrapperRef.current;
@@ -61,7 +63,7 @@ function MapPin({ pin, isOpen, onToggleClick }: MapPinProps) {
     <div
       className={`${styles.MapPin} ${isOpen ? styles.active : ''}`} 
       data-pin-id={pin.id} 
-      style={{ top: `${pin.position[0]}%`, left: `${pin.position[1]}%` }}
+      style={{ top: `${coords[1]}%`, left: `${coords[0]}%` }}
       onClick={(e) => {
         e.stopPropagation();
         onToggleClick(pin.id); 

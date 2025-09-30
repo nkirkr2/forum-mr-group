@@ -3,8 +3,8 @@ export type Coordinates = [topPct: number, leftPct: number];
 export interface LocationPin {
   id: number;
   title: string;
-  description: string;
-  position: Coordinates; 
+  text: string;
+  coords: string; 
   icon: string;         
 }
 
