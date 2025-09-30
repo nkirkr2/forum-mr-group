@@ -1,38 +1,42 @@
-.hero {
+.root {
     background-size: cover;
     aspect-ratio: 1440 / 900;
-
-    &__content {
-        padding-top: 120rem;
-        max-width: 686rem;
-        text-align: start;
-        margin-left: auto;
-        img {
-            width: 685rem;
-            height: 147rem;
-            margin-bottom: 20rem;
-        }
-        p {
-            font-size: 48rem;
-            text-transform: uppercase;
-            color: var(--main-white);
-        }
+    span {
+        color: var(--pink);
     }
-    @media only screen and (max-width: 500px) {
+}
+.content {
+    padding-top: 120rem;
+    max-width: 686rem;
+    text-align: start;
+    margin-left: auto;
+    img {
+        width: 685rem;
+        height: 147rem;
+        margin-bottom: 20rem;
+    }
+    p {
+        font-size: 48rem;
+        text-transform: uppercase;
+        color: var(--main-white);
+    }
+}
+
+@media (max-width: 500px) {
+    .root {
         aspect-ratio: unset;
         height: 100vh;
-
-        &__content {
-            padding-top: 100rem;
-            img {
-                width: 350rem;
-                height: 75rem;
-                margin-bottom: 10rem;
-            }
-            p {
-                font-size: 24rem;
-                text-align: end;
-            }
+    }
+    .content {
+        padding-top: 100rem;
+        img {
+            width: 350rem;
+            height: 75rem;
+            margin-bottom: 10rem;
+        }
+        p {
+            font-size: 24rem;
+            text-align: end;
         }
     }
 }

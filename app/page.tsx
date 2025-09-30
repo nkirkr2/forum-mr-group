@@ -23,17 +23,23 @@ export default async function Home() {
     next: { revalidate: 60 }
   });
   const api = await res.json();
-  console.log(api)
   const data = mapApiToHomepage(api);
 
+  console.log(api);
 
-  console.log(data)
 
   return (
     <>
       {/* <Preloader /> */}
       <Header />
-      <HeroHome heroData={data.hero}/>
+      <HeroHome 
+      heroData={{
+        background: api.firstBlockImage,
+        backgroundMobile: api.firstBlockMobileImage,
+        text: api.firstBlockText,
+      }}
+      />
+      {/* heroData={data.hero}/> */}
       <Place placeData={data.place}/>
       <Location 
       //   locationData={{

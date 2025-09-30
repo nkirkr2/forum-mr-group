@@ -21,7 +21,6 @@ function Location({locationData}: locationProps) {
 
     const { title, paragraph, locations } = locationData;
 
-    console.log(locations);
 
     // const mapLocations = locations.map((location, index) => ({
     // ...location,

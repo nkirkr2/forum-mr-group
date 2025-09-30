@@ -27,7 +27,7 @@ function BurgerMenu({ isOpen }: BurgerMenuProps) {
     { href: "/surroundings", label: "Локация и окружение" },
     { href: "/history", label: "История места" },
     { href: "/apartments", label: "Квартиры" },
-    { href: "/elector", label: "Выбрать квартиру" },
+    { href: "https://forum.mr-group.ru/chooser/", label: "Выбрать квартиру" },
   ];
 
   return (

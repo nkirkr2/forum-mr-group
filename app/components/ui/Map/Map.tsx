@@ -81,7 +81,6 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
     });
 
     if (activePin === null) {
-      console.log('null теперь')
       panzoom.zoom(1.2)
     }
   }, [activePin]);

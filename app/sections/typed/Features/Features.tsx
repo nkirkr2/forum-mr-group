@@ -13,7 +13,6 @@ function Features({featuresContent}: FeaturesProps) {
     // { image: featuresContent.image2, title: featuresContent.title2, text: featuresContent.paragraph2 },
     // ];
 
-    console.log(featuresContent)
     // console.log('features', featuresItems)
 
     // featuresItems.forEach(el => console.log(el))

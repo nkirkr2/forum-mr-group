@@ -7,6 +7,7 @@ type HeroHomeProps = {
   heroData: {
     background: string
     backgroundMobile: string;
+    text: string;
   };
 };
 
@@ -14,21 +15,21 @@ function HeroHome({ heroData }: HeroHomeProps) {
 
   const isMobile = useIsMobile();
 
-  const { background, backgroundMobile } = heroData;
+  const { background, backgroundMobile, text } = heroData;
 
   return (
     <div
-      className={styles.hero}
+      className={styles.root}
       style={{
         backgroundImage: `url(${isMobile ? backgroundMobile : background})`,
       }}
     >
     <div className="container">
-        <div className={styles.hero__content}>
+        <div className={styles.content}>
             <img src="/images/home/hero-h1.svg" alt="FORUM" />
-            <p>ДОМ, КОТОРЫЙ <br />
-    ВОСПИТЫВАЕТ <span className='accent'>ВКУС</span></p>
-      {/* <GlassButton /> */}
+            <p
+            dangerouslySetInnerHTML={{ __html: text || '' }}
+            />
         </div>
     </div>
     </div>

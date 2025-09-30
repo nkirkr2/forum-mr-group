@@ -8,6 +8,9 @@
         align-items: center;
         margin-left: auto;
         gap: 10rem;
+        position: absolute;
+        bottom: 17rem;
+        right: 1rem;
        
     }
     &__content {
@@ -28,7 +31,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             width: 587rem;
-            height: 673rem;
+            height: 674rem;
             position: absolute;
             top: 0;
             bottom: 0;
@@ -108,4 +111,14 @@
             max-width: 330rem;
         }
     }
+}
+
+.swiperText {
+    position: absolute;
+    width: 593rem;
+    height: 679rem;
+    top: -1rem;
+    right: 0;
+    bottom: 0;
+    height: 674rem!important;
 }
