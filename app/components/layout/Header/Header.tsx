@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react';
 import Logo from './Logo';
 import Sandwich from './Sandwich/Sandwich';
 import dynamic from 'next/dynamic';
-import classNames from 'classnames';
 import GlassButton from '../../ui/GlassBtn/GlassBtn';
 
 const BurgerMenu = dynamic(() => import('../../ui/BurgerMenu/BurgerMenu'), {
@@ -21,18 +20,6 @@ function Header() {
         setIsOpen(!isOpen);
     }
     
-    useEffect(() => {
-      const feImage = document.querySelector("feImage");
-      if (feImage) {
-        fetch("/map.png")
-          .then((res) => res.blob())
-          .then((blob) => {
-            const url = URL.createObjectURL(blob);
-            feImage.setAttribute("href", url);
-          });
-      }
-    }, []);
-
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
         if (
@@ -55,6 +42,9 @@ function Header() {
             <div
             className={`${styles.header__row} ${isHidden ? styles.header__hidden : ''}`} 
             >
+            <div className={styles.glassWrapper}>
+                <GlassButton />
+            </div>
                 <Sandwich
                 onClick={toggleMenu}
                 isOpen={isOpen}

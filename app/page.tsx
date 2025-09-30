@@ -30,7 +30,7 @@ export default async function Home() {
 
   return (
     <>
-      <Preloader />
+      {/* <Preloader /> */}
       <Header />
       <HeroHome 
       heroData={{

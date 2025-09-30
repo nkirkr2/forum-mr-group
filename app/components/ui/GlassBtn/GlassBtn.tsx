@@ -1,44 +1,40 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export default function GlassButton() {
-  const feImageRef = useRef<SVGFEImageElement | null>(null);
-
   useEffect(() => {
-    if (feImageRef.current) {
-      fetch("/images/displacement.png")
-        .then((res) => res.blob())
+    const feImage = document.querySelector("feImage");
+
+    if (feImage) {
+      fetch("/images/displacement.png") 
+        .then((response) => response.blob())
         .then((blob) => {
-          const url = URL.createObjectURL(blob);
-          feImageRef.current!.setAttributeNS(
-            "http://www.w3.org/1999/xlink",
-            "xlink:href",
-            url
-          );
+          const objURL = URL.createObjectURL(blob);
+          feImage.setAttribute("href", objURL);
         });
     }
   }, []);
 
   return (
-    <div style={{ position: "relative", display: "inline-block" }}>
-      <button
-        className="glass-button"
-        style={{ filter: "url(#glass)" }}
-      >
-        <span>пример</span>
+    <div>
+      <button className="glass-button">
+        {/* <span>пример</span> */}
       </button>
 
-      <svg
-        style={{ position: "absolute", width: 0, height: 0 }}
-        aria-hidden="true"
-      >
-        <filter id="glass" x="0%" y="0%" width="100%" height="100%">
+      <svg style={{ position: "absolute", width: 0, height: 0 }}>
+        <filter
+          id="glass"
+          x="-50%"
+          y="-50%"
+          width="200%"
+          height="200%"
+          primitiveUnits="objectBoundingBox"
+        >
           <feImage
-            ref={feImageRef}
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
             result="map"
           />
           <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blur" />

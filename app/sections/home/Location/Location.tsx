@@ -11,6 +11,7 @@ import styles from './Location.module.scss';
 import Map from '../../../components/ui/Map/Map';
 import { useRef, useState } from 'react';
 import classNames from 'classnames';
+import GlassButton from '@/app/components/ui/GlassBtn/GlassBtn';
 
 type locationProps = {
     locationData: LocationData
@@ -96,7 +97,11 @@ function Location({locationData}: locationProps) {
                 className={styles.location__swiper}
                 style={{ opacity: activePin ? 1 : 0, pointerEvents: activePin ? 'all' : 'none' }}
                 onClick={(e) => e.stopPropagation()}
-                >
+                >   
+                <div className={styles.swiperWrapper}>
+                    <div className={styles.glassWrapper}>
+                        <GlassButton/>
+                    </div>
                     <Swiper
                     modules={[EffectFade, Navigation, Pagination]}
                     effect="fade"
@@ -142,6 +147,7 @@ function Location({locationData}: locationProps) {
                             </svg>
                         </button>
                     </div>
+                </div>
                 </div>
             </div>
         </section>

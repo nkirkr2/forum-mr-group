@@ -31,7 +31,7 @@
         position: absolute;
         right: 80rem;
         bottom: 20rem;
-        padding: 20rem;
+        // padding: 20rem;
         :global(.swiper) {
             width: 100%;
         }
@@ -117,3 +117,21 @@
 //         width: auto!important;
 //     }
 // }
+
+.swiperWrapper {
+    width: 365rem;
+    height: 302rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20rem;
+}
+.glassWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    pointer-events: none;
+}
