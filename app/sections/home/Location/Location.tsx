@@ -1,7 +1,6 @@
 'use client'
 
 import { LocationData, LocationPin } from './types';
-import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { useEffect } from 'react';
@@ -11,7 +10,7 @@ import styles from './Location.module.scss';
 import Map from '../../../components/ui/Map/Map';
 import { useRef, useState } from 'react';
 import classNames from 'classnames';
-import GlassButton from '@/app/components/ui/GlassBtn/GlassBtn';
+// import GlassButton from '@/app/components/ui/GlassBtn/GlassBtn';
 
 type locationProps = {
     locationData: LocationData
@@ -22,13 +21,10 @@ function Location({locationData}: locationProps) {
 
     const { title, paragraph, locations } = locationData;
 
-
     const mapLocations = locations.map((location, index) => ({
     ...location,
     id: index
     }));
-
-    console.log(mapLocations)
 
     const [activePin, setActivePin] = useState<number | null>(null);
 
@@ -45,10 +41,12 @@ function Location({locationData}: locationProps) {
         }
 
         const index = mapLocations.findIndex(l => l.id === id);
-        
         if (index !== -1) {
-            swiperRef.current?.slideTo(index);
+            setActivePin(null);
+            setTimeout(() => {
+            swiperRef.current?.slideToLoop(index);
             setActivePin(id);
+            }, 0);
         }
     };
 
@@ -95,7 +93,10 @@ function Location({locationData}: locationProps) {
                 </div>
                 <div 
                 className={styles.location__swiper}
-                style={{ opacity: activePin ? 1 : 0, pointerEvents: activePin ? 'all' : 'none' }}
+                style={{ 
+                    opacity: activePin !== null ? 1 : 0, 
+                    pointerEvents: activePin !== null ? 'all' : 'none' 
+                 }}
                 onClick={(e) => e.stopPropagation()}
                 >   
                 {/* <div className={styles.swiperWrapper}> */}
@@ -107,13 +108,13 @@ function Location({locationData}: locationProps) {
                     effect="fade"
                     fadeEffect={{ crossFade: true }}
                     speed={700}
+                    loop={true}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;
                     }}
-                    onSlideChange={(swiper) => {
-                        const idx = swiper.activeIndex;
+                    onRealIndexChange={(swiper) => {
+                        const idx = swiper.realIndex;
                         setActivePin(mapLocations[idx].id);
-                        console.log('active index', activePin)
                     }}
                     
                     >
@@ -133,7 +134,7 @@ function Location({locationData}: locationProps) {
                     </Swiper>
                     <div 
                     className={styles.location__swiper_controls}
-                    style={{ opacity: activePin ? 1 : 0 }}
+                    style={{ opacity: activePin !== null ? 1 : 0 }}
                     >
                         <button className='slider-btn' id='older-prev' ref={prevBtnRef} onClick={(e) => e.stopPropagation()}>
                             <svg width="44" height="15" viewBox="0 0 44 15" fill="none" xmlns="http://www.w3.org/2000/svg">

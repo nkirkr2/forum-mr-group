@@ -20,6 +20,8 @@ function DesktopOlder({olderContent}: OlderDesktopProps) {
 
     const {images, paragraphs} = olderContent
 
+    console.log('paragraphs', paragraphs);
+
     const text = paragraphs[0];
 
     const imgSwiperRef = useRef<SwiperClass | null>(null);
@@ -84,11 +86,27 @@ function DesktopOlder({olderContent}: OlderDesktopProps) {
             }
             </Swiper>
             <Swiper
+            modules={[EffectFade, Controller]}
             className={styles.swiperText}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            speed={700}
+            onSwiper={(swiper) => {
+                textSwiperRef.current = swiper;
+                if (imgSwiperRef.current && swiper.controller && imgSwiperRef.current.controller) {
+                    swiper.controller.control = imgSwiperRef.current;
+                    imgSwiperRef.current.controller.control = swiper;
+                }
+            }}
             >
-                <div className={styles.older__content_text}>
-                    <h2 className="title-b">МЕСТО СТАРШЕ САМОЙ <span className='accent'>МОСКВЫ</span></h2>
-                    <p className="paragraph">{text}</p>
+                {paragraphs && paragraphs.map((paragraph, idx) => (
+                    <SwiperSlide key={idx}>
+                        <div className={styles.older__content_text}>
+                            <h2 className="title-b">МЕСТО СТАРШЕ САМОЙ <span className='accent'>МОСКВЫ</span></h2>
+                            <p className="paragraph">{paragraph}</p>
+                        </div>
+                    </SwiperSlide>
+                ))}
                     <div className={styles.older__controls}>
                         <button className='slider-btn' id='older-prev' ref={prevBtnRef}>
                                 <svg width="44" height="15" viewBox="0 0 44 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +120,7 @@ function DesktopOlder({olderContent}: OlderDesktopProps) {
                                 </svg>
                         </button>
                     </div>
-                </div>
+                    <div className={styles.bg}></div>
             </Swiper>
     </div>
         
