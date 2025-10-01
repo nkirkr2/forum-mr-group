@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react';
 import Logo from './Logo';
 import Sandwich from './Sandwich/Sandwich';
 import dynamic from 'next/dynamic';
-import GlassButton from '../../ui/GlassBtn/GlassBtn';
 
 const BurgerMenu = dynamic(() => import('../../ui/BurgerMenu/BurgerMenu'), {
   ssr: false,
@@ -42,9 +41,6 @@ function Header() {
             <div
             className={`${styles.header__row} ${isHidden ? styles.header__hidden : ''}`} 
             >
-            <div className={styles.glassWrapper}>
-                <GlassButton />
-            </div>
                 <Sandwich
                 onClick={toggleMenu}
                 isOpen={isOpen}

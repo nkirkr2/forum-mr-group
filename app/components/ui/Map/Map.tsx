@@ -28,8 +28,8 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
       contain: "outside",
       duration: 400,
       startScale: 1,
-      minScale: 1.2,  
-      maxScale: 2,
+      minScale: 1,  
+      maxScale: 1.2,
       startX:
         mapEl.offsetWidth !== contentEl.scrollWidth
           ? (mapEl.offsetWidth - contentEl.scrollWidth) / 2
@@ -56,7 +56,7 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
     const panzoom = panzoomRef.current;
     
     if (activePin === null) {
-      panzoom.zoom(1.2);
+      panzoom.zoom(1);
       return;
     }
 
@@ -81,7 +81,7 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
     });
 
     if (activePin === null) {
-      panzoom.zoom(1.2)
+      panzoom.zoom(1)
     }
   }, [activePin]);
 

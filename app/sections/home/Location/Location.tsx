@@ -98,10 +98,10 @@ function Location({locationData}: locationProps) {
                 style={{ opacity: activePin ? 1 : 0, pointerEvents: activePin ? 'all' : 'none' }}
                 onClick={(e) => e.stopPropagation()}
                 >   
-                <div className={styles.swiperWrapper}>
-                    <div className={styles.glassWrapper}>
+                {/* <div className={styles.swiperWrapper}> */}
+                    {/* <div className={styles.glassWrapper}>
                         <GlassButton/>
-                    </div>
+                    </div> */}
                     <Swiper
                     modules={[EffectFade, Navigation, Pagination]}
                     effect="fade"
@@ -149,7 +149,7 @@ function Location({locationData}: locationProps) {
                     </div>
                 </div>
                 </div>
-            </div>
+            {/* </div> */}
         </section>
     )
 }
