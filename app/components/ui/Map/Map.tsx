@@ -28,7 +28,7 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
       contain: "outside",
       duration: 400,
       startScale: 1,
-      minScale: 1,  
+      minScale: 0.5,  
       maxScale: 1.2,
       startX:
         mapEl.offsetWidth !== contentEl.scrollWidth
@@ -36,6 +36,7 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
           : 0,
       zoomDoubleClick: false, 
       zoomPinch: false,
+      disablePan: true,
     });
 
 
@@ -73,11 +74,14 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
     const targetX = mapRect.width / 2 - pinCenterX;
     const targetY = mapRect.height / 2 - pinCenterY;
 
+    const descriptionWidth = 360; // 
+    const offsetX = descriptionWidth / 2; 
+
     panzoom.pan(targetX, targetY, { animate: true, duration: 600 });
 
     panzoom.zoomToPoint(1.5, {
-      clientX: mapRect.left + mapRect.width / 2,
-      clientY: mapRect.top + mapRect.height / 2,
+      clientX: pinRect.left + pinRect.width / 2 + 1000,
+      clientY: pinRect.top + pinRect.height / 2,
     });
 
     if (activePin === null) {

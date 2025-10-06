@@ -20,4 +20,9 @@
         width: 100%;
         height: 595rem;
     }
+    @media (max-width: 500px) {
+        &__inner {
+            width: 100vw;
+        }
+    }
 }
