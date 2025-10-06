@@ -1,7 +1,6 @@
 'use client'
 import styles from './HeroHome.module.scss';
 import useIsMobile from '@/app/hooks/useIsMobile';
-import GlassButton from '@/app/components/ui/GlassBtn/GlassBtn';
 
 type HeroHomeProps = {
   heroData: {

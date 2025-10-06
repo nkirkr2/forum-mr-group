@@ -8,15 +8,6 @@ type FeaturesProps = {
 }
 
 function Features({featuresContent}: FeaturesProps) {
-    // const featuresItems = [
-    // { image: featuresContent.image1, title: featuresContent.title1, text: featuresContent.paragraph1 },
-    // { image: featuresContent.image2, title: featuresContent.title2, text: featuresContent.paragraph2 },
-    // ];
-
-    // console.log('features', featuresItems)
-
-    // featuresItems.forEach(el => console.log(el))
-
 
     return (
         <section className={styles.features}>

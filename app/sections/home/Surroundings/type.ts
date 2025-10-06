@@ -1,6 +1,6 @@
+import { SlideTypes } from "@/app/types";
+
 export type SurroundingsData = {
   title: string;
-  paragraphs: string[];
-  images1: string[];
-  images2: string[];
+  slides: SlideTypes[],
 };

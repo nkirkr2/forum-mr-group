@@ -7,20 +7,17 @@ import { useEffect, useRef } from 'react';
 import { Pagination, Navigation, EffectFade, Controller } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css/effect-fade';
+import { PyramidData } from './types';
 
 
 type PyramidSliderProps = {
-    pyramidSliderData: {
-        images1: string[];
-        images2: string[];
-        paragraphs: string[];
-    };
+    pyramidSliderData: PyramidData;
 };
 
 function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
 
-    const { images1, paragraphs } = pyramidSliderData;
-
+    const slides = pyramidSliderData.slides;
+    const texts = slides.map((el) => el.text);
 
     const imgSwiperRef = useRef<SwiperClass | null>(null);
     const textSwiperRef = useRef<SwiperClass | null>(null);
@@ -72,9 +69,13 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
                     }
                 }}
                 >
-                    {images1 && images1.map((src, i) => (
+                    {slides && slides.map((el, i) => (
                     <SwiperSlide key={i}>
-                        <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
+                        <Image 
+                        src={`${el.image}`}  
+                        alt={`Слайд ${i + 1}`} 
+                        fill 
+                        style={{ objectFit: 'cover' }} />
                     </SwiperSlide>
                     ))}
                 </Swiper>
@@ -102,11 +103,11 @@ function PyramidSlider({pyramidSliderData}: PyramidSliderProps) {
                 }
             }}
             >
-            {paragraphs && paragraphs.map((paragraph, idx) => (
+            {texts && texts.map((text, idx) => (
                 <SwiperSlide key={idx}>
                     <p 
                     className="paragraph"
-                    dangerouslySetInnerHTML={{ __html: paragraph || ''}}
+                    dangerouslySetInnerHTML={{ __html: text || ''}}
                     />
                 </SwiperSlide>
             ))}

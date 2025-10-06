@@ -3,10 +3,10 @@
 import useIsMobile from "@/app/hooks/useIsMobile";
 import DoubleMobSlider from "@/app/components/ui/DoubleMobSlider/DoubleMobSlider";
 import DoubleXSlider from "@/app/components/ui/DoubleXSlider/DoubleXSlider";
-import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
+import { ArchitectureData } from "./type";
 
 type ClientArchitectureProps = {
-    architectureData: DoubleXSliderData
+    architectureData: ArchitectureData;
 }
 
 function ClientArchitecture({ architectureData }: ClientArchitectureProps) {

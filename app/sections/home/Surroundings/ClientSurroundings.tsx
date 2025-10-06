@@ -12,11 +12,12 @@ type ClientSurroundingsProps = {
 function ClientSurroundings({ surroundingsData }: ClientSurroundingsProps) {
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
+  console.log(surroundingsData)
 
   return isMobile ? (
-    <DoubleMobSlider doubleMobSliderData={surroundingsData} />
+    <DoubleMobSlider doubleMobSliderData={{ slides: surroundingsData.slides }} />
   ) : (
-    <DoubleXSlider doubleXSliderData={surroundingsData} />
+    <DoubleXSlider doubleXSliderData={{ slides: surroundingsData.slides }} />
   );
 }
 

@@ -2,21 +2,25 @@ import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
 import styles from './Amenities.module.scss';
 import ClientAmenities from "./ClientAmenities";
 import Link from "next/link";
+import { AmenitiesData } from "./types";
 
 type AmenitiesProps = {
-  amenitiesData: DoubleXSliderData;
+  amenitiesData: AmenitiesData;
 };
 
 function Amenities({ amenitiesData }: AmenitiesProps) {
-  const { title, paragraphs } = amenitiesData;
+
+
+  const slides = amenitiesData.slides;
+  const texts = slides.map(el => el.text);
 
   return (
     <section className={styles.amenities}>
       <div className="container">
-        <h2 className="title-b">{title}</h2>
+        <h2 className="title-b">{amenitiesData.title}</h2>
 
         <div className="visually-hidden">
-          {paragraphs?.map((p, idx) => (
+          {texts?.map((p, idx) => (
             <p key={idx}>{p}</p>
           ))}
         </div>

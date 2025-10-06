@@ -1,5 +1,6 @@
+import { SlideTypes } from "@/app/types";
+
 export type ApartmentsData = {
     title: string;
-    paragraphs: string[];
-    images: string[];
+    slides: SlideTypes[]
 }

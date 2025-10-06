@@ -8,18 +8,18 @@ type SurroundingsProps = {
 };
 
 function Surroundings({ surroundingsData }: SurroundingsProps) {
-  const { title, paragraphs } = surroundingsData;
+
 
   return (
     <section className={styles.surroundings}>
       <div className="container">
-        <h2 className="title-b">{title}</h2>
+        <h2 className="title-b">{surroundingsData.title}</h2>
 
-        <div className="visually-hidden">
+        {/* <div className="visually-hidden">
           {paragraphs?.map((p, idx) => (
             <p key={idx}>{p}</p>
           ))}
-        </div>
+        </div> */}
 
         <ClientSurroundings surroundingsData={surroundingsData} />
 

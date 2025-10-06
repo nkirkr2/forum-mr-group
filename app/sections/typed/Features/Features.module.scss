@@ -1,5 +1,6 @@
 .features {
     height: 1301rem;
+    margin-bottom: 184rem;
     &__content {
         max-width: 1230rem;
         width: 100%;
@@ -41,6 +42,7 @@
     }
 
     @media screen and (max-width: 1280px) {
+        margin-bottom: 120rem;
         &__content {
             &_item {
                 gap: 40rem;

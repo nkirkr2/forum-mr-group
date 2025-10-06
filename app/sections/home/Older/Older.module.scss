@@ -61,6 +61,9 @@
             }
         }
         &_text {
+            span {
+                color: var(--pink);
+            }
             z-index: 9;
             text-align: center;
             position: relative;

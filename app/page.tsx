@@ -14,7 +14,6 @@ import Apartments from "./sections/home/Apartments/Apartments";
 import Cookies from "./components/layout/Cookies/Cookies";
 import Preloader from "./components/layout/Preloader/Preloader";
 import Success from "./components/layout/Success/Success";
-import { mapApiToHomepage } from "./lib/adapters";
 
 export const revalidate = 60;
 
@@ -23,7 +22,8 @@ export default async function Home() {
     next: { revalidate: 60 }
   });
   const api = await res.json();
-  const data = mapApiToHomepage(api);
+  console.log(api)
+
 
   return (
     <>
@@ -36,7 +36,11 @@ export default async function Home() {
         text: api.firstBlockText,
       }}
       />
-      <Place placeData={data.place}/>
+      <Place placeData={{
+        title: api.secondBlockTitle,
+        paragraph: api.secondBlockText,
+        images: api.secondBlockImages,
+      }}/>
       <Location 
         locationData={{
           title: api.mapTitle,
@@ -44,15 +48,41 @@ export default async function Home() {
           locations: api.mapLocation
         }}
       />
-      {/* // @ts-expect-error: API возвращает position как number[], а у нас [number, number] */}
-      <Surroundings surroundingsData={data.surroundings}/>
-      <Architecture architectureData={data.architecture}/>
-      <Improvement improvementData={data.improvement}/>
-      <Lobby lobbyData={data.lobby}/>
-      <Amenities amenitiesData={data.amenities} />
-      <Facing facingData={data.facing} />
-      <Older olderData={data.older}/>
-      <Apartments apartmentsData={data.apartments}/>
+      <Surroundings
+         surroundingsData={{
+           title: api.environmentTitle,
+           slides: api.environmentSlider
+         }}
+      />
+      <Architecture 
+        architectureData={{
+          title: api.architectureTitle,
+          slides: api.architectureSlider,
+        }}/>
+      <Improvement improvementData={{
+        title: api.improvementsTitle,
+        slides: api.improvementsSlider,
+      }}/>
+      <Lobby lobbyData={{
+        title: api.lobbyTitle,
+        slides: api.lobbySlider,
+      }}/>
+      <Amenities amenitiesData={{
+        title: api.amenItiesTitle,
+        slides: api.amenItiesSlider,
+      }} />
+      <Facing facingData={{
+        title: api.finishingTitle,
+        slides: api.finishingSlider,
+      }} />
+      <Older olderData={{
+        title: api.placesolderTitle,
+        slides: api.placesolderSlider,
+      }}/>
+      <Apartments apartmentsData={{
+        title: api.chooseTitle,
+        slides: api.chooseSlider,
+      }}/>
       <Footer />
       <Cookies />
       {/* <Success /> */}

@@ -15,8 +15,31 @@ function Header() {
     const menuRef = useRef<HTMLDivElement | null>(null);
     const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const toggleMenu = () => {
-        setIsOpen(!isOpen);
+    // useEffect(() => {
+    //     let lastScroll = 0;
+    //     const defaultOffset = 200;
+
+    //     const handleScroll = () => {
+    //     const currentScroll =
+    //         window.pageYOffset || document.documentElement.scrollTop;
+
+    //     if (currentScroll > lastScroll && currentScroll > defaultOffset) {
+    //         // скролл вниз
+    //         setIsHidden(true);
+    //     } else if (currentScroll < lastScroll) {
+    //         // скролл вверх
+    //         setIsHidden(false);
+    //     }
+
+    //     lastScroll = currentScroll;
+    //     };
+
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, []);
+
+    const toggleMenu = () => {
+            setIsOpen(!isOpen);
     }
     
     useEffect(() => {

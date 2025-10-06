@@ -76,8 +76,8 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
     panzoom.pan(targetX, targetY, { animate: true, duration: 600 });
 
     panzoom.zoomToPoint(1.5, {
-      clientX: mapRect.width / 2,
-      clientY: mapRect.height / 2,
+      clientX: mapRect.left + mapRect.width / 2,
+      clientY: mapRect.top + mapRect.height / 2,
     });
 
     if (activePin === null) {

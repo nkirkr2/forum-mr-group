@@ -4,12 +4,13 @@ import { ApartmentsData } from './type';
 import useIsMobile from '@/app/hooks/useIsMobile';
 
 // import DesktopApartments from './DesktopApartments';
-import MobileApartments from './MobileApartments';
+// import MobileApartments from './MobileApartments';
 import DesktopSingleSlider from '@/app/components/ui/DesktopSingleSlider/DesktopSingleSlider';
+import PyramidSlider from '@/app/components/ui/PyramidSlider/PyramidSlider';
 
 
 type ApartmentsProps = {
-    apartmentsData: ApartmentsData;
+  apartmentsData: ApartmentsData;
 }
 
 function Apartments({ apartmentsData }: ApartmentsProps) {
@@ -26,7 +27,7 @@ function Apartments({ apartmentsData }: ApartmentsProps) {
           ?
           <>
           <h2 className="title-b">{title}</h2>
-          <MobileApartments apartmentsData={apartmentsData}/>
+          <PyramidSlider pyramidSliderData={apartmentsData}/>
           </>
           :
           <>

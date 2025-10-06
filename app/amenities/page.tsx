@@ -29,7 +29,10 @@ export default async function Amenities() {
   return (
     <>
       <Header />
-      <Hero background={api.mainBanner} title={api.mainTitle} />
+      <Hero 
+      background={api.mainBanner} 
+      backgroundMobile={api.mainMobileBanner}
+      title={api.mainTitle} />
       <About text={api.text} />
       <Gallery galleryContent={api.slider} />
       <Cross crossContent={{

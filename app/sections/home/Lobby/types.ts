@@ -1,5 +1,6 @@
+import { SlideTypes } from "@/app/types";
+
 export type LobbyData = {
   title: string;
-  paragraphs: string[];
-  images: string[];
+  slides: SlideTypes[];
 };

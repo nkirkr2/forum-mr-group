@@ -1,26 +1,24 @@
-import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
 import ClientArchitecture from "./ClientArchitecture";
 import Link from "next/link";
 import styles from './Architecture.module.scss';
+import { ArchitectureData } from "./type";
 
-type architectureProps = {
-    architectureData: DoubleXSliderData;
-}
+export type architectureProps = {
+  architectureData: ArchitectureData
+};
 
 function Architecture({architectureData}: architectureProps) {
-
-    const { title, paragraphs } = architectureData;
 
     return (
         <section className={styles.architecture}>
             <div className="container">
-                <h2 className="title-b">{title}</h2>
+                <h2 className="title-b">{architectureData.title}</h2>
 
-                <div className="visually-hidden">
+                {/* <div className="visually-hidden">
                 {paragraphs?.map((p, idx) => (
                     <p key={idx}>{p}</p>
                 ))}
-                </div>
+                </div> */}
 
                 <ClientArchitecture architectureData={architectureData}/>
                 <Link className='page-link' href='/architecture'>Подробнее</Link>

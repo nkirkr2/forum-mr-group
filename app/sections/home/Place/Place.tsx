@@ -24,9 +24,9 @@ function Place({placeData}: placeProps) {
 
               {images && images.length > 0 && (
                 <div className={styles.images}>
-                  {images.map((src, i) => (
+                  {images.map((el, i) => (
                     <div className={styles.place__image} key={i}>
-                      <img src={src} alt="" />
+                      <img src={`${el.image}`} alt="" />
                     </div>
                   ))}
                 </div>

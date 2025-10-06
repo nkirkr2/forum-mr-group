@@ -10,7 +10,7 @@ import Footer from "../components/layout/Footer/Footer";
 
 
 async function getData() {
-  return fetchApiData(API_ROUTES.AMENITIES);
+  return fetchApiData(API_ROUTES.APARTMENTS);
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -24,12 +24,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function Apartments() {
     const api = await getData();
-
+    console.log(api)
+    
     return (
         <>
         <Header />
         <Hero
         background={api.mainBanner} 
+        backgroundMobile={api.mainMobileBanner}
         title={api.mainTitle}
         />
         <About text={api.text} />

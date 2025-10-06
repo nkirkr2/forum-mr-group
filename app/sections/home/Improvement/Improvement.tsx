@@ -9,12 +9,15 @@ type ImprovementProps = {
 
 function Improvement({ improvementData }: ImprovementProps) {
 
-  const { title, paragraphs } = improvementData;
+
+  const slides = improvementData.slides;
+  const paragraphs = slides.map(el => el.text);
+
 
   return (
     <section className={styles.improvement}>
       <div className="container">
-        <h2 className="title-b mobile-visible">{title}</h2>  
+        <h2 className="title-b mobile-visible">{improvementData.title}</h2>  
 
         <div className="visually-hidden">
         {paragraphs?.map((p, idx) => (

@@ -9,7 +9,10 @@ function About({ text }: AboutProps) {
     return (
         <section className={styles.about}>
             <div className={styles.about__content}>
-                <p className="paragraph">{text}</p>
+                <p 
+                className="paragraph"
+                dangerouslySetInnerHTML={{ __html: text || ''}}
+                />
             </div>
         </section>
     )

@@ -16,11 +16,7 @@ function ClientLobby({ lobbyData }: ClientImprovementProps) {
 
   return isMobile ? (
     <PyramidSlider
-      pyramidSliderData={{
-        images1: lobbyData.images,
-        images2: [],
-        paragraphs: lobbyData.paragraphs,
-      }}
+      pyramidSliderData={lobbyData}
     />
   ) : (
     <div className={styles.lobby__content}>

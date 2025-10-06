@@ -19,7 +19,7 @@
             }
         }
         &_controls {
-            max-width: 494rem;
+            max-width: 369rem;
             width: 100%;
             z-index: 9;
             position: absolute;
@@ -39,10 +39,12 @@
                 outline: 1rem solid var(--main-white);
                 background-color: var(--main-white);
                 @media (hover: hover) {
-                    outline: none;
-                    svg {
-                        path {
-                            fill: var(--main-white);
+                    &:hover {
+                        outline: none;
+                        svg {
+                            path {
+                                fill: var(--main-white);
+                            }
                         }
                     }
                 }

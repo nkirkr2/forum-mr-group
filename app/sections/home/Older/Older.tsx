@@ -9,9 +9,10 @@ type OlderProps = {
    olderData: OlderData;
 }
 
-function Older({olderData}: OlderProps) {
+function Older({ olderData }: OlderProps) {
 
-    const { title, paragraphs } = olderData;
+    const slides = olderData.slides;
+    const paragraphs = slides.map(el => el.text);
 
     const isMobile = useIsMobile();
     if (isMobile === null) return;
@@ -19,7 +20,7 @@ function Older({olderData}: OlderProps) {
     return (
         <section className={styles.older}>
             <div className="visually-hidden">
-            <h2>{title}</h2>
+            <h2>{olderData.title}</h2>
             {paragraphs?.map((p, idx) => (
                 <p key={idx}>{p}</p>
             ))}

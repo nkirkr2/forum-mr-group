@@ -1,5 +1,5 @@
 .cross {
-    margin: 200rem 0;
+    margin: 200rem 0 250rem;
     &__content {
         text-align: center;
         display: flex;
@@ -49,7 +49,7 @@
     }
 
     @media screen and (max-width: 1280px) {
-        margin: 120rem 0;
+        margin: 120rem 0 160rem;
         &__content {
             &_media {
                 width: 474rem;

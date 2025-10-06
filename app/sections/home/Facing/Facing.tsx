@@ -1,22 +1,23 @@
 
-import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
 import ClientFacing from "./ClientFacing";
 import Link from "next/link";
 import styles from './Facing.module.scss';
 import classNames from "classnames";
+import { FacingData } from "./types";
 
-type amenitiesProps = {
-    facingData: DoubleXSliderData;
+type facingProps = {
+    facingData: FacingData;
 }
 
-function Facing({facingData}: amenitiesProps) {
+function Facing({ facingData }: facingProps) {
 
-    const { title, paragraphs } = facingData;
+    const slides = facingData.slides;
+    const paragraphs = slides.map(el => el.text);
 
     return (
         <section className={styles.root}>
             <div className="container">
-                <h2 className="title-b">{title}</h2>
+                <h2 className="title-b">{facingData.title}</h2>
 
                 <div className="visually-hidden">
                 {paragraphs?.map((p, idx) => (

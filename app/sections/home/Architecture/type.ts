@@ -1,6 +1,6 @@
 import { SlideTypes } from "@/app/types";
 
-export type OlderData = {
+export type ArchitectureData = {
   title: string;
-  slides: SlideTypes[],
+  slides: SlideTypes[];
 };

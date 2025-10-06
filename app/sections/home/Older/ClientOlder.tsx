@@ -10,6 +10,7 @@ type ClientOlderProps = {
 };
 
 function ClientOlder({ olderData }: ClientOlderProps) {
+  
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
 

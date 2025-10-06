@@ -25,12 +25,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function Surroundings() {
     const api = await getData();
-    
+
     return (
         <>
+        <h1 className="visually-hidden">{api.mainTitle}</h1>
         <Header />
         <Hero
         background={api.mainBanner} 
+        backgroundMobile={api.mainMobileBanner}
         title={api.mainTitle}
         />
         <About text={api.text} />

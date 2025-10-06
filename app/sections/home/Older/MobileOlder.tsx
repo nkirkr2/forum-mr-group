@@ -14,7 +14,9 @@ type MobileOlderProps = {
 
 function MobileOlder({ olderContent }: MobileOlderProps) {
 
-    const {images, paragraphs, title} = olderContent;
+    console.log(olderContent, 'older');
+    const slides = olderContent.slides;
+    const texts = slides.map((el) => el.text);
 
     const imgSwiperRef = useRef<SwiperClass | null>(null);
     const textSwiperRef = useRef<SwiperClass | null>(null);
@@ -66,13 +68,13 @@ function MobileOlder({ olderContent }: MobileOlderProps) {
             }
         }}
         >
-            {images && images.map((image, idx) => (
+            {slides && slides.map((el, idx) => (
                 <SwiperSlide 
                 key={idx}
                 className={styles.older__mobile_img__slide}
                 >
                 <Image
-                src={image}
+                src={`${el.image}`} 
                 fill
                 alt=""
                 style={{objectFit: 'cover'}}
@@ -83,7 +85,10 @@ function MobileOlder({ olderContent }: MobileOlderProps) {
             }
         </Swiper>
         <div className={styles.older__mobile_text}>
-        <h2 className="title-b">{title}</h2>
+        <h2 
+        className="title-b"
+        dangerouslySetInnerHTML={{ __html: olderContent.title || ''}}
+        />
         <Swiper
         modules={[EffectFade, Controller]}
         effect="fade"
@@ -97,7 +102,7 @@ function MobileOlder({ olderContent }: MobileOlderProps) {
             }
         }}
         >
-            {paragraphs && paragraphs.map((text, idx) => (
+            {texts && texts.map((text, idx) => (
                 <SwiperSlide key={idx}>
                     <p 
                     className="paragraph" 

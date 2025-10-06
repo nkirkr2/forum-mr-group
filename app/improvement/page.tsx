@@ -30,6 +30,7 @@ async function improvement() {
         <Header />
         <Hero
         background={api.mainBanner} 
+        backgroundMobile={api.mainMobileBanner}
         title={api.mainTitle}
         />
         <About text={api.text} />

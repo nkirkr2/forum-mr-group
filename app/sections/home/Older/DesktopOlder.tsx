@@ -18,11 +18,10 @@ type OlderDesktopProps = {
 
 function DesktopOlder({olderContent}: OlderDesktopProps) {
 
-    const {images, paragraphs} = olderContent
 
-    console.log('paragraphs', paragraphs);
+    const slides = olderContent.slides;
+    const texts = slides.map((el) => el.text);
 
-    const text = paragraphs[0];
 
     const imgSwiperRef = useRef<SwiperClass | null>(null);
     const textSwiperRef = useRef<SwiperClass | null>(null);
@@ -73,10 +72,10 @@ function DesktopOlder({olderContent}: OlderDesktopProps) {
                 }
             }}
             >
-            {images && images.map((image: string | StaticImport, idx: Key | null | undefined) => (
+            {slides && slides.map((el, idx) => (
                 <SwiperSlide key={idx}>
                     <Image 
-                        src={image}
+                        src={`${el.image}`} 
                         alt="Логотип"
                         fill
                         style={{ objectFit: "cover" }}
@@ -99,7 +98,7 @@ function DesktopOlder({olderContent}: OlderDesktopProps) {
                 }
             }}
             >
-                {paragraphs && paragraphs.map((paragraph, idx) => (
+                {texts && texts.map((paragraph, idx) => (
                     <SwiperSlide key={idx}>
                         <div className={styles.older__content_text}>
                             <h2 className="title-b">МЕСТО СТАРШЕ САМОЙ <span className='accent'>МОСКВЫ</span></h2>

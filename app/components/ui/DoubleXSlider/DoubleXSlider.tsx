@@ -15,10 +15,14 @@ type Props = {
   doubleXSliderData: DoubleXSliderData;
 };
 
+
 function DoubleXSlider({ doubleXSliderData }: Props) {
-
-  const { images1, images2, paragraphs } = doubleXSliderData;
-
+  console.log('data', doubleXSliderData)
+  const slides = doubleXSliderData.slides ?? Object.values(doubleXSliderData); 
+  console.log('slides', slides)
+  const slides1 = slides.slice(0, slides.length / 2); 
+  const slides2 = slides.slice(slides.length / 2, slides.length); 
+  const texts = slides.map((el) => el.text);
 
   const {
     img1SwiperRef,
@@ -29,6 +33,7 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
     paginationRef,
     linkControllers,
   } = useDoubleXSlider();
+
   
   return (
     <div className={styles.doubleXSliderWrapper}>
@@ -44,11 +49,57 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
               linkControllers();
           }}
         >
-          {images1.map((src, i) => (
+         
+
+          {
+            slides1 && slides1.map((el, idx) => (
+            
+              <SwiperSlide key={idx}>
+                {
+                  el.video !== null
+                  ?
+                  <video 
+                  className={styles.video}
+                  width="100%" 
+                  height="100%" 
+                  preload="none"
+                  muted 
+                  autoPlay 
+                  loop 
+                  playsInline
+                  poster={el.image ?? undefined}
+                  >
+                    <source 
+                    src={el.video} 
+                    type="video/mp4" 
+                    />
+                    <track
+                      src="/path/to/captions.vtt"
+                      kind="subtitles"
+                      srcLang="en"
+                      label="English"
+                    />
+                  </video>
+                  :
+                <Image
+                src={`${el.image}`} 
+                alt={`Слайд ${idx + 1}`} 
+                fill 
+                style={{ objectFit: 'cover' }}
+                 />
+
+                }
+
+              </SwiperSlide>
+            ))
+          }
+
+          {/* {slides1.map((src, i) => (
+
             <SwiperSlide key={i}>
               <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
             </SwiperSlide>
-          ))}
+          ))} */}
         </Swiper>
 
         <Swiper
@@ -62,11 +113,48 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
               linkControllers();
           }}
         >
-            {images2.map((src, i) => (
-              <SwiperSlide key={i}>
-                <Image src={src} alt={`Слайд ${i + 1}`} fill style={{ objectFit: 'cover' }} />
+            {
+            slides2 && slides2.map((el, idx) => (
+            
+              <SwiperSlide key={idx}>
+                {
+                  el.video?.endsWith('mp4')
+                  ?
+                  <video 
+                  className={styles.video}
+                  width="100%" 
+                  height="100%" 
+                  preload="none"
+                  muted 
+                  autoPlay 
+                  loop 
+                  playsInline
+                  poster={el.image ?? undefined}
+                  >
+                    <source 
+                    src={el.video} 
+                    type="video/mp4" 
+                    />
+                    <track
+                      src="/path/to/captions.vtt"
+                      kind="subtitles"
+                      srcLang="en"
+                      label="English"
+                    />
+                  </video>
+                  :
+                <Image
+                src={`${el.image}`} 
+                alt={`Слайд ${idx + 1}`} 
+                fill 
+                style={{ objectFit: 'cover' }}
+                 />
+
+                }
+
               </SwiperSlide>
-            ))}
+            ))
+          }
           </Swiper>
 
         <div className={styles.doubleXSlider__text}>
@@ -82,14 +170,14 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
           }}
           >
             {
-            paragraphs && paragraphs.map((paragraph, idx) => (
+            texts && texts.map((text, idx) => (
               <SwiperSlide
               key={idx}
               className={styles.doubleXSlider__text_slide}
               >
               <p 
               className="paragraph"
-              dangerouslySetInnerHTML={{ __html: paragraph || ''}}
+              dangerouslySetInnerHTML={{ __html: text || ''}}
               />
               </SwiperSlide>
             ))

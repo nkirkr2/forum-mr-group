@@ -7,15 +7,16 @@ type lobbyProps = {
     lobbyData: LobbyData;
 }
 
-function Lobby({lobbyData}: lobbyProps) {
+function Lobby({ lobbyData }: lobbyProps) {
 
-    const {title, paragraphs} = lobbyData;
+    const slides = lobbyData.slides;
+    const paragraphs = slides.map(el => el.text);
 
     return (
         <section className={styles.lobby}>
             <div className="container">
                 <div className={styles.lobby__content}>
-                <h2 className='title-b mobile-visible'>{title}</h2>
+                <h2 className='title-b mobile-visible'>{lobbyData.title}</h2>
 
                 <div className="visually-hidden">
                 {paragraphs?.map((p, idx) => (

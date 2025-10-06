@@ -6,6 +6,7 @@ import { useRef, useEffect } from 'react';
 import { EffectFade, Controller, Navigation, Pagination } from 'swiper/modules';
 import { DoubleXSliderData } from '../DoubleXSlider/types';
 import Image from 'next/image';
+import classNames from 'classnames';
 
 
 type doubleMobliderProps = {
@@ -15,9 +16,10 @@ type doubleMobliderProps = {
 
 function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
 
-    const { images1, images2, paragraphs } = doubleMobSliderData;
-
-    const text = paragraphs[0];
+    const slides = doubleMobSliderData.slides ?? Object.values(doubleMobSliderData); 
+    const slides1 = slides.slice(0, slides.length / 2); 
+    const slides2 = slides.slice(slides.length / 2, slides.length); 
+    const texts = slides.map((el) => el.text);
 
     const imgSwiperRef = useRef<SwiperClass | null>(null);
     const textSwiperRef = useRef<SwiperClass | null>(null);
@@ -67,13 +69,13 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
                     }
                 }}
                 >
-                {images1 && images1.map((image, idx) => (
+                {slides1 && slides1.map((el, idx) => (
                     <SwiperSlide
                     key={idx}
                     className={styles.gallery__img_slide}
                     >
                         <Image 
-                        src={image}
+                        src={`${el.image}`} 
                         alt=""
                         fill
                         style={{ objectFit: "cover" }}
@@ -83,8 +85,8 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
             </Swiper>
             <div className={styles.doubleMoblider__text}>
                 <p 
-                className="paragraph"
-                dangerouslySetInnerHTML={{ __html: text || ''}}
+                className={classNames(styles.text, "paragraph")}
+                dangerouslySetInnerHTML={{ __html: texts[0] || ''}}
                 />
             </div>
             <Swiper
@@ -101,13 +103,13 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
                 }}
                 slidesPerView={1}
                 >
-                {images2 && images2.map((image, idx) => (
+                {slides2 && slides2.map((el, idx) => (
                     <SwiperSlide
                     key={idx}
                     className={styles.gallery__img_slide}
                     >
                         <Image 
-                        src={image}
+                        src={`${el.image}`} 
                         alt=""
                         fill
                         style={{ objectFit: "cover" }}

@@ -26,12 +26,12 @@ export async function generateMetadata(): Promise<Metadata> {
 async function Architecture() {
     const api = await getData();
 
-      
     return (
         <>
         <Header />
         <Hero
         background={api.mainBanner} 
+        backgroundMobile={api.mainMobileBanner} 
         title={api.mainTitle}
         />
         <About text={api.text} />

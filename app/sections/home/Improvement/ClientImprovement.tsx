@@ -11,16 +11,13 @@ type ClientImprovementProps = {
 };
 
 function ClientImprovement({ improvementData }: ClientImprovementProps) {
+
   const isMobile = useIsMobile();
   if (isMobile === null) return null;
 
   return isMobile ? (
     <PyramidSlider
-      pyramidSliderData={{
-        images1: improvementData.images,
-        images2: [],
-        paragraphs: improvementData.paragraphs,
-      }}
+      pyramidSliderData={improvementData}
     />
   ) : (
     <div className={styles.improvement__content}>
