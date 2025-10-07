@@ -50,7 +50,7 @@ cubic-bezier(0.55, 0, 0.1, 1);
 }
 .modal__wrapper {
     position: relative;
-    background-color: #292929;
+    background-color: var(--main-white);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -121,7 +121,7 @@ cubic-bezier(0.55, 0, 0.1, 1);
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
     color: #ffffff;
-    border: 1rem solid var(--main-white);
+    border: 1rem solid var(--black);
     background: rgba(255, 255, 255, 0);
     translate: 0 0 1rem;
 }
@@ -131,7 +131,7 @@ cubic-bezier(0.55, 0, 0.1, 1);
     padding-top: 3rem;
 }
 .application__success_text {
-    color: #ffffff;
+    color: var(--black);
     font-size: 50rem;
     font-style: normal;
     font-weight: 400;
@@ -139,4 +139,19 @@ cubic-bezier(0.55, 0, 0.1, 1);
     text-transform: uppercase;
     margin: 0;
     max-width: 700rem;
+}
+.closeIcon {
+    width: 32rem;
+    height: 32rem;
+}
+
+@media (max-width: 1280px) {
+    .application { 
+        padding: 58rem 36rem 96rem;
+    }
+    .application__close_btn {
+        top: 0;
+        width: 40rem;
+        height: 40rem;
+    }
 }
