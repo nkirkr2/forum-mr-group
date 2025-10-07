@@ -5,6 +5,7 @@ import Inputmask from "inputmask";
 import Button from "../Button/Button";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function ContactForm() {
     const router = useRouter();
@@ -54,7 +55,7 @@ function ContactForm() {
                     required
                 />
                 <p className={styles.contact_form__agree}>
-                    Нажимая «отправить», вы соглашаетесь на <span>обработку персональных данных.</span>
+                    Нажимая «отправить», вы соглашаетесь на <Link href="https://www.mr-group.ru/personal-data/" target="_blank" rel="noopener noreferrer">обработку персональных данных.</Link>
                 </p>
                 <Button type='submit'>Отправить</Button>
     

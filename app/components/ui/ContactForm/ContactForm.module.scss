@@ -12,9 +12,10 @@
         font-size: 14rem;
         color: var(--text-gray);
         margin-bottom: 20rem;
-        span {
+        a {
             text-decoration: underline;
             text-decoration-skip-ink: none;
+            color: var(--text-gray);
         }
     }
     button {
