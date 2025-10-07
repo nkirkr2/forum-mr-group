@@ -9,16 +9,19 @@ export type architectureProps = {
 
 function Architecture({architectureData}: architectureProps) {
 
+    const slides = architectureData.slides;
+    const texts = slides.map(el => el.text);
+
     return (
         <section className={styles.architecture}>
             <div className="container">
                 <h2 className="title-b">{architectureData.title}</h2>
 
-                {/* <div className="visually-hidden">
-                {paragraphs?.map((p, idx) => (
+                <div className="visually-hidden">
+                {texts?.map((p, idx) => (
                     <p key={idx}>{p}</p>
                 ))}
-                </div> */}
+                </div>
 
                 <ClientArchitecture architectureData={architectureData}/>
                 <Link className='page-link' href='/architecture'>Подробнее</Link>

@@ -9,17 +9,20 @@ type SurroundingsProps = {
 
 function Surroundings({ surroundingsData }: SurroundingsProps) {
 
+  const slides = surroundingsData.slides;
+  const texts = slides.map(el => el.text);
+
 
   return (
     <section className={styles.surroundings}>
       <div className="container">
         <h2 className="title-b">{surroundingsData.title}</h2>
 
-        {/* <div className="visually-hidden">
-          {paragraphs?.map((p, idx) => (
+        <div className="visually-hidden">
+          {texts?.map((p, idx) => (
             <p key={idx}>{p}</p>
           ))}
-        </div> */}
+        </div>
 
         <ClientSurroundings surroundingsData={surroundingsData} />
 
