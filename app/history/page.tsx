@@ -38,6 +38,7 @@ async function History() {
           title: api.squareTitle,
           text: api.squareText,
           image: api.squareImage,
+          video: api.squareVideo,
         }} 
         style={{ marginTop: '0' }}
         />

@@ -39,6 +39,7 @@ export default async function Amenities() {
           title: api.squareTitle,
           text: api.squareText,
           image: api.squareImage,
+          video: api.squareVideo,
         }} />
       <Features featuresContent={api.blocks} />
       <Footer />

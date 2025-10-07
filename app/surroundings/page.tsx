@@ -42,6 +42,7 @@ async function Surroundings() {
           title: api.squareTitle,
           text: api.squareText,
           image: api.squareImage,
+          video: api.squareVideo,
         }} 
         />
         <Features featuresContent={api.blocks}/>

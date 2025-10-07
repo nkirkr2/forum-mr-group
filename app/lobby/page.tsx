@@ -39,6 +39,7 @@ async function Lobby() {
           title: api.squareTitle,
           text: api.squareText,
           image: api.squareImage,
+          video: api.squareVideo,
         }} />
         <Footer />
         </> 
