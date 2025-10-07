@@ -26,6 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
 async function Architecture() {
     const api = await getData();
 
+    console.log(api)
+
     return (
         <>
         <Header />
@@ -40,6 +42,7 @@ async function Architecture() {
           title: api.squareTitle,
           text: api.squareText,
           image: api.squareImage,
+          video: api.squareVideo,
         }} />
         <Features featuresContent={api.blocks}/>
         <Footer />

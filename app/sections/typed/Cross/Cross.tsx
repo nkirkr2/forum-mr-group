@@ -3,16 +3,17 @@ import Image from 'next/image';
 import { safeImageUrl } from '@/app/lib/safeImageUrl';
 
 type CrossProps = {
-  crossContent?: { title?: string; image?: string; text?: string };
+  crossContent?: { title?: string; image?: string; text?: string; video?: string };
   style?: React.CSSProperties;
 };
 
 function Cross({ crossContent, style }: CrossProps) {
   if (!crossContent) return null;
 
-  const { title = "", image = "", text = "" } = crossContent;
+  const { title = "", image = "", text = "", video= "" } = crossContent;
   const safeImage = safeImageUrl(image);
-
+console.log(video)
+  console.log(crossContent)
 
   return (
     <section className={styles.cross} style={style}>
@@ -26,14 +27,39 @@ function Cross({ crossContent, style }: CrossProps) {
           )}
 
           <div className={styles.cross__content_media}>
-            {safeImage && (
+            {
+              video !== null ?
+              <video 
+                  className={styles.video}
+                  width="100%" 
+                  height="100%" 
+                  preload="none"
+                  muted 
+                  autoPlay 
+                  loop 
+                  playsInline
+                  poster={image ?? undefined}
+                  >
+                    <source 
+                    src={video} 
+                    type="video/mp4" 
+                    />
+                    <track
+                      src="/path/to/captions.vtt"
+                      kind="subtitles"
+                      srcLang="en"
+                      label="English"
+                    />
+                  </video>
+              :
               <Image
-                src={safeImage}
+                src={`${image}`} 
                 fill
                 alt=''
                 style={{ objectFit: "cover" }}
               />
-            )}
+            }
+           
           </div>
 
           {text && 
