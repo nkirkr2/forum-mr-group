@@ -28,7 +28,7 @@ console.log(video)
 
           <div className={styles.cross__content_media}>
             {
-              video !== null ?
+              video !== null && video !== "" ?
               <video 
                   className={styles.video}
                   width="100%" 

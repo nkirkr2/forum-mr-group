@@ -106,13 +106,21 @@ input[type='file'] {
 html {
 	font-size: calc(1vw / 14.4);
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
+
 
 body {
 	font-family: var(--font-family), sans-serif;
 	font-size: 16rem;
 	background-color: var(--background-gray);
 	overflow-x: hidden;
+	scrollbar-width: none; 
+	-ms-overflow-style: none; 
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .container {

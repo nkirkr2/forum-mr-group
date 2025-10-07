@@ -78,11 +78,11 @@ function Header() {
                 <Logo />
                 <div className={styles.header__row_contacts}>
                     <a href='tel:+74950850280'>+7 (495) 085-02-80</a>
-                    <a href='/buy'>Купить квартиру</a>
+                    <a href='https://forum.mr-group.ru/chooser/'>Купить квартиру</a>
                 </div>
             </div>
             <div ref={menuRef}>
-                <BurgerMenu isOpen={isOpen}/>
+                <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
             </div>
         </header>
     )

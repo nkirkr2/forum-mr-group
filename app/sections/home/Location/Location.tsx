@@ -75,7 +75,7 @@ function Location({locationData}: locationProps) {
     }, []);
 
     return (
-        <section className={styles.location}>
+        <section className={styles.location} id="location">
             <div className="container">
                 <div className={styles.location__content}>
                     <div className={styles.location__content_text}>

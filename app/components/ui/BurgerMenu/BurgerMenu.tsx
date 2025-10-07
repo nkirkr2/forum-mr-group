@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 type BurgerMenuProps = {
-  isOpen: boolean
-}
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+};
 
-function BurgerMenu({ isOpen }: BurgerMenuProps) {
+function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,15 +20,19 @@ function BurgerMenu({ isOpen }: BurgerMenuProps) {
     }
   }, [isOpen]);
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   const links = [
-    { href: "/architecture", label: "Архитектура" },
-    { href: "/lobby", label: "Лобби" },
-    { href: "/improvement", label: "Благоустройство" },
-    { href: "/amenities", label: "Amenities" },
-    { href: "/surroundings", label: "Локация и окружение" },
-    { href: "/history", label: "История места" },
-    { href: "/apartments", label: "Квартиры" },
-    { href: "https://forum.mr-group.ru/chooser/", label: "Выбрать квартиру" },
+    { href: '/#location', label: 'Расположение' },
+    { href: '/surroundings', label: 'Окружение' },
+    { href: '/architecture', label: 'Архитектура' },
+    { href: '/improvement', label: 'Благоустройство' },
+    { href: '/lobby', label: 'Лобби' },
+    { href: '/amenities', label: 'Amenities' },
+    { href: '/apartments', label: 'Отделка' },
+    { href: '/history', label: 'История места' },
   ];
 
   return (
@@ -37,16 +42,31 @@ function BurgerMenu({ isOpen }: BurgerMenuProps) {
           <li key={href}>
             <Link
               href={href}
-              className={pathname === href ? styles.active : ""}
+              className={pathname === href ? styles.active : ''}
+              onClick={handleLinkClick} // <-- закрываем меню при клике
             >
               {label}
             </Link>
           </li>
         ))}
-        <li><a href="tel:+74950850280">+7 (495) 085-02-80</a></li>
+        <li style={{ marginTop: '20rem' }}>
+          <a href="https://forum.mr-group.ru/chooser/" onClick={handleLinkClick}>
+            Выбрать квартиру
+          </a>
+        </li>
+        <li style={{ marginBottom: '20rem' }}>
+          <a href="https://forum.mr-group.ru/chooser/favorites/" onClick={handleLinkClick}>
+            Избранное
+          </a>
+        </li>
+        <li>
+          <a href="tel:+74950850280" onClick={handleLinkClick}>
+            +7 (495) 085-02-80
+          </a>
+        </li>
       </ul>
     </nav>
-  )
+  );
 }
 
 export default BurgerMenu;
