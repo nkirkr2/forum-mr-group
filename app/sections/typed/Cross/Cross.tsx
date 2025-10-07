@@ -36,7 +36,11 @@ function Cross({ crossContent, style }: CrossProps) {
             )}
           </div>
 
-          {text && <p className="paragraph">{text}</p>}
+          {text && 
+          <p className="paragraph"
+          dangerouslySetInnerHTML={{ __html: text }}
+          />
+          }
         </div>
       </div>
     </section>

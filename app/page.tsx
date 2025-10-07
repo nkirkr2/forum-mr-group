@@ -22,8 +22,6 @@ export default async function Home() {
     next: { revalidate: 60 }
   });
   const api = await res.json();
-  console.log(api)
-
 
   return (
     <>

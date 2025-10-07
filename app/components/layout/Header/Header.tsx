@@ -15,28 +15,32 @@ function Header() {
     const menuRef = useRef<HTMLDivElement | null>(null);
     const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-    // useEffect(() => {
-    //     let lastScroll = 0;
-    //     const defaultOffset = 200;
+    useEffect(() => {
+        let lastScroll = 0;
+        const defaultOffset = 200;
 
-    //     const handleScroll = () => {
-    //     const currentScroll =
-    //         window.pageYOffset || document.documentElement.scrollTop;
+        const handleScroll = () => {
+        if (isOpen) return;
+        const currentScroll =
+            window.pageYOffset || document.documentElement.scrollTop;
 
-    //     if (currentScroll > lastScroll && currentScroll > defaultOffset) {
-    //         // скролл вниз
-    //         setIsHidden(true);
-    //     } else if (currentScroll < lastScroll) {
-    //         // скролл вверх
-    //         setIsHidden(false);
-    //     }
+        if (currentScroll > lastScroll && currentScroll > defaultOffset) {
+            // скролл вниз
+            setIsHidden(true);
+        } else if (currentScroll < lastScroll) {
+            // скролл вверх
+            setIsHidden(false);
+        }
 
-    //     lastScroll = currentScroll;
-    //     };
+        lastScroll = currentScroll;
+        };
 
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => window.removeEventListener('scroll', handleScroll);
-    // }, []);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+
+    
 
     const toggleMenu = () => {
             setIsOpen(!isOpen);
@@ -62,7 +66,9 @@ function Header() {
     return (
         <header>
             <div
-            className={`${styles.header__row} ${isHidden ? styles.header__hidden : ''}`} 
+            className={`${styles.header__row} ${
+                isHidden && !isOpen ? styles.header__hidden : ''
+            }`}
             >
                 <Sandwich
                 onClick={toggleMenu}
