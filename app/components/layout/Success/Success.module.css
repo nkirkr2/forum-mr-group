@@ -1,10 +1,10 @@
 .modal {
-    position: fixed;
+    height: 100vh;
+    /* position: fixed; */
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1000;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -14,39 +14,14 @@
     flex-direction: column;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    height: 100vh;
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: opacity 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1);
-    transition: opacity 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1);
-    transition: opacity 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1);
-    transition: opacity 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s 
-cubic-bezier(0.55, 0, 0.1, 1);
-    pointer-events: none;
+    /* visibility: hidden; */
+    /* opacity: 0; */
     -ms-overflow-style: none;
     scrollbar-width: none;
     /* padding: 66rem 0 60rem; */
-        -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
 }
 .modal__wrapper {
     position: relative;
@@ -98,7 +73,7 @@ cubic-bezier(0.55, 0, 0.1, 1);
     position: relative;
     width: 100%;
     max-width: 947rem;
-    padding: 108rem 36rem 0;
+    /* padding: 108rem 36rem 0; */
 }
 .application__close_btn {
     position: absolute;
@@ -125,11 +100,7 @@ cubic-bezier(0.55, 0, 0.1, 1);
     background: rgba(255, 255, 255, 0);
     translate: 0 0 1rem;
 }
-.application__success {
-    min-height: 318rem;
-    margin-left: 5rem;
-    padding-top: 3rem;
-}
+
 .application__success_text {
     color: var(--black);
     font-size: 50rem;
@@ -147,11 +118,19 @@ cubic-bezier(0.55, 0, 0.1, 1);
 
 @media (max-width: 1280px) {
     .application { 
-        padding: 58rem 36rem 96rem;
+        padding: 58rem 45rem 96rem;
     }
     .application__close_btn {
         top: 0;
         width: 40rem;
         height: 40rem;
     }
+}
+
+.link {
+    color: var(--pink);
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 20rem;
+    font-size: 28rem;
 }

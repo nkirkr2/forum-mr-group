@@ -26,7 +26,6 @@ export async function generateMetadata(): Promise<Metadata> {
 async function Architecture() {
     const api = await getData();
 
-    console.log(api)
 
     return (
         <>

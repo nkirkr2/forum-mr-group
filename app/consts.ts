@@ -5,5 +5,5 @@ export const API_ROUTES = {
     'ARCHITECTURE': 'architecture',
     'IMPROVEMENT': 'improvement',
     'LOBBY': 'lobby',
-    'HISTORY': 'history-place'
+    'HISTORY': 'history-place',
 }

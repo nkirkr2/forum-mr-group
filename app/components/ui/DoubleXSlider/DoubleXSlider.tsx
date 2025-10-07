@@ -17,9 +17,7 @@ type Props = {
 
 
 function DoubleXSlider({ doubleXSliderData }: Props) {
-  console.log('data', doubleXSliderData)
   const slides = doubleXSliderData.slides ?? Object.values(doubleXSliderData); 
-  console.log('slides', slides)
   const slides1 = slides.slice(0, slides.length / 2); 
   const slides2 = slides.slice(slides.length / 2, slides.length); 
   const texts = slides.map((el) => el.text);

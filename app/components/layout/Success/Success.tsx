@@ -1,5 +1,5 @@
 import styles from './Success.module.css'
-import Image from 'next/image';
+import Link from 'next/link';
 
 function Success() {
     return (
@@ -8,20 +8,11 @@ function Success() {
                 <div className={styles.modal__overlay} data-close-modal=""></div>
                 <div className={styles.modal__content}>
                     <div className={styles.application} data-form-validate="" data-callback="base">
-                        <button className={styles.application__close_btn} type="button" aria-label="Закрыть попап" data-close-modal="">
-                            <div className={styles.closeIcon}>
-                                <Image
-                                    src="/images/icons/close.svg"
-                                    alt="Закрыть"
-                                    fill
-                                    style={{ objectFit: "cover" }}
-                                />
-                            </div>
-                        </button>
                         <div className={styles.application__success}>
-                            <p className={styles.application__success_text}><span className='accent'>Спасибо!</span></p>
+                            <p className={styles.application__success_text}>Спасибо!</p>
                             <p className={styles.application__success_text}>Мы&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время</p>
                         </div>
+                        <Link href="/" className={styles.link}>На главную</Link>
                     </div>
                 </div>
             </div>

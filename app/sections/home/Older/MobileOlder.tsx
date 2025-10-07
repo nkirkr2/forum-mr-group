@@ -14,7 +14,6 @@ type MobileOlderProps = {
 
 function MobileOlder({ olderContent }: MobileOlderProps) {
 
-    console.log(olderContent, 'older');
     const slides = olderContent.slides;
     const texts = slides.map((el) => el.text);
 

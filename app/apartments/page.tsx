@@ -24,7 +24,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function Apartments() {
     const api = await getData();
-    console.log(api)
     
     return (
         <>
