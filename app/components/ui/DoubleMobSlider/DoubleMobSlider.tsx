@@ -74,13 +74,40 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
                     key={idx}
                     className={styles.gallery__img_slide}
                     >
-                        <Image 
-                        src={`${el.image}`} 
-                        alt=""
-                        fill
-                        style={{ objectFit: "cover" }}
-                        />
-                    </SwiperSlide>
+                        {
+                            el.video !== null && el.video !== ''
+                            ?
+                            <video 
+                            className={styles.video}
+                            width="100%" 
+                            height="100%" 
+                            preload="none"
+                            muted 
+                            autoPlay 
+                            loop 
+                            playsInline
+                            poster={el.image ?? undefined}
+                            >
+                                <source 
+                                src={el.video} 
+                                type="video/mp4" 
+                                />
+                                <track
+                                src="/path/to/captions.vtt"
+                                kind="subtitles"
+                                srcLang="en"
+                                label="English"
+                                />
+                            </video>
+                            :
+                            <Image 
+                            src={`${el.image}`} 
+                            alt=""
+                            fill
+                            style={{ objectFit: "cover" }}
+                            />
+                        }
+                            </SwiperSlide>
                 ))}
             </Swiper>
             <div className={styles.doubleMoblider__text}>
@@ -108,12 +135,39 @@ function DoubleMobSlider({doubleMobSliderData}: doubleMobliderProps) {
                     key={idx}
                     className={styles.gallery__img_slide}
                     >
-                        <Image 
-                        src={`${el.image}`} 
-                        alt=""
-                        fill
-                        style={{ objectFit: "cover" }}
-                        />
+                        {
+                            el.video !== null && el.video !== ''
+                            ?
+                            <video 
+                            className={styles.video}
+                            width="100%" 
+                            height="100%" 
+                            preload="none"
+                            muted 
+                            autoPlay 
+                            loop 
+                            playsInline
+                            poster={el.image ?? undefined}
+                            >
+                                <source 
+                                src={el.video} 
+                                type="video/mp4" 
+                                />
+                                <track
+                                src="/path/to/captions.vtt"
+                                kind="subtitles"
+                                srcLang="en"
+                                label="English"
+                                />
+                            </video>
+                            :
+                            <Image 
+                            src={`${el.image}`} 
+                            alt=""
+                            fill
+                            style={{ objectFit: "cover" }}
+                            />
+                        }
                     </SwiperSlide>
                 ))}
             </Swiper>
