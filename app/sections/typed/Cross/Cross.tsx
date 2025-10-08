@@ -11,8 +11,6 @@ function Cross({ crossContent, style }: CrossProps) {
 
   const { title = "", image = "", text = "", video= "" } = crossContent;
 
-  console.log(crossContent)
-
   return (
     <section className={styles.cross} style={style}>
       <div className="container">

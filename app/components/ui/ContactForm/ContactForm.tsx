@@ -65,12 +65,10 @@ function ContactForm() {
                     if (response.success) {
                         router.push('/success');
                     } else {
-                        console.error('Comagic: ошибка отправки заявки');
                     }
                 }
             );
         } else {
-            console.error('Comagic не загружен');
           
         }
     };
