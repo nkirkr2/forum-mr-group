@@ -1,4 +1,3 @@
-// Input.tsx
 import React, { forwardRef } from "react";
 import styles from "./Input.module.scss";
 
@@ -8,10 +7,11 @@ type InputProps = {
   value?: string; 
   name: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "type" | "name" | "value" | "onChange" | "placeholder">;
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ placeholder, type, value, name, onChange, ...rest }, ref) => {
+  ({ placeholder, type, value, name, onChange, onBlur, ...rest }, ref) => {
     return (
       <label className={styles.form_input}>
         <span className="visually-hidden">
@@ -24,6 +24,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
           {...rest}
         />
       </label>

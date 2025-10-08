@@ -1,7 +1,7 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.scss";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 const myFont = localFont({
   src: [
@@ -28,6 +28,10 @@ export default function RootLayout({
     <html lang="ru" className={myFont.variable}>
       <body>
         {children}
+        <Script 
+        type="text/javascript" 
+        src="https://app.uiscom.ru/static/cs.min.js?k=OvKXDWSlorAc7kQq8IE41zoGUxIiZIcm" 
+        />
       </body>
     </html>
   );
