@@ -30,6 +30,9 @@
                 width: 585rem;
                 height: 750rem;
                 flex: 0 0 auto;
+                img {
+                    object-fit: cover;
+                }
             }
             &__text {
                 max-width: 585rem;
