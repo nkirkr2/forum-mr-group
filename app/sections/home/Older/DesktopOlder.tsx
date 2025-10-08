@@ -8,8 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { OlderData } from './types';
 import Image from 'next/image';
 
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import { Key } from 'react';
 
 
 type OlderDesktopProps = {

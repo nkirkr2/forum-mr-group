@@ -1,5 +1,4 @@
 import { ApartmentsData } from './type';
-import useIsMobile from '@/app/hooks/useIsMobile';
 import ClientApartments from './ClientApartments';
 
 

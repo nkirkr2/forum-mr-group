@@ -1,6 +1,5 @@
 import styles from './Silence.module.scss';
 import { SilenceData } from './types';
-import Image from 'next/image';
 
 
 type SilenceProps = {

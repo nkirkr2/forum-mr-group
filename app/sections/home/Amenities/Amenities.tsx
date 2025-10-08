@@ -1,4 +1,3 @@
-import { DoubleXSliderData } from "@/app/components/ui/DoubleXSlider/types";
 import styles from './Amenities.module.scss';
 import ClientAmenities from "./ClientAmenities";
 import Link from "next/link";

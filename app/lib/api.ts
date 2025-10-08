@@ -10,6 +10,7 @@ export async function fetchApiData(id: string) {
         
         const api = await res.json();
         return api;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
         return null;
     }
