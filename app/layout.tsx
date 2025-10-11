@@ -29,8 +29,8 @@ export default function RootLayout({
       <body>
         {children}
         <Script 
-        type="text/javascript" 
-        src="https://app.uiscom.ru/static/cs.min.js?k=OvKXDWSlorAc7kQq8IE41zoGUxIiZIcm" 
+          type="text/javascript" 
+          src="https://app.comagic.ru/static/cs.min.js?k=XmZcX1deUQbZo5Vl5mAI60C9P9ZgKGnt" 
         />
       </body>
     </html>
