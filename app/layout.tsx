@@ -26,12 +26,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" className={myFont.variable}>
-      <body>
-        {children}
+      <head>
+        <meta
+          name="yandex-verification"
+          content="f710f09e02fc0d9c"
+        />
         <Script 
           type="text/javascript" 
           src="https://app.comagic.ru/static/cs.min.js?k=XmZcX1deUQbZo5Vl5mAI60C9P9ZgKGnt" 
         />
+        <Script id="gtm" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){ w[l]=w[l]||[];w[l].push({ 'gtm.start':
+                  new Date().getTime(),event:'gtm.js' });var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PKJ5MD9D');
+          `}
+        </Script>
+        <Script
+          async
+          type="text/javascript" 
+          src="https://smartcallback.ru/api/SmartCallBack.js?t=kUp43RtwmYtq46zaqKrtyh" 
+        />
+      </head>
+      <body>
+        {children}
       </body>
     </html>
   );
