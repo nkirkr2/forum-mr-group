@@ -68,10 +68,12 @@ export default function RootLayout({
         </noscript>
         <Script id="mindbox" strategy="afterInteractive">
           {`
-            mindbox = window.mindbox || function() { mindbox.queue.push(arguments); };
-            mindbox.queue = mindbox.queue || [];
-            mindbox('create', {
-                endpointId: 'Mr-group.forum.mr-group.ru'
+            document.addEventListener('DOMContentLoaded', function() {
+              mindbox = window.mindbox || function() { mindbox.queue.push(arguments); };
+              mindbox.queue = mindbox.queue || [];
+              mindbox('create', {
+                  endpointId: 'Mr-group.forum.mr-group.ru'
+              });
             });
           `}
         </Script>
