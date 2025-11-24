@@ -32,6 +32,8 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
     linkControllers,
   } = useDoubleXSlider();
 
+
+  console.log(doubleXSliderData)
   
   return (
     <div className={styles.doubleXSliderWrapper}>
@@ -84,6 +86,7 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
                 alt={`Слайд ${idx + 1}`} 
                 fill 
                 style={{ objectFit: 'cover' }}
+                unoptimized
                  />
 
                 }

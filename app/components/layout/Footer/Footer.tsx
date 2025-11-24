@@ -15,14 +15,14 @@ function Footer() {
                     <div className={styles.footer__content_left}>
                         <address className="paragraph">ОФИС ПРОДАЖ MR PRIVATE <br /> Cадовая-Cухаревcкая, 14</address>
                         <p className="paragraph">Запишитесь на просмотр. Укажите свои контактЫ, <br /> и менеджер свяжется с вами.</p>
-                        <div className={styles.footer__content_left__buttons}>
+                        {/* <div className={styles.footer__content_left__buttons}>
                             <a href="https://wa.me/74955141514" target="_blank" rel="noopener noreferrer">
                                 <Button>WhatsApp</Button>
                             </a>
                             <a href="https://t.me/mrprivatearka" target="_blank" rel="noopener noreferrer">
                                 <Button>Telegram</Button>
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={styles.footer__content_right}>
                         <ContactForm />
