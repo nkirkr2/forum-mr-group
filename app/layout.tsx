@@ -27,6 +27,10 @@ export default function RootLayout({
   return (
     <html lang="ru" className={myFont.variable}>
       <head>
+        <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
         <meta
           name="yandex-verification"
           content="f710f09e02fc0d9c"

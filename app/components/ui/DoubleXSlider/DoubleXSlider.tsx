@@ -32,8 +32,6 @@ function DoubleXSlider({ doubleXSliderData }: Props) {
     linkControllers,
   } = useDoubleXSlider();
 
-
-  console.log(doubleXSliderData)
   
   return (
     <div className={styles.doubleXSliderWrapper}>

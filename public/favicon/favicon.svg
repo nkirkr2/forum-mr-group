@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1070)"><rect width="1000" height="1000" fill="#ffffff"></rect><g transform="matrix(16.666666666666668,0,0,16.666666666666668,-5.684341886080802e-14,-5.684341886080802e-14)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="60" height="60" fill="black"></rect>
+<path d="M35.1494 16.8506H39.9053V25.3213H44.3408V34.7236H39.9053V42.6182H35.1494V51H25.1699V42.6182H20.4795V34.7236H16V25.3213H20.4795V16.8506H25.1699V9H35.1494V16.8506Z" fill="white"></path>
+</svg></svg></g></g><defs><clipPath id="SvgjsClipPath1070"><rect width="1000" height="1000" x="0" y="0" rx="500" ry="500"></rect></clipPath></defs></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1071)"><rect width="1000" height="1000" fill="#ffffff"></rect><g transform="matrix(16.666666666666668,0,0,16.666666666666668,-5.684341886080802e-14,-5.684341886080802e-14)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="60" height="60" fill="black"></rect>
+<path d="M35.1494 16.8506H39.9053V25.3213H44.3408V34.7236H39.9053V42.6182H35.1494V51H25.1699V42.6182H20.4795V34.7236H16V25.3213H20.4795V16.8506H25.1699V9H35.1494V16.8506Z" fill="white"></path>
+</svg></svg></g></g><defs><clipPath id="SvgjsClipPath1071"><rect width="1000" height="1000" x="0" y="0" rx="500" ry="500"></rect></clipPath></defs></svg></g></svg>

@@ -50,12 +50,12 @@ function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           </li>
         ))}
         <li style={{ marginTop: '20rem' }}>
-          <a href="/chooser/" onClick={handleLinkClick}>
+          <a href="/chooser/" onClick={handleLinkClick} target="_blank" rel="noopener noreferrer">
             Выбрать квартиру
           </a>
         </li>
         <li style={{ marginBottom: '20rem' }}>
-          <a href="/chooser/favorites/" onClick={handleLinkClick}>
+          <a href="/chooser/favorites/" onClick={handleLinkClick} target="_blank" rel="noopener noreferrer">
             Избранное
           </a>
         </li>
