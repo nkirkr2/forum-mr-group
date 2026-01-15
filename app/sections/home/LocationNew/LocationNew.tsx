@@ -49,6 +49,7 @@ function LocationNew({locationData}: locationProps) {
             startScale: 1,
             duration: 400,          // <-- Длительность анимации в мс
             easing: 'ease-in-out',
+            pinchAndPan: false, 
             startX: mapEl.offsetWidth !== contentEl.scrollWidth 
                 ? (mapEl.offsetWidth - contentEl.scrollWidth) / 2 
                 : 0,
