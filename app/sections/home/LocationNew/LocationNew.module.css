@@ -1,0 +1,48 @@
+.map {
+    flex-shrink: 0;
+    overflow: hidden;
+    user-select: none;
+    touch-action: pan-x; /* Разрешаем только горизонтальные жесты */
+    position: relative;
+    width: 820rem;
+    height: 600rem; /* Или любая нужная высота / 100vh */
+    transition: .4s ease-in-out;
+}
+
+.mapContent {
+    display: inline-block;
+    user-select: none;
+    touch-action: pan-x;
+    height: 100%;
+    position: relative;
+    transition: 0.3s ease-in !important;
+}
+
+.mapContent img {
+    display: block;
+    height: 100%;        /* Картинка занимает всю высоту контейнера */
+    width: auto;         /* Ширина пропорционально высоте */
+    max-width: none;
+    pointer-events: none;
+}
+
+.content {
+    display: flex;
+    align-items: stretch;
+    gap: 20rem;
+}
+.text {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+    .map {
+        width: 100%;
+    }
+    .content {
+        flex-direction: column;
+    }
+}
