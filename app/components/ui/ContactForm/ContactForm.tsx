@@ -23,18 +23,6 @@ function ContactForm() {
 
     const [nameDirty, setNameDirty] = useState(false);
     const [phoneDirty, setPhoneDirty] = useState(false);
-   
-
-    const blurHandler = (evt: React.FocusEvent<HTMLInputElement>) => {
-        switch (evt.target.name) {
-            case 'name':
-                setNameDirty(true);
-                break;
-            case 'phone':
-                setPhoneDirty(true);
-                break;
-        }
-    };
 
     const agreementHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setAgreement(evt.target.checked);
@@ -91,26 +79,14 @@ function ContactForm() {
         setIsSubmitting(true);
 
         // Формируем данные для отправки
-        const fullComment = apartmentString 
-            ? `${apartmentString}${comment ? `. ${comment}` : ''}`
-            : comment;
-
         const data: Record<string, string> = {
             name,
             phone,
-            message: fullComment,
+            message: '',
         };
 
         // Маркетинговые рассылки (как отдельное поле)
         data.marketing_consent = marketingConsent ? '1' : '0';
-
-        // Добавляем данные о квартире как отдельные поля
-        if (apartmentInfo) {
-            data.apartment_number = apartmentInfo.number;
-            data.apartment_floor = String(apartmentInfo.floor);
-            data.apartment_area = String(apartmentInfo.area);
-            data.apartment_price = String(apartmentInfo.amount);
-        }
 
         // Отправка через Comagic
         if (typeof window !== 'undefined' && window.Comagic?.addOfflineRequest) {
@@ -152,7 +128,6 @@ function ContactForm() {
                     value={name}
                     onChange={nameHandler}
                     onBlur={() => setNameDirty(true)}
-                    label="Имя"
                     error={nameDirty && nameError}
                 />
 
@@ -164,7 +139,6 @@ function ContactForm() {
                     value={phone}
                     onChange={phoneHandler}
                     onBlur={() => setPhoneDirty(true)}
-                    label="Телефон"
                     error={phoneDirty && phoneError}
                 />
                 <div className=""> 
