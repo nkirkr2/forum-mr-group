@@ -44,17 +44,27 @@ function LocationNew({locationData}: locationProps) {
             disableZoom: false,      // Включаем зум!
             contain: 'outside',
             cursor: 'grab',
-            minScale: 0.5,
+            minScale: 1,
             maxScale: 1.2,
             startScale: 1,
             duration: 400,          // <-- Длительность анимации в мс
             easing: 'ease-in-out',
             pinchAndPan: false, 
+            touchAction: 'pan-x pan-y',
             startX: mapEl.offsetWidth !== contentEl.scrollWidth 
                 ? (mapEl.offsetWidth - contentEl.scrollWidth) / 2 
                 : 0,
             startY: 0,
         });
+
+        // const handlePanzoomEnd = () => {
+        //     if (panzoomRef.current) {
+        //         const currentScale = panzoomRef.current.getScale();
+        //         if (currentScale < minScale) {
+        //             panzoomRef.current.zoom(minScale, { animate: true });
+        //         }
+        //     }
+        // };
 
         const handleResize = () => {
             if (panzoomRef.current && mapEl && contentEl) {

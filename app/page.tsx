@@ -1,7 +1,6 @@
 import Header from "./components/layout/Header/Header";
 import HeroHome from "./sections/home/HeroHome/HeroHome";
 import Place from "./sections/home/Place/Place";
-// import Location from "./sections/home/Location/Location";
 import LocationNew from "./sections/home/LocationNew/LocationNew";
 import Surroundings from "./sections/home/Surroundings/Surroundings";
 import Lobby from "./sections/home/Lobby/Lobby";
@@ -39,13 +38,6 @@ export default async function Home() {
         paragraph: api.secondBlockText,
         images: api.secondBlockImages,
       }}/>
-      {/* <Location 
-        locationData={{
-          title: api.mapTitle,
-          paragraph: api.mapText, 
-          locations: api.mapLocation
-        }}
-      /> */}
       <LocationNew 
         locationData={{
           title: api.mapTitle,
