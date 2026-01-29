@@ -70,21 +70,23 @@ export default function RootLayout({
             <img src="https://mc.yandex.ru/watch/95223539" style={{ position: 'absolute', left: '-9999px' }} alt="" />
           </div>
         </noscript>
-        <Script id="mindbox" strategy="afterInteractive">
+        <Script id="mindbox-init" strategy="afterInteractive">
           {`
-            document.addEventListener('DOMContentLoaded', function() {
-              mindbox = window.mindbox || function() { mindbox.queue.push(arguments); };
-              mindbox.queue = mindbox.queue || [];
-              mindbox('create', {
+            (function() {
+              window.mindbox = window.mindbox || function() { 
+                window.mindbox.queue.push(arguments); 
+              };
+              window.mindbox.queue = window.mindbox.queue || [];
+              window.mindbox('create', {
                   endpointId: 'Mr-group.forum.mr-group.ru'
               });
-            });
+              console.log('[Mindbox] Tracker initialized with endpoint: Mr-group.forum.mr-group.ru');
+            })();
           `}
         </Script>
         <Script
-          async
-          type="text/javascript" 
           src="https://api.mindbox.ru/scripts/v1/tracker.js"
+          strategy="afterInteractive"
         />
       </head>
       <body>
