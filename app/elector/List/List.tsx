@@ -1,5 +1,3 @@
-import styles from '../Elector.module.scss';
-
 function List() {
     return (
         <>

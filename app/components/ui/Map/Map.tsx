@@ -74,9 +74,6 @@ export default function Map({ locations, onToggleClick, activePin }: MapProps) {
     const targetX = mapRect.width / 2 - pinCenterX;
     const targetY = mapRect.height / 2 - pinCenterY;
 
-    const descriptionWidth = 360; // 
-    const offsetX = descriptionWidth / 2; 
-
     panzoom.pan(targetX, targetY, { animate: true, duration: 600 });
 
     panzoom.zoomToPoint(1.5, {

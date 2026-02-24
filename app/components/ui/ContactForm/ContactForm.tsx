@@ -23,16 +23,47 @@ function ContactForm() {
 
     const [nameDirty, setNameDirty] = useState(false);
     const [phoneDirty, setPhoneDirty] = useState(false);
-   
 
-    const blurHandler = (evt: React.FocusEvent<HTMLInputElement>) => {
-        switch (evt.target.name) {
-            case 'name':
-                setNameDirty(true);
-                break;
-            case 'phone':
-                setPhoneDirty(true);
-                break;
+    // Функция отправки данных в Mindbox
+    const sendToMindbox = (userName: string, userPhone: string, hasMarketingConsent: boolean) => {
+        console.log('[Mindbox] Attempting to send CallBackFooter event...');
+        console.log('[Mindbox] Data:', {
+            userName,
+            userPhone: userPhone.replace(/\D/g, ''),
+            hasMarketingConsent
+        });
+
+        if (typeof window !== 'undefined' && window.mindbox) {
+            console.log('[Mindbox] mindbox object found, sending request...');
+            
+            const mindboxData = {
+                operation: 'CallBackFooter',
+                data: {
+                    customer: {
+                        mobilePhone: userPhone.replace(/\D/g, ''),
+                        firstName: userName,
+                        subscriptions: [
+                            {
+                                pointOfContact: 'Sms',
+                                isSubscribed: hasMarketingConsent ? 'true' : 'false',
+                            },
+                        ],
+                    },
+                },
+                onSuccess: () => {
+                    console.log('[Mindbox] CallBackFooter SUCCESS!');
+                },
+                onError: (error: unknown) => {
+                    console.error('[Mindbox] CallBackFooter ERROR:', error);
+                },
+            };
+
+            console.log('[Mindbox] Full request payload:', JSON.stringify(mindboxData, null, 2));
+            
+            window.mindbox('async', mindboxData);
+        } else {
+            console.warn('[Mindbox] mindbox object not found on window!');
+            console.log('[Mindbox] window.mindbox:', typeof window !== 'undefined' ? window.mindbox : 'window undefined');
         }
     };
 
@@ -66,6 +97,7 @@ function ContactForm() {
  
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        console.log('[Form] Submit started');
 
         setNameDirty(true);
         setPhoneDirty(true);
@@ -85,49 +117,49 @@ function ContactForm() {
         }
 
         if (isNameInvalid || isPhoneInvalid || !name || !phone || !agreement) {
+            console.log('[Form] Validation failed:', { isNameInvalid, isPhoneInvalid, agreement });
             return;
         }
 
+        console.log('[Form] Validation passed, submitting...');
         setIsSubmitting(true);
 
         // Формируем данные для отправки
-        const fullComment = apartmentString 
-            ? `${apartmentString}${comment ? `. ${comment}` : ''}`
-            : comment;
-
         const data: Record<string, string> = {
             name,
             phone,
-            message: fullComment,
+            message: '',
         };
 
         // Маркетинговые рассылки (как отдельное поле)
         data.marketing_consent = marketingConsent ? '1' : '0';
 
-        // Добавляем данные о квартире как отдельные поля
-        if (apartmentInfo) {
-            data.apartment_number = apartmentInfo.number;
-            data.apartment_floor = String(apartmentInfo.floor);
-            data.apartment_area = String(apartmentInfo.area);
-            data.apartment_price = String(apartmentInfo.amount);
-        }
-
         // Отправка через Comagic
         if (typeof window !== 'undefined' && window.Comagic?.addOfflineRequest) {
+            console.log('[Comagic] Sending request...');
             window.Comagic.addOfflineRequest(
                 data,
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (o: any) => {
                     const response = JSON.parse(o.response);
+                    console.log('[Comagic] Response:', response);
                     if (response.success) {
+                        console.log('[Comagic] Success! Now sending to Mindbox...');
+                        // Отправляем данные в Mindbox
+                        sendToMindbox(name, phone, marketingConsent);
                         router.push('/success');
                     } else {
+                        console.error('[Comagic] Request failed');
+                        setIsSubmitting(false);
                     }
                 }
             );
         } else {
+            console.warn('[Comagic] Not available, sending only to Mindbox...');
+            // Если Comagic недоступен, всё равно отправляем в Mindbox
+            sendToMindbox(name, phone, marketingConsent);
             setIsSubmitting(false);
-        };
+        }
     };
 
     useEffect(() => {
@@ -152,7 +184,6 @@ function ContactForm() {
                     value={name}
                     onChange={nameHandler}
                     onBlur={() => setNameDirty(true)}
-                    label="Имя"
                     error={nameDirty && nameError}
                 />
 
@@ -164,7 +195,6 @@ function ContactForm() {
                     value={phone}
                     onChange={phoneHandler}
                     onBlur={() => setPhoneDirty(true)}
-                    label="Телефон"
                     error={phoneDirty && phoneError}
                 />
                 <div className=""> 

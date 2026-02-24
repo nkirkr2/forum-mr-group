@@ -1,6 +1,5 @@
 import styles from './Footer.module.scss';
 import TextLogo from '../../ui/TextLogo';
-import Button from '../../ui/Button/Button';
 import ContactForm from '../../ui/ContactForm/ContactForm';
 import FooterBottom from './FooterBottom';
 
