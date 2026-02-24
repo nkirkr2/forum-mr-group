@@ -35,10 +35,6 @@ export default function RootLayout({
           name="yandex-verification"
           content="f710f09e02fc0d9c"
         />
-        <Script 
-          type="text/javascript" 
-          src="https://app.comagic.ru/static/cs.min.js?k=OvKXDWSlorAc7kQq8IE41zoGUxIiZIcm" 
-        />
         <Script id="gtm" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){ w[l]=w[l]||[];w[l].push({ 'gtm.start':
