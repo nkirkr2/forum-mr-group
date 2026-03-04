@@ -7,19 +7,20 @@
 }
 
 .content {
-    padding-top: 120rem;
-    max-width: 686rem;
+    padding-top: 124rem;
+    max-width: 685rem;
     text-align: start;
     margin-left: auto;
     img {
         width: 685rem;
-        height: 147rem;
-        margin-bottom: 60rem;
+        height: 137rem;
+        margin-bottom: 30rem;
     }
     p {
-        font-size: 48rem;
+        font-size: 76rem;
         text-transform: uppercase;
         color: var(--main-white);
+        text-align: end;
     }
 }
 
@@ -27,16 +28,17 @@
     .root {
         aspect-ratio: unset;
         height: 100vh;
+        background-position-x: 72%;
     }
     .content {
         padding-top: 100rem;
         img {
             width: 350rem;
-            height: 75rem;
+            height: 70rem;
             margin-bottom: 10rem;
         }
         p {
-            font-size: 24rem;
+            font-size: 31rem;
             text-align: end;
         }
     }

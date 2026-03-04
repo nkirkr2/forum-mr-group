@@ -25,7 +25,7 @@ function HeroHome({ heroData }: HeroHomeProps) {
     >
     <div className="container">
         <div className={styles.content}>
-            <img src="/images/home/hero-h1.svg" alt="FORUM" />
+            <img src="/images/home/g10.svg" alt="FORUM" />
             <p
             dangerouslySetInnerHTML={{ __html: text || '' }}
             />
